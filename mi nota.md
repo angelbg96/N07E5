@@ -29,8 +29,8 @@ Con ">" al princpio de cada renglón, se crea una cita
 >> una cita anidada
 
 ---
-Con triple "~", arriba y abajo de un párrafo se crea un bloque de código
-~~~
+Con triple "~" o "`" seguido del nombre del lenguaje (se pintan de color), arriba y abajo de un párrafo se crea un bloque de código
+~~~go
 package main
 import "fmt"
 
@@ -86,3 +86,15 @@ Con "![texto alt]""[id]""(ruta/img)" se incrustan imagenes
 usando \ se escapan los simbolos que se utilizan para escribir markdown
 
 \* Nota \- no hay\! \- \(no sabemos hasta cuando\)\.
+
+---
+Con "---|---|---" se crean tablas!
+
+si se ponen "---:" se alinea hacia la izq
+
+con ":---:" se alinea al centro
+
+num | nombre | calif
+:---:|---|:---:
+1 | Angel | 8
+2 | gogo | 7
