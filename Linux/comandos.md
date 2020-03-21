@@ -10,7 +10,7 @@
 
 - `sudo comandos`
 	* super user do, ejecutar comandos como admin
-- `sudo su`
+- `sudo su` || `su -`
 	* Cambiar a usuario root para ejecutar comandos posteriores como admin
 - `sudo apt-get update`
 	* Resincroniza los índices de paquetes (de los directorios `/etc`, `/apt`, `/sources.list`) busca actualizaciones
@@ -36,6 +36,10 @@ Nota: paquete === aplicación
 	* Reiniciar máquina
 - `fdisk -lm`
 	* Muestra particiones de unidades de almacenamiento
+- `ps [opciones]`
+	* Visualizar los procesos en nuestro sistema, y obtener informacion de los mismos
+	* `aux` : muestra todos los procesos del sistema
+	* `axjf` : muestra un árbol jerárquico con la ruta del programa al que pertenece el proceso
 
 ---
 ## Comandos esenciales
@@ -44,6 +48,7 @@ Nota: paquete === aplicación
 	* Asignar una contraseña para el usuario
 - `su nombreUsuario`
 	* Cambiar de sesión a la del usuario indicado
+
 - `man comando`
 	* Ver ayuda sobre algún comando
 - `man hier`
@@ -123,6 +128,34 @@ Nota: paquete === aplicación
 		+ `M` : megabytes
 		+ `G` : gigabytes
 		+ También se pueden usar los modificadores `+/-`
+- `grep [options] pattern archivo`
+	* *Global Regular Expression Print*, se utiliza para hacer coincidir e imprimir un patrón de búsqueda o una expresión regular de uno o varios archivos de texto.
+	* Buscará el patrón en los archivos, si coinciden, imprimirá el resultado en pantalla o en un archivo de salida.
+	* `grep palabra ejemplo.txt test.txt`
+		+ Busca las coincidencias con "palabra" en esos dos archivos
+	* `grep palabra *.*`
+		+ Busca "palabra" en todos los archivos con cualquier nombre o extensión
+	* `grep palabra file > salida.txt`
+		+ Las coincidencias de búsqueda las guarda en el fichero salida.txt
+	
+    * `-c` : Cuenta el número de coincidencias
+    * `-E` : Expresión regular extendida
+    * `-f` : Obtiene el patrón o los patrones de búsqueda de un fichero (Uno por cada línea)
+    * `-i` : Insensible a mayúsculas y minúsculas
+    * `-l` : Imprime el nombre de cada fichero de entrada donde se encuentren coincidencias
+    * `-n` : Imprime el número de línea en donde se encuentren coincidencias
+    * `-o` : Imprime sólo la parte que coincide
+    * `-v` : Invierte el sentido de la búsqueda
+    * `–color` : Resalta la palabra que coincide con el color especificado en la variable de entorno `GREP_COLOR` (rojo por defecto)
+    * `-r,-R` : Busca coincidencias en todos los ficheros que se encuentran debajo de un directorio, incluyendo los subdirectorios
+	* `grep query1 file | grep query2 file` || `grep -E 'query1|query2' file`
+- `tail [opciones] archivo`
+	* Imprime los últimos N números o colas (tails) de una entrada. Por lo general, muestra o imprime los últimos 10 números del archivo que se le proporcionó
+	* `-n N` : muestra las últimas N líneas del archivo.
+	* `+n N` : comienza a mostrar el archivo en el renglón N
+	* `–c C` : escribe los últimos N bytes del archivo
+	* `-f` : muestra las últimas 10 líneas del archivo y lo supervisa para ver las actualizaciones; la cola continúa generando nuevas líneas que se agregan al archivo monitoreado.
+
 - ### Alias
 - `alias nombreAKA = 'comando'` 
     * Permite crear un atajo a un comando o grupo de comandos para facilitar la escritura en la terminal
