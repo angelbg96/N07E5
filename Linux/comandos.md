@@ -40,6 +40,27 @@ Nota: paquete === aplicación
 	* Visualizar los procesos en nuestro sistema, y obtener informacion de los mismos
 	* `aux` : muestra todos los procesos del sistema
 	* `axjf` : muestra un árbol jerárquico con la ruta del programa al que pertenece el proceso
+- `top [opciones]`
+	* Es otro gestor de procesos
+	* `ps` nos muestra un listado de procesos estático, es decir, informa de los procesos, nombres, usuarios o recursos que se están usando en el momento de la petición; `top` da un informe en tiempo real de los mismos.
+	* `–d N` : Donde N es el número de segundos a transcurrir entre cada muestreo
+	* `–u usuario` : Mostrar los procesos del usuario especificado
+- `kill [opciones] [PID del proceso]`
+	* Detener los procesos que necesitemos
+	* Envía una señal denominada TERM al proceso a detener. Esta señal TERM pedirá al proceso que termine, permitiéndole gestionar su función de cierre, completando las tareas necesarias y limpiando la información que ha cargado en memoria
+	* `kill –KILL [PID del proceso]`
+		+ En el caso de encontrarnos ante un proceso que no quiere cerrarse, se elimina por la fuerza con este comando, pasando a root previamente para no recibir  error
+	* `-N` : Estas señales también pueden ser identificadas con números.
+		+ *TERM* puede ser pasada al proceso mediante `-15`
+		+ `–KILL` es el equivalente a pasar `-9`
+	* `kill –HUP [PID del proceso]`
+		+ Para reiniciar servicios, la mayoría de ellos responde al argumento ‘HUP’ (Hang up) de kill.
+		+ Su equivalente numérico es -1
+- `pkill -N htop`
+	* Si se conoce el nombre exacto del proceso también se puede usar
+	* `pkill` funciona exactamente igual que `kill`, pero preparado para trabajar con nombres de proceso en lugar de con PID
+- `killall programa`
+	* Es una variante del comando `kill` con el que se envia la misma señal a todos los procesos pertenecientes a un programa
 
 ---
 ## Comandos esenciales
