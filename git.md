@@ -19,7 +19,7 @@
         + Agregar todos los archivos nuevos o modificados al siguiente commit
     * `git commit -am "mensaje corto"`
         + Agrega todos los archivos nuevos o modificados y escribe un mensaje corto en el commit
-- `git checkout archivo.ext`
+- `git checkout archivo.ext` || `git checkout -- archivo.ext`
     * Deshace los últimos cambios del archivo respecto al último commit realizado
     * `git checkout -f`
         + Borra cambios en todos los ficheros
@@ -52,6 +52,10 @@
         + Los campos de cada commit se escapan con _comodines_ como:
             - `%n` : nombre de usuario
             - `%h` : hashCommit
+- `git log -p rutaArchiv`
+    * Muestra el histórico de cambios realizados en el archivo
+-  `git show hashCommit:rutaArchivo`
+    * Muestra el código fuente del archivo en el commit indicado
 - `git stash`
     * Manda los cambios actuales del sistema de control de versiones a este espacio
     * Util cuando no se actualizó una rama remota y ya se hicieron cambios locales en el proyecto
