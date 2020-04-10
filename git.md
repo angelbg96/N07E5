@@ -109,6 +109,7 @@ ___
 - `git push --delete origin nombreRama`
     * Borra la rama remota
 
+___
 ## Reescribiendo historial
 - `git commit --amend`
     * Enmendar, deshace el último commit para agregar o quitar archivos, o bien para editar el mensaje del commit
@@ -134,3 +135,16 @@ ___
     * Permite reescribir historial de commits (mover, eliminarm cambiar mensajes, etc)
 - `git rebase --abort`
     * Salir del proceso
+
+___
+## Cambiando el usuario que realiza commits
+- Ir a las credenciales de windows, buscar las credenciales de Git y/o GitHub y eliminarlas, o en su caso, modificarlas
+- En el bash de git :
+    * `git config --global --list`
+        + Para listar las configuraciones generales de Git
+    * `git config --global --unset-all user.name`
+    * `git config --global --unset-all user.email`
+        + Eliminar el usuario actual (username y correo)
+    * `git config --global --add user.name nuevoUsuario`
+    * `git config --global --add user.email ejemplo@correo.com`
+        + Configurar los nuevos datos (username y correo)
