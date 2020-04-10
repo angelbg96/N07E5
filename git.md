@@ -19,7 +19,7 @@
         + Agregar todos los archivos nuevos o modificados al siguiente commit
     * `git commit -am "mensaje corto"`
         + Agrega todos los archivos nuevos o modificados y escribe un mensaje corto en el commit
-- `git checkout archivo.ext` || `git checkout -- archivo.ext`
+- `git checkout archivo.ext` || `git checkout -- archivo.ext` || `git restore archivo.ext`
     * Deshace los últimos cambios del archivo respecto al último commit realizado
     * `git checkout -f`
         + Borra cambios en todos los ficheros
