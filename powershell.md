@@ -76,9 +76,9 @@
 - `Get-Alias -Name letras*`
 	* Obtener listado de alias que empiecen con las letras especificadas
 - `Get-Alias -Name letras* -Exclude letras2*`
-	* Listado de alias que empiecen con *letras* pero excluir los alias con coincidencia de *lestras2*
+	* Listado de alias que empiecen con _letras_ pero excluir los alias con coincidencia de _lestras2_
 	* ej: `Get-Alias -Name s* -Exclude sl*`
-        + Obtén alias que empiecen con *S* y excluye los que seguido de *S* sea un caracter *L*
+        + Obtén alias que empiecen con _S_ y excluye los que seguido de _S_ sea un caracter _L_
 - `Get-Alias -Name letras*, letras2*`
 	* Dos consultas que empiecen con esos dos conjuntos de letras
 - `Get-Alias -Name *letras*`
@@ -87,10 +87,10 @@
 ---
 ### Operaciones matemáticas
 - (+ , -, *, /, % (porcientos)) con num enteros y decimales!
-    * ej: 10%100 -> 10% de 100!
-- se pueden trabajar con hexadecimal! anteponiendo 0X al numero!
+    * ej: `10%100` -> 10% de 100!
+- se pueden trabajar con hexadecimal! anteponiendo _0X_ al numero!
 - operaciones en Bytes! KB, MB, GB!
-    * ej: 0x45 + 1KB
+    * ej: `0x45 + 1KB`
 - `[system.math]::sqrt(x)`
 	* Hacer raíz cuadrada
 - `$nombre = valor`
@@ -121,4 +121,4 @@
 - `ROBOCOPY rutaOrigen rutaDestino /MIR /V /XD "rutaDirOmitido"`
 	* Copiar archivos a carpeta destino y omitiendo la carpeta especificada en las comillas
 - `ROBOCOPY rutaOrigen rutaDestino /MIR /V /R:numero`
-	* Copiar archivos, en dado caso que algún archivo arroje un error debido a que está siendo utilizado por una app u otro caso, hará la copia X cantidad de intentos, si lo supera, lo omite y muestra advertencia
+	* Copiar archivos, en dado caso que algún archivo arroje un error debido a que está siendo utilizado por una app u otro caso, hará la copia _X_ cantidad de intentos, si lo supera, lo omite y muestra advertencia

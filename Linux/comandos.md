@@ -51,7 +51,7 @@ Nota: paquete === aplicación
 	* `kill –KILL [PID del proceso]`
 		+ En el caso de encontrarnos ante un proceso que no quiere cerrarse, se elimina por la fuerza con este comando, pasando a root previamente para no recibir  error
 	* `-N` : Estas señales también pueden ser identificadas con números.
-		+ *TERM* puede ser pasada al proceso mediante `-15`
+		+ _TERM_ puede ser pasada al proceso mediante `-15`
 		+ `–KILL` es el equivalente a pasar `-9`
 	* `kill –HUP [PID del proceso]`
 		+ Para reiniciar servicios, la mayoría de ellos responde al argumento ‘HUP’ (Hang up) de kill.

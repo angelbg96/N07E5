@@ -6,7 +6,7 @@
     * Configurar el correo del usuario de forma global
 - `git init`
     * Inicializar un nuevo repositorio a nivel de la carpeta donde se ejecuta el comando,
-    * Se crea una carpeta oculta *.git* en el nuevo espacio de trabajo
+    * Se crea una carpeta oculta _.git_ en el nuevo espacio de trabajo
 - `git cat archivo.ext`
     * Visualizar contenido de archivo en la bash
 - `git add`
