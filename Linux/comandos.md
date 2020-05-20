@@ -158,7 +158,6 @@ Nota: paquete === aplicación
 		+ Busca "palabra" en todos los archivos con cualquier nombre o extensión
 	* `grep palabra file > salida.txt`
 		+ Las coincidencias de búsqueda las guarda en el fichero salida.txt
-	
     * `-c` : Cuenta el número de coincidencias
     * `-E` : Expresión regular extendida
     * `-f` : Obtiene el patrón o los patrones de búsqueda de un fichero (Uno por cada línea)
@@ -176,6 +175,44 @@ Nota: paquete === aplicación
 	* `+n N` : comienza a mostrar el archivo en el renglón N
 	* `–c C` : escribe los últimos N bytes del archivo
 	* `-f` : muestra las últimas 10 líneas del archivo y lo supervisa para ver las actualizaciones; la cola continúa generando nuevas líneas que se agregan al archivo monitoreado.
+- `file [opciones] archivo`
+	* Es una utilidad que realiza una serie de pruebas (test) para determinar el tipo y formato de un archivo. Se detallan a continuación dichas pruebas, en el orden en que se llevan a cabo por este comando:
+	1. Sistema de archivos: se intenta determinar si el archivo a examinar es un archivo del sistema por medio de la función (system call) stat. Gracias a esta prueba se puede determinar si es un dispositivo, enlace simbólico, una tubería, etc.
+    2. Número mágicos: Se intenta determinar el tipo, analizando determinados bytes ubicados en específicas posiciones dentro del archivo. Estos bytes se los denomina números mágicos, y suelen estar al comienzo de la cabecera. La información para realizar dicho análisis figura en el archivo /usr/share/misc/magic.mgc.
+    3. Prueba de sintaxis: esta última prueba consiste en determinar que tipo de sintaxis posee un archivo de texto. Esta prueba solo se realiza sobre los archivos que se haya determinado que sean texto plano.
+	* `-d` : Realiza las pruebas de sintaxis y de números mágicos del sistema. Esta es la opción default
+	* `-h` : Si el archivo a analizar es un enlace simbólico, lo identifica como tal
+	* `-m` : Realiza una prueba adicional de números mágicos con el archivo indicado
+	* `-M` : Similar a `-m`, salvo que no realiza las pruebas de sintaxis y de números mágicos por defecto del sistema
+	* `-b` : No imprime el nombre del archivo en cada resultado
+	* `-i` : Muestra el tipo mime junto con la codificación utilizada
+	* `-f` : el archivo contiene una lista de los archivos a examinar
+	* `-p` || `--preserve-date` : conserva la fecha de último acceso del fichero
+	* `--mime-type` : similar a `-i`, salvo porque solo muestra el tipo mime
+	* `--mime-encoding` : averiguar la codificación de caracteres con que fue guardado un archivo
+	* `-z` : Examina los archivos comprimidos.
+	* `-e prueba` : Excluye de realizar la prueba indicada
+        + `apptype` : Tipo de aplicación EMX (solo para EMX)
+        + `ascii` : Esta prueba intenta determinar la codificación, más allá de la indicada dentro del propio archivo.
+        + `encoding` : Varios tipos de codificaciones para la prueba suave de números mágicos
+        + `tokens` : Busca cadenas conocidas dentro de los archivos de texto
+        + `cdf` : Muestra detalles de los archivos CDF (Compound Document Files). Por ejemplo SVG, XHTML, etc
+        + `compress` : Analiza y busca dentro de los archivos comprimidos
+        + `elf` : Muestra detalles de archivos ELF
+        + `soft` : Consulta de archivos mágicos
+        + `tar` : Analiza archivos Tar
+	* `file rutaArchivo/archivo` || `file rutaArchivo/*`
+	* `file -f Listado-de-archivos.txt`
+	* `file [a-g]*` : analizar los ficheros cuyo nombre empiece desde _a_ hasta _g_
+	* `file ruta/* | grep palabra` : se analiza todos los documentos que hay en esa path, el comando grep los filtra por lo que contengan la _palabra_ indicada
+- `iconv [options] -f codificacionOrigen -t codifDestino nombreArchivo`
+	* Es utilizado para cambiar la codificación de un archivo de texto
+	* `-l` : Lista todas las codificaciones de juegos de caracteres conocidos
+	* `-c` : Desechar los caracteres que no se pueden convertir en lugar de terminar el proceso
+	* `-verbose` : Imprimir la información del progreso de error estándar al procesar varios archivos
+	* `-o archivoSalida.ext` || `–output=archivoSalida.ext` : Para tener un archivo de salida
+	* `//IGNORE` : se agrega después de la codificación destino, los caracteres que no se pueden convertir se descartan y se imprime un error después de la conversión
+	* `//TRANSLIT` : se agrega después de la codificación destino, los caracteres que no se pueden representar en el conjunto de caracteres de destino, se puede aproximar a través de uno o varios caracteres similares
 - `tar [opciones] /ruta/nombreFichero.gtar rutaCarpeta`
 	* Significa _Tape Archive_, lo que en español sería archivo de cinta de grabación, y se utiliza para comprimir y descomprimir una colección de archivos y carpetas
 	* `-c` : Crear un nuevo archivo .tar
