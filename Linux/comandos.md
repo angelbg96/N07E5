@@ -78,29 +78,25 @@ Nota: paquete === aplicación
 	* Ubicación del directorio donde se encuentra
 - `cd ruta`
 	* change directory, cambiar de directorio
-- `cd ..`
-	* Regresar un directorio atrás
-- `cd /`
-	* Ir a raiz
-	* La `/` siempre es respecto a la raiz!
-	* Sin la barra y se coloca una ruta, se mueve hacia subdirectorios
-	* `./` Relativo al directorio actual
-	* `../` Directorio superior
+	* `cd ..` : Regresar un directorio atrás
+	* `cd /` : Ir a raiz
+		+ La `/` siempre es respecto a la raiz!
+		+ Sin la barra y se coloca una ruta, se mueve hacia subdirectorios
+		+ `./` Relativo al directorio actual
+		+ `../` Directorio superior
 - `ls`
 	* list, listar directorios dentro del directorio donde se esté posicionado
-- `ls {opciones} {directorio}`
-- `ls *.extension`
-	* Listar archivos con extensión especificada
-- `ls -lah`
-	* Listar con un formato legible
-	    + `l`: listado en una columna con detalles de cada fichero
-	    + `a`: todos los archivos, incluyendo ocultos
-	    + `h`: formato legible para los humanos, Bytes con prefijos (KB, MB, etc)
-	    + `t`: ordenar por marca de tiempo (fecha de modificación)
-	    + `S`: ordenar por tamaño de fichero
-	    + `X`: ordenar fichero alfabeticamente por su extensión
-	    + `F`: a los directorios les agrega al final "/" y a los ejecutables "/*"
-	    + `r`: revertir el orden del listado (Z-A, antiguo-nuevo, - to + pesado)
+- `ls [opciones] directorio`
+	* `ls *.extension` : Listar archivos con extensión especificada
+	* `ls -lah` : Listar con un formato legible
+		+ `l`: listado en una columna con detalles de cada fichero
+		+ `a`: todos los archivos, incluyendo ocultos
+		+ `h`: formato legible para los humanos, Bytes con prefijos (KB, MB, etc)
+		+ `t`: ordenar por marca de tiempo (fecha de modificación)
+		+ `S`: ordenar por tamaño de fichero
+		+ `X`: ordenar fichero alfabeticamente por su extensión
+		+ `F`: a los directorios les agrega al final "/" y a los ejecutables "/*"
+		+ `r`: revertir el orden del listado (Z-A, antiguo-nuevo, - to + pesado)
 - `mkdir nombreDirectorio`
 	* Crear un directorio dentro del directorio actual
 - `touch archivo.ext`
@@ -142,29 +138,29 @@ Nota: paquete === aplicación
 	* `cat archivo1.ext archivo2.ext > archivoDestino.ext` : Se redirige la salida de los archivos al fichero destino. Si el archivo de destino no existe, el comando lo creará o sobrescribirá uno existente con el mismo nombre
 	* `cat archivo.ext >> archivoDestino.ext` : Agrega el contenido del archivo origen al ya existente del fichero destino
 	* `tac archivo.ext` : Ver el contenido de un archivo en orden inverso, comenzando con la última línea y terminando con la primera
-- `find rutaABuscar {opciones}`
-- `find /ruta -name "texto"`
-- `find . -iname "texto"`
-- `find /users -iname "github" -type d`
-- `find /ruta -mtime +3`
-- `find /ruta -user alejandro`
-	* `.` : buscar en directorio actual
-	* `-name`: flag, busca el nombre del archivo o algún patrón de búsqueda
-	* `-iname`: flag para buscar ficheros con case insentitive
-	* `texto`: nombre.ext , *.ext , nombre
-	* `-type`: flag para indicar el tipo del fichero seguido del indetificador del fichero
-		+ `d` : directorio
-		+ `f` : fichero
-		+ `l` : enlace simbólico
-	* `-mmin | -mtime` : flags para buscar elementos modificados hace X minutos o días, respectivamente
-		+ `+/-` : modificadores para encontrar ficheros modificados hace más de X tiempo o menos de X tiempo, respectivamente
-	* `-user | -group` : flags para buscar usuarios o grupos
-	* `-size` : flag para buscar archivos por tamaño, seguido de valor numérico con prefijo de tamaño:
-		+ `c` : bytes
-		+ `k` : kilobytes
-		+ `M` : megabytes
-		+ `G` : gigabytes
-		+ También se pueden usar los modificadores `+/-`
+- `find rutaABuscar [opciones]`
+	* `find /ruta -name "texto"`
+	* `find . -iname "texto"`
+	* `find /users -iname "github" -type d`
+	* `find /ruta -mtime +3`
+	* `find /ruta -user alejandro`
+		+ `.` : buscar en directorio actual
+		+ `-name`: flag, busca el nombre del archivo o algún patrón de búsqueda
+		+ `-iname`: flag para buscar ficheros con case insentitive
+		+ `texto`: nombre.ext , *.ext , nombre
+		+ `-type`: flag para indicar el tipo del fichero seguido del indetificador del fichero
+			- `d` : directorio
+			- `f` : fichero
+			- `l` : enlace simbólico
+		+ `-mmin | -mtime` : flags para buscar elementos modificados hace X minutos o días, respectivamente
+			- `+/-` : modificadores para encontrar ficheros modificados hace más de X tiempo o menos de X tiempo, respectivamente
+		+ `-user | -group` : flags para buscar usuarios o grupos
+		+ `-size` : flag para buscar archivos por tamaño, seguido de valor numérico con prefijo de tamaño:
+			- `c` : bytes
+			- `k` : kilobytes
+			- `M` : megabytes
+			- `G` : gigabytes
+			- También se pueden usar los modificadores `+/-`
 - `grep [options] pattern archivo`
 	* *Global Regular Expression Print*, se utiliza para hacer coincidir e imprimir un patrón de búsqueda o una expresión regular de uno o varios archivos de texto.
 	* Buscará el patrón en los archivos, si coinciden, imprimirá el resultado en pantalla o en un archivo de salida.
