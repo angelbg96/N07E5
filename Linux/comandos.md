@@ -103,17 +103,17 @@ Nota: paquete === aplicación
 	    + `r`: revertir el orden del listado (Z-A, antiguo-nuevo, - to + pesado)
 - `mkdir nombreDirectorio`
 	* Crear un directorio dentro del directorio actual
-- `touch nombreArch.ext`
+- `touch archivo.ext`
 	* Crear un archivo
-- `nombreApp nombreArch.ext`
+- `nombreApp archivo.ext`
 	abrir archivo con un programa instalado. p.ej. _nano_
 - `history`
 	* Muestra historial de comandos ejecutados
-- `rm nombreArch.ext`
+- `rm archivo.ext`
 	* Eliminar un archivo
 - `rm -R directorio/`
 	* Elimina archivos de un directorio y la carpeta misma
-- `cp rutaArchivo rutaCopia`
+- `cp ruta/archivo.ext rutaCopia`
 	* Copiar un archivo a otro directorio
 - `cp -r directorio/ rutaCopia/nombreDir`
 	* Copiar carpeta, subcarpetas y archivos de forma recursiva (-r)
@@ -201,11 +201,11 @@ Nota: paquete === aplicación
         + `elf` : Muestra detalles de archivos ELF
         + `soft` : Consulta de archivos mágicos
         + `tar` : Analiza archivos Tar
-	* `file rutaArchivo/archivo` || `file rutaArchivo/*`
+	* `file ruta/archivo` || `file ruta/*`
 	* `file -f Listado-de-archivos.txt`
 	* `file [a-g]*` : analizar los ficheros cuyo nombre empiece desde _a_ hasta _g_
 	* `file ruta/* | grep palabra` : se analiza todos los documentos que hay en esa path, el comando grep los filtra por lo que contengan la _palabra_ indicada
-- `iconv [options] -f codificacionOrigen -t codifDestino nombreArchivo`
+- `iconv [options] -f codificacionOrigen -t codifDestino archivo.ext`
 	* Es utilizado para cambiar la codificación de un archivo de texto
 	* `-l` : Lista todas las codificaciones de juegos de caracteres conocidos
 	* `-c` : Desechar los caracteres que no se pueden convertir en lugar de terminar el proceso
@@ -213,7 +213,7 @@ Nota: paquete === aplicación
 	* `-o archivoSalida.ext` || `–output=archivoSalida.ext` : Para tener un archivo de salida
 	* `//IGNORE` : se agrega después de la codificación destino, los caracteres que no se pueden convertir se descartan y se imprime un error después de la conversión
 	* `//TRANSLIT` : se agrega después de la codificación destino, los caracteres que no se pueden representar en el conjunto de caracteres de destino, se puede aproximar a través de uno o varios caracteres similares
-- `tar [opciones] /ruta/nombreFichero.gtar rutaCarpeta`
+- `tar [opciones] /ruta/fichero.gtar ruta/carpeta`
 	* Significa _Tape Archive_, lo que en español sería archivo de cinta de grabación, y se utiliza para comprimir y descomprimir una colección de archivos y carpetas
 	* `-c` : Crear un nuevo archivo .tar
 	* `-v` : Muestra una descripción detallada del progreso de la compresión
@@ -224,10 +224,10 @@ Nota: paquete === aplicación
 	* `-x` : Extraer el archivo
 	* `-r` : Actualizar o agregar un archivo o directorio en un archivo .tar existente
 	* `-t` : Lista el contenido del fichero .tar
-	* `tar -cvf archivo.tar /rutaDirectorio` : comprimir una carpeta mientras se ve el progreso del proceso
+	* `tar -cvf archivo.tar /ruta/irectorio` : comprimir una carpeta mientras se ve el progreso del proceso
 	* `tar -xvf archivo.tar` : descomprimir un archivo .tar mientras se muestra el progreso del proceso
 	* `tar -cvf output.tar /rutaEntrada1 /rutaEntrada2 /rutaEntrada3` : comprimir varios archivos y/o carpetas
-	* `tar -rvfarchivo.tar example.ext` | `rutaDirect` : Agregar un archivo o directorio a un comprimido ya existente
+	* `tar -rvfarchivo.tar example.ext` | `ruta/directorio` : Agregar un archivo o directorio a un comprimido ya existente
 	* `tar -cvf archivo.tar /ruta/entrada –exclude = /ruta/*.ext -exclude = /ruta/directorio-excluido` : Comprimir los archivos y carpetas de la entrada, pero exluir todos los archivos _.ext_ y excluir también, el directorio señalado
 	* `tar -xvf archivo.tar -C /nuevaRuta` : descomprimir un archivo en un directorio diferente
 	* `tar -xvf archivo.tar example.ext` : extraer un único archivo del comprimido
@@ -298,11 +298,11 @@ Nota: paquete === aplicación
 	* `r` : 4 (read), `w` : 2 (write), `x` : 1 (execute)
 	* [d/-] [bits propietario] [bits grupo] [bits otros]
 
-- `chown nombreUsuario nombreArchivo.ext`
+- `chown nombreUsuario archivo.ext`
 	* Cambiar el propietario del archivo
 - `chown root:nombreGrupo archivo.ext`
 	* Cambiar a otro grupo el archivo
-- `chmod permisos fichero`
+- `chmod permisos archivo.ext`
 	* Cambiar el nivel de alcance de un fichero, los permisos son valor numerico!
     * 3 digitos: para propietario, grupo y otros
 
