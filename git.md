@@ -27,6 +27,10 @@
     * Quitar archivos del área de preparación
 - `git rm archivo.ext`
     * Borrar archivo del repositorio
+- `git rm --cached archivo.ext`
+    * Borrar un archivo del seguimiento del repositorio una vez que ya se le haya hecho un commit
+- `git rm -r --cached nombreDirectorio`
+    * Borrar una carpeta y su contenido del repositorio una vez que ya se le haya realziado un commit
 - `git diff archivo.ext`
     * Diferencia de cambios actuales en archivo vs último commit
     * `git diff --stat archivo.ext`
