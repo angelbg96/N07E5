@@ -126,6 +126,22 @@ Nota: paquete === aplicación
 	* Se utiliza para renombrar un directorio
 - `comando1 && comando2`
 	* El doble andpersand sirve apra concatenar comandos, es decir, se ejecuta uno después del otro
+- `cat [opciones] archivo.ext`
+	* Su uso es concatenar (unir, sumar) archivos e imprimirlos en una salida estandard
+	* `-A` : Mostrar todo
+	* `-b` : Omitir los números de línea para los espacios en blanco en la salida
+	* `-e` : Un caracter _$_ se mostrará al final de cada línea anterior a una nueva línea
+	* `-E` : Muestra un _$_ al final de cada línea
+	* `-n` : Numera todas las líneas
+	* `-s` : Si la salida tiene múltiples líneas vacías las sustituye con una única línea vacía
+	* `-T` : Muestra los caracteres de tabulación, se imprimen como `^I`
+	* `-v` : Mostrar los caracteres no imprimibles
+	* `cat > archio.ext` : Se crea el archivo y se puede escribir en él. Cuando se haya terminado, presionar `CTRL + D` para salir del archivo
+	* `cat archivo.ext | more` : Para evitar desplazarse por archivos muy grandes. También con `| less`
+	* `cat *.ext` : mostrar el contenido de todos los archivos con la extensión especificada
+	* `cat archivo1.ext archivo2.ext > archivoDestino.ext` : Se redirige la salida de los archivos al fichero destino. Si el archivo de destino no existe, el comando lo creará o sobrescribirá uno existente con el mismo nombre
+	* `cat archivo.ext >> archivoDestino.ext` : Agrega el contenido del archivo origen al ya existente del fichero destino
+	* `tac archivo.ext` : Ver el contenido de un archivo en orden inverso, comenzando con la última línea y terminando con la primera
 - `find rutaABuscar {opciones}`
 - `find /ruta -name "texto"`
 - `find . -iname "texto"`
