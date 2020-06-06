@@ -72,6 +72,27 @@ Nota: paquete === aplicación
 	* `-v` : Se utiliza para conocer la fecha en la que se publicó el kernel que tenemos en uso a este instante
 	* `-i` : Muestra la plataforma para el hardware
 	* `-a` : Hace referencia a _all_, mostrando toda la información de las opciones anteriores
+- `du [opciones] ruta/directorio`
+	* Uso de disco, para comprobar el volumen ocupado en el disco duro por carpetas y archivos
+	* `-a` : Muestra los números para todos los ficheros, no sólo para los directorios
+	* `-c` : Muestra un total para todos los argumentos después de que éstos se hayan procesado. Esto puede emplearse para encontrar el uso de disco total de un conjunto dado de ficheros o directorios
+    * `-s` : Muestra el tamaño total de cada directorio (contabiliza el tamaño de su contenido)
+    * `-h` || `-m` || `-k` : Muestra el tamaño en un formato facilmente comprensible por humano con sufijos (KB, MB, GB) `-h`, en kilobytes `-k` o bien en MB `-m`
+	* `--exclude=patrón` : Saltar los subdirectorios o ficheros que coincidan con patrón
+	* `-x` : Salta los directorios que estén en sistemas de ficheros diferentes de aquél donde esté el argumento que se esté procesando
+	* `-X fichero.ext` : `--exclude-from=fichero` Igual que `--exclude` salvo que toma los patrones a excluir del fichero indicado. Los patrones se listan uno por línea. Si se da `-' como fichero, los patrones se leen de la entrada estándar
+- `df [opciones] ruta/directorio`
+	* Significa _disk filesystem_. Muestra el espacio disponible y usado en el disco del ordenador. Al ejecutar el comando muestra una serie de columnas por defecto:
+		+ _Filesystem_: Brinda el nombre del archivo del sistema
+    	+ _Size_: Indica el tamaño total de cada archivo del sistema
+    	+ _Available_: Muestra cuanto espacio disponible queda para cada archivo del sistema
+    	+ _Used_: Muestra cuanto espacio está siendo ocupado en cada archivo del sistema
+    	+ _Use %_: Muestra el porcentaje del espacio que ya está siendo usado
+    	+ _Mounted On_: Muestra en donde está cada archivo del sistema
+	* `-h` : Muestra información de una forma más legible
+	* `-m` : Mostrar la información del sistema en MB
+	* `-k` : Mostrar la información del sistema en KB
+	* `-T` : Mostrar el tipo del archivo del sistema (aparecerá en una nueva columna). Un sistema de archivos son los métodos y estructuras de datos que un SO utiliza para seguir la pista de los archivos de un disco o partición; es decir, es la manera en la que se organizan los archivos en el disco
 
 ---
 ## Comandos esenciales
