@@ -61,6 +61,17 @@ Nota: paquete === aplicación
 	* `pkill` funciona exactamente igual que `kill`, pero preparado para trabajar con nombres de proceso en lugar de con PID
 - `killall programa`
 	* Es una variante del comando `kill` con el que se envia la misma señal a todos los procesos pertenecientes a un programa
+- `uname [opciones]`
+	* Proviene de la abreviatura _Unix Name_ y es una herramienta para mostrar información del sistema operativo como la versión del mismo, kernel y detalles del equipo entre otras posibilidades.
+	* `-s` : Muestra el tipo de núcleo, por ejemplo Linux
+	* `-p` : Muestra el tipo del procesador, en caso de no conocerse mostrará _unknown_
+	* `-m` : Muestra la arquitectura del procesador: x86 para 32 bits y x86_64 para 64 bits
+	* `-n` : Muestra el nombre que le hemos dado al equipo para la red, si no lo cambiamos será el que le dimos en la instalación de nuestra distribución. Este nombre se toma de /etc/hostname por lo que podemos cambiarlo en este archivo
+	* `-o` : Devuelve el Sistema Operativo que estamos usando, suele detectar como GNU/Linux en las distribuciones que he comprobado
+	* `-r` : Muestra la información del kernel que tenemos en uso, si reiniciamos y usamos otro kernel cambiará al ejecutar este comando
+	* `-v` : Se utiliza para conocer la fecha en la que se publicó el kernel que tenemos en uso a este instante
+	* `-i` : Muestra la plataforma para el hardware
+	* `-a` : Hace referencia a _all_, mostrando toda la información de las opciones anteriores
 
 ---
 ## Comandos esenciales
@@ -245,17 +256,6 @@ Nota: paquete === aplicación
 	* `tar -xvf archivo.tar example.ext` : extraer un único archivo del comprimido
 	* `tar -xvfarchivo.tar file1 file2` : extraer multiples archivos de un comprimido
 	* `tar -tf archivo.tar` : listar el contenido del archivo comprimido, alternativamente agregar opcion `v` para ver más detalles
-- `uname [opciones]`
-	* Proviene de la abreviatura _Unix Name_ y es una herramienta para mostrar información del sistema operativo como la versión del mismo, kernel y detalles del equipo entre otras posibilidades.
-	* `-s` : Muestra el tipo de núcleo, por ejemplo Linux
-	* `-p` : Muestra el tipo del procesador, en caso de no conocerse mostrará _unknown_
-	* `-m` : Muestra la arquitectura del procesador: x86 para 32 bits y x86_64 para 64 bits
-	* `-n` : Muestra el nombre que le hemos dado al equipo para la red, si no lo cambiamos será el que le dimos en la instalación de nuestra distribución. Este nombre se toma de /etc/hostname por lo que podemos cambiarlo en este archivo
-	* `-o` : Devuelve el Sistema Operativo que estamos usando, suele detectar como GNU/Linux en las distribuciones que he comprobado
-	* `-r` : Muestra la información del kernel que tenemos en uso, si reiniciamos y usamos otro kernel cambiará al ejecutar este comando
-	* `-v` : Se utiliza para conocer la fecha en la que se publicó el kernel que tenemos en uso a este instante
-	* `-i` : Muestra la plataforma para el hardware, siempre vi que devolviera “unknown”
-	* `-a` : Hace referencia a _all_, mostrando toda la información de las opciones anteriores
 
 - ### Alias
 - `alias nombreAKA = 'comando'` 
