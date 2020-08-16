@@ -138,9 +138,12 @@ Nota: paquete === aplicación
 - `history`
 	* Muestra historial de comandos ejecutados
 - `rm archivo.ext`
-	* Eliminar un archivo
-- `rm -R directorio/`
-	* Elimina archivos de un directorio y la carpeta misma
+	* Eliminar uno o varios archivos
+	* `-R` | `-r directorio/` : Elimina archivos de un directorio y la carpeta misma
+	* `-i` : Pide confirmación para realizar el borrado de archivos
+	* `-f` : Forzar, ignora archivos no existentes y elimina cualquier aviso de confirmación
+	* `-v` : Muestra el nombre de cada fichero antes de borrarlo
+	* `-d` : Borra directorios vacíos. Es equivalente a usar rmdir
 - `cp ruta/archivo.ext rutaCopia/nombreDir`
 	* Copiar uno o varios archivos a otro directorio
 	* nombreDir : se puede cambiar el nombre del directorio en su nuevo destino
