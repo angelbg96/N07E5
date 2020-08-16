@@ -101,7 +101,7 @@ Nota: paquete === aplicación
 	* Asignar una contraseña para el usuario
 - `su nombreUsuario`
 	* Cambiar de sesión a la del usuario indicado
-
+	* `su - nombreUsuario` : cambia de sesión a la del usuario indicado, ejecuta todos los archivos de inicio de ese usuario, cambia el directorio actual al HOME de ese usuario, cambia el valor de algunas variables del sistema adaptándolas al nuevo usuario (HOME, SHELL, TERM, USER, LOGNAME, ect) entre otras preferencias
 - `man comando`
 	* Ver ayuda sobre algún comando
 - `man hier`
