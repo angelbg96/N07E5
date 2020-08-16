@@ -141,11 +141,17 @@ Nota: paquete === aplicación
 	* Eliminar un archivo
 - `rm -R directorio/`
 	* Elimina archivos de un directorio y la carpeta misma
-- `cp ruta/archivo.ext rutaCopia`
-	* Copiar un archivo a otro directorio
-- `cp -r directorio/ rutaCopia/nombreDir`
-	* Copiar carpeta, subcarpetas y archivos de forma recursiva (-r)
+- `cp ruta/archivo.ext rutaCopia/nombreDir`
+	* Copiar uno o varios archivos a otro directorio
 	* nombreDir : se puede cambiar el nombre del directorio en su nuevo destino
+	* `-r` : Copiar carpeta, subcarpetas y archivos de forma recursiva
+	* `-f` : Copia forzada al remover el archivo destino si es necesario
+	* `-i` : Interactivo, pide confirmación del usuario antes de sobre escribir
+	* `-l` : Crea enlaces en vez de copia
+	* `-L` : Seguir enlaces simbólicos, copia lo que tiene el enlace
+	* `-n` : No sobreescribir archivos
+	* `-u` : Actualizar, copia cuando la fuente es mas reciente que el destino
+	* `-v` : Muestra mensajes informativos
 - `mv rutaArch rutaDestino`
 	* Mover un fichero
 - `mv directorio rutaDest/nombreDir`
