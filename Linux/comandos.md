@@ -95,6 +95,40 @@ Nota: paquete === aplicación
 	* `-T` : Mostrar el tipo del archivo del sistema (aparecerá en una nueva columna). Un sistema de archivos son los métodos y estructuras de datos que un SO utiliza para seguir la pista de los archivos de un disco o partición; es decir, es la manera en la que se organizan los archivos en el disco
 
 ---
+## Tuberías y Redireccionamiento
+
+### Entradas Estándar
+- _stdin_ : se corresponde con el 0 y es la entrada estándar. Por lo general, la entrada de datos estándar en un sistema Unix es el teclado
+	* Tiene un dispositivo especial asociado que es /dev/stdin
+- _stdout_ : identificado con 1, es la salida estándar. Por lo general se corresponde con el monitor o pantalla de la PC, que es donde se visualiza la información
+	* El dispositivo asociado es /dev/stdout.
+- _stderr_ : identificada con 2, es la salida estándar de error, para cuando sucede algún error en algún programa
+	* El dispositivo asociado es /dev/stderr.
+- Para redireccionar estos flujos se utilizan los símbolos `<` y `>`
+	* Redireccionar salida `>`
+		+ `comando > archivo.ext` : Escribe la salida del comando en el archivo, si no existe, lo crea
+		+ `comando >> archivo.ext` : Escribe la salida del comando al final del archivo
+		+ `programa 2>&1` : Muestra los errores que ocurrieron en la ejecución del programa en la salida estándar
+		+ `programa 2> /dev/null` : Descarta los errores en la ejecucición del programa
+		+ `programa > /dev/null` : Descarta la salida estándar en la ejecucición del programa
+	* Redireccionar la entrada `<`
+		+ `comando < archivo.ext` : Utilza el contenido del archivo como parmetros para el comando
+		+ `comando < archivo.ext > archivo2.ext` : Utilza el contenido del archivo como parmetros para el comando y redirecciona el resultado de su ejecución a un segundo archivo
+		+ `tr "patron1" "patron2" < archivo.ext` : Es un filtro _traductor_ que __lee caracteres de la entrada estándar__ y sustituye los que cumplen con el `patron1` por el `patron2`. Los caracteres son ingresados a traves del contenido del archivo indicado (en este caso)	- Tambien reconoce grupos de caracteres como `[:blank:]`
+
+### Tuberías
+Son un tipo especial de redirección que permiten enviar la salida estándar de un comando como entrada estándar de otro. La forma de representarlo es con el símbolo `|` (pipe). Su principal útilidad es que nos ofrece la posibilidad de concatenar comandos.
+- `comando1 | comando2`
+- `comando | wc -l` : Contabiliza las líneas del resultado del comando
+- `comando | sort` : Ordena los resultados de la salida del comando
+- `comando | head` : Visualiza las primeras líneas del resultado del comando
+- `comando | tail` : Visualiza las últimas líneas del resultado del comando
+- `comando | more` : Cuando el resultado del comando anterior sobrepasa el tamaño de la pantalla, este comando lo segmenta y lo irá visualizando conforme se oprima la tecla Enter, Espacio y tecla abajo. Se sale de esta visualización con la letra Q
+- `comando | less` : Similar a `more`, con la diferencia que permite retroceder en la lectura del contenido
+- `comando | tee archivo.ext` : Muestra el resultado del programa previo en la salida estándar, y además lo canaliza hacia otro archivo
+- `comando 1 | xargs comando2` : Es capaz de construir un comando a partir de la entrada estándar que recibe a través de la tubería. Dicho de otro modo, es capaz de captar lo que un programa previo ha lanzado por su salida y lo pasa a otro comando como argumentos
+
+---
 ## Comandos esenciales
 
 - `password nombreUsuario`
