@@ -117,6 +117,9 @@ ___
 ## Reescribiendo historial
 - `git commit --amend`
     * Enmendar, deshace el último commit para agregar o quitar archivos, o bien para editar el mensaje del commit
+    *  Antes de ejecutar el _amend_...
+        + Si se trata de un archivo que no debe ir en ese commit, reestablecer el archivo y ejecutar el ammend. Es mejor utilizar un `git reset` si este es el caso
+        + Si se olvidó realizar un cambio o se encontró alguna errata, editar el archivo, hacer un `git add `y luego ejecutar el _ammend_
 - `git reset`
     * Deshacer cambios debido a commits erróneos, dichos cambios quedarán fuera del historial (elimina los commits posteriores)
     * `git reset hashCommit`
