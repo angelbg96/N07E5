@@ -9,7 +9,7 @@
 
 ## Variables
 Para realizar asignaciones :
-- `nombreVar='valor'` | \`valor\` : Asigna texto. Con las comillas ivnertidas es
+- `nombreVar='valor'` | \`valor\` : Asigna texto. Con las comillas invertidas se escapan mejor comillas simples y dobles
 - `nombreVar="valor"` : Asigna texto, si hay una variable, la referencia a un directorio o un fichero, interpreta su valor
 - `nombreVar=$(comando)` | `nombreVar=`\`comando\` : Asigna el valor que retorna el comando
 - `nombreVar=n` | `let nombreVar=n` : Asignar un valor numérico. Recomendable usar _let_
