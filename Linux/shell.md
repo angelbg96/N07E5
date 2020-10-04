@@ -69,7 +69,7 @@ var2=$((3 ** $var1%2))
 
 
 ## Validaciones de variables
-- Se utiliza la sintaxis de condicional if :
+- Con estructura condicional if :
 ~~~bash
 if [ condiciones ]; then
     comandos
@@ -78,6 +78,18 @@ elif [ condiciones ]; then
 else
     comandos
 fi
+~~~
+
+- Con estructura condicional switch (Case) :
+~~~bash
+case $var in
+    caso1)
+        comandos;;
+    otroCaso)
+        comandos;;
+    *)
+        comandos;;
+esac
 ~~~
 
 ### Texto
