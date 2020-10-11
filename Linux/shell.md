@@ -19,6 +19,16 @@ Para utilizarla :
 - `comando $nombreVar`
 - `otraVar="valor $nombreVar"`
 
+## Arrays
+- `nombreArr=(elem1 elem2 elem3)` | `declare -a nombreArr=(elem1 elem2 elem3)` : Declaración del array definiendo sus elementos
+- `${nombreArr[@]}` | `${nombreArr[*]}` : mostrar todos los elementos del array
+- `${nombreArr[i]}` : De esta forma se acceden al elemento 'i' del aray, si se desea modificar se asigna el nuevo valor como cualquier otra variable
+- `${!nombreArr[*]}` : Se obtienen los índices de todos los elementos del array
+- `${#nombreArr[*]}` : Se obtiene el tamaño del array, si se sustituye '*' por algún índice, se obtiene la longitud del elemento en esa posición
+- Si se desea asignar rangos de caracteres se utilizan las expresiones : `nombreArray=( {A..Z} {a..z} {0..9} )`
+- `nombreArr=(`\`comando\``)` : Asignar resultado de la ejecución de un comando en un array
+- `nombreArr+=(elem5 eleme6)` : Agregar nuevos elementos al array
+- `unset nombreArr[i]` : Eliminar del array el elemento del indice 'i'. Si no se especifica el índice, se borra todo el array
 
 ## Operaciones
 
