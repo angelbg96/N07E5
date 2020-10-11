@@ -165,6 +165,7 @@ Son un tipo especial de redirección que permiten enviar la salida estándar de 
 		+ `r`: revertir el orden del listado (Z-A, antiguo-nuevo, - to + pesado)
 - `mkdir nombreDirectorio`
 	* Crear un directorio dentro del directorio actual
+	* `mkmdir -m mod -p ruta/nuevaCarpeta` : Con `-m` se asignan permisos a la carpeta (lectura, escritura, ejecución). Con `-p` crea las carpetas que hagan falta en la ruta definida hasta llegar al nuevo directorio
 - `touch archivo.ext`
 	* Crear un archivo
 - `nombreApp archivo.ext`
