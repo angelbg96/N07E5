@@ -230,4 +230,7 @@ function nombreFX() {
 - Si requiere parámetros : `nombreFX param1 param2 paramN`, Utilizando los parámetros dentro de la función, se utilizan con la notación de variables indexadas ($1, $2, $3)
 
 
+## Debug
+- `bash -v script.sh` : Ver el resultado detallado del script línea a línea
+- `bash -x script.sh` : Desplegar la información de los comandos que son utilizados, capturando su entrada y salida
 
