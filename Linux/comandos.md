@@ -62,6 +62,24 @@ Nota: paquete === aplicación
 	* `pkill` funciona exactamente igual que `kill`, pero preparado para trabajar con nombres de proceso en lugar de con PID
 - `killall programa`
 	* Es una variante del comando `kill` con el que se envia la misma señal a todos los procesos pertenecientes a un programa
+- `jobs [opciones]`
+	* Se utiliza para listar procesos que se estén ejecutando o detenidos en segundo plano o en primer plano. Si la respuesta se devuelve sin información es que no hay procesos presentes.
+	* Un proceso se detiene con la combinación de teclas `CTRL + Z`
+	* `-l` : Informa el identificador del grupo de proceso y la carpeta de trabajo de las operaciones
+	* `-n` : Muestra sólo los trabajos que se han detenido o cerrado desde la última notificación
+	* `-p` : Muestra sólo el identificador de proceso de los trabajos listados
+- `fg %n`
+	* Reanuda trabajos suspendidos poniéndolos en foreground (primer plano) o trabajos en background los pasa a primer plano
+	* Reanuda el proceso cuyo número de tarea es _n_ del listado de jobs
+	* `%txt` : Pon en primer plano la tarea cuyo nombre empiece por _txt_
+	* `%?txt` : Poner en primer plano la tarea que contenga la cadena _txt_
+	* `fg` | `fg %%` : Poner en primer plano la última tarea
+- `bg %n` : Exactamente que _fg_ pero colocando los procesos en seundo plano (background)
+- `nice -n N comando`
+	* Iniciar un programa (proceso) con la prioridad modificada, más alta o más baja según se requiera. Por defecto, todos los procesos tienen una prioridad igual ante el CPU que es de 0. 
+	* Las prioridades van de -20 (la más alta) a 19 la más baja. Solo root o el superusuario puede establecer prioridades negativas que son más altas
+- `renice N pid`
+	* Permite alterar la prioridad del proceso en tiempo real, sin necesidad de detenerlo
 - `uname [opciones]`
 	* Proviene de la abreviatura _Unix Name_ y es una herramienta para mostrar información del sistema operativo como la versión del mismo, kernel y detalles del equipo entre otras posibilidades.
 	* `-s` : Muestra el tipo de núcleo, por ejemplo Linux
@@ -94,6 +112,25 @@ Nota: paquete === aplicación
 	* `-m` : Mostrar la información del sistema en MB
 	* `-k` : Mostrar la información del sistema en KB
 	* `-T` : Mostrar el tipo del archivo del sistema (aparecerá en una nueva columna). Un sistema de archivos son los métodos y estructuras de datos que un SO utiliza para seguir la pista de los archivos de un disco o partición; es decir, es la manera en la que se organizan los archivos en el disco
+- `free [opciones]`
+	* Muestra la cantidad de memoria libre y usada que tiene el sistema. Por una parte muestra la memoria física y de intercambio swap, también muestra la memoria caché y de buffer consumida por el Kernel
+	* Recopila la información analizando el directorio _/proc/meminfo_, siendo /proc designado según el estándar de jerarquías FHS como el directorio donde se contiene información de los procesos y aplicaciones que se están ejecutando
+	* La primera fila corresponde con los datos recopilados sobre la memoria RAM y en la segunda sobre la memoria Swap, las columnas nos indican:
+    	+ _total_ : Indica el total de la memoria instalada y asignada a swap respectivamente
+    	+ _used_ : Indica el total de la memoria que esta en uso
+    	+ _free_ : Indica el total de la memoria que no esta siendo utilizada
+    	+ _shared_ : Indica el total de memoria utilizada (en su mayoría) por tmpfs (archivos de sistemas temporales, son usados principalmente por el Kernel)
+    	+ _buff_/cache : Suma de la memoria utilizada por el buffer y la cache
+    	+ _available_ : Estimación de cuánta memoria está disponible para iniciar nuevas aplicaciones, sin intercambio
+	* `-k` | `–kb` : Muestra la salida en kilobytes (KB)
+	* `-m` | `–mb` : Muestra la salida en megabytes (MB)
+	* `-g` | `–gb` : Muestra la salida en gigabytes (GB)
+	* `-h` : Muestra la salida con el prefijo establecido automaticamente
+	* `-l` | `–lowhigh` : Muestra información detallada acerca de la utilización baja y alta de memoria
+	* `-w` : Separa la columna _buff/cache_, que es el total de memoria ocupada por ambos, para visualizarla como dos columnas
+	* `-t` | `–total` : Muestra un resumen del total de memoria física y swap
+	* `-c n` | `–count=n` : Refrescará la información n veces y luego termina su ejecución
+	* `-s n` | `–repeat=n` : Permite imprimir la tabla de estado de memoria cada n segundos consecutiva e indefinidamente
 
 ---
 ## Tuberías y Redireccionamiento
