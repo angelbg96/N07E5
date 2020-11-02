@@ -367,7 +367,7 @@ Son un tipo especial de redirección que permiten enviar la salida estándar de 
 	* Se puede especificar un resultado personalizado y una ubicación personalizada al archivo _nohup.out_ de la forma: `nohup comando > /ruta/nombre.out &`
 
 
-- ### Alias
+### Alias
 - `alias nombreAKA = 'comando'` 
     * Permite crear un atajo a un comando o grupo de comandos para facilitar la escritura en la terminal
     * Al cerrar sesión, los alias se eliminan, no son persistentes!
@@ -375,7 +375,7 @@ Son un tipo especial de redirección que permiten enviar la salida estándar de 
 - `alias`
 	* Lista los alias guardados
 
-- ### Variables de entorno
+### Variables de entorno
     Variables que contienen valores que pueden ser utilizadas por diferentes programas, ayudan a los programas a realizar sus funciones
 - `echo $variable`
 	* Ver contenido de la va
@@ -392,14 +392,46 @@ Son un tipo especial de redirección que permiten enviar la salida estándar de 
 	    + `/etc/profile` : para todos los usuarios
 	    + `$HOME/.bashrc` : para todos los shells, incluyendo shell de inicio
 
+## Gestion de Usuarios
+
+### Usuarios
+- `whoiam`
+	* Revisar el nombre de usuario de la sesión actual
+- `id [opciones] usuario`
+	* muestra por los IDs (números de identificación) de usuario (UID) y de grupo (GID) tanto reales como efectivos
+	* `id usuario` : Muestra todos los ID's del usuario, si se omite el usuario, se utiliza el usuario de la sesión actual
+	* `-g` | `–group` : Muestra el ID efectivo de grupo
+	* `-G` | `–groups` : Muestra todos los IDs de grupo
+	* `-u` | `–user` : Muestra el ID efectivo de usuario
+	* `-n` | `–name` : Muestra el nombre de usuario o grupo en lugar del número ID. Requiere -u, -g o -G
+	* `-r` | `–real` : Muestra el ID real de usuario o grupo en lugar del efectivo. Requiere -u, -g o -G
 - `useradd -m nombreUsuario`
 	* Crear usuarios
 - `useradd -g nombreGrupo nombreUsuario`
 	* Crea usuario y crea grupo
 - `userdel nombreUSer`
 	* Eliminar usuarios
+- `passwd [opciones] usuario`
+	* Permite cambiar la contraseña del usuario indicado. La contraseña del usuario del sistema se almacena de forma encriptada en el archivo _/etc/shadow_
+	* `-d` : Borra la contraseña del usuario
+	* `-e` : Forza a que la contraseña caduque, obliga al usuario a realizar un cambio
+	* `-l` : Bloquea la contraseña de la cuenta del usuario
+	* `-u` : Desbloquea la cuenta del usuario
+	* `-S` : Informa el estado actual de la contraseña de acuerdo con el formato:
+		+ `User1 S dd/mm/aaaa f1 f2 f3 f4`
+		+ _User1_ : nombre de la cuenta
+		+ _S_ : Estado de la clave. L bloqueada P activa y NP sin clave
+		+ _dd/mm/aaaa_ : fecha de la ultima modificación de la clave
+		+ _f1_ : duración mínima en días después de la modificación
+		+ _f2_ : duración máxima en días hasta la próxima modificación.
+		+ _f3_ : duración en días de la advertencia al cambio de clave
+		+ _f4_ : duración autorizada en días de inactividad (-1 = infinita)
+	* `-i N` : Establecer días inactivos para un usuario del sistema. Cuando la contraseña del usuario haya expirado y el usuario no haya cambiado su contraseña en _N_ días
+	* `-n N` : Indica el número de días mínimos que el usuario debe de esperar antes de cambiar la contraseña, si se deja en 0 el usuario puede cambiar la contraseña inmediatamente después de haberla cambiado
+	* `-x N` : Establece el número de días máximo que la contraseña es vigente
+	* `-w N` : Establece _N_ días de advertencia antes de que la contraseña de un usuario expire
 
-- ### grupos de usuario
+### grupos de usuario
     Reunir personas que comparten los mismos privilegios de configuración o acceso
 - `groupadd nombreGrupo`
 	* Crear nuevo grupo
@@ -413,7 +445,7 @@ Son un tipo especial de redirección que permiten enviar la salida estándar de 
 - `adduser nombreUsuario sudo`
 	- Otorgar permisos de superusuario
 
-- ### Permisos
+### Permisos
     El esquema de permisos se trabaja en el sistema octal (bloques de 3 bits), se separa en permisos de propietario, grupo y otros
 	* Si empieza con `d` es un directorio
 	* Si empieza con `-` es un fichero
