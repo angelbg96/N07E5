@@ -45,6 +45,7 @@ Nota: paquete === aplicación
 	* `ps` nos muestra un listado de procesos estático, es decir, informa de los procesos, nombres, usuarios o recursos que se están usando en el momento de la petición; `top` da un informe en tiempo real de los mismos.
 	* `–d N` : Donde N es el número de segundos a transcurrir entre cada muestreo
 	* `–u usuario` : Mostrar los procesos del usuario especificado
+	* `htop` es otra herramienta que se puede instalar para monitprear procesos interactivamente
 - `kill [opciones] [PID del proceso]`
 	* Detener los procesos que necesitemos
 	* Envía una señal denominada TERM al proceso a detener. Esta señal TERM pedirá al proceso que termine, permitiéndole gestionar su función de cierre, completando las tareas necesarias y limpiando la información que ha cargado en memoria
@@ -321,6 +322,13 @@ Son un tipo especial de redirección que permiten enviar la salida estándar de 
 	* `tar -xvf archivo.tar example.ext` : extraer un único archivo del comprimido
 	* `tar -xvfarchivo.tar file1 file2` : extraer multiples archivos de un comprimido
 	* `tar -tf archivo.tar` : listar el contenido del archivo comprimido, alternativamente agregar opcion `v` para ver más detalles
+- `nohup comando &`
+	* Es la abreviatura de _No Hangups_, permite mantener la ejecución de un comando (el cual le pasamos como un argumento) pese a salir de la terminal (logout), ya que hace que se ejecute de forma independiente a la sesión
+	* Lo que hace es ignorar la señal HUP (señal que se envía a un proceso cuando la terminal que lo controla se cierra), el proceso se siga ejecutando
+	* El _&_ al final de la orden, mueve el comando al segundo plano, liberando la terminal en la que está trabajando
+	* El comando necesita algún lugar para emitir cualquier mensaje o error. Como no hay una terminal para asociarlo, Nohup lo registra en un archivo de salida, _nohup.out_. Ese archivo se encuentra en el directorio en el que se ejecutó el comando nohup. Este archivo contiene tanto la salida estándar como la salida de error juntas de forma predeterminada.
+	* Se puede especificar un resultado personalizado y una ubicación personalizada al archivo _nohup.out_ de la forma: `nohup comando > /ruta/nombre.out &`
+
 
 - ### Alias
 - `alias nombreAKA = 'comando'` 
