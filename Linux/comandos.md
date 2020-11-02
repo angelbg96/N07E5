@@ -131,6 +131,13 @@ Nota: paquete === aplicación
 	* `-t` | `–total` : Muestra un resumen del total de memoria física y swap
 	* `-c n` | `–count=n` : Refrescará la información n veces y luego termina su ejecución
 	* `-s n` | `–repeat=n` : Permite imprimir la tabla de estado de memoria cada n segundos consecutiva e indefinidamente
+- `ufw`
+	* Significa Uncomplicated Firewall, sirve para crear reglas, verificar los puertos que tenemos abiertos y realizar una protección básica de nuestro sistema. Deben ejecutarse con el usuario root o con permisos de super usuario
+    * `ufw enable` | `reset` | `status` : activar, desactivar o ver el estado y reglas del firewall
+    * `ufw allow nPto` : Permitir el acceso por medio de un puerto específico
+    * `ufw status numbered` : Ver el número de reglas configuradas
+    * `ufw delete nRegla` : Borrar alguna regla configurada por su número secuencial
+    * `ufw allow from IP proto nombreProtocolo to any port nPto`: restringir el acceso de un servicio por alguno de sus puertos a solo un número limitado de IPs específicas
 
 ---
 ## Tuberías y Redireccionamiento
