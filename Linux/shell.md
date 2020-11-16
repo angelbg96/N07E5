@@ -28,6 +28,7 @@ Para utilizarla :
 - Si se desea asignar rangos de caracteres se utilizan las expresiones : `nombreArray=( {A..Z} {a..z} {0..9} )`
 - `nombreArr=(`\`comando\``)` : Asignar resultado de la ejecución de un comando en un array
 - `nombreArr+=(elem5 eleme6)` : Agregar nuevos elementos al array
+- `arr1=(${arr1[*]} ${arr2[*]} elemX elemY)` : Agregar todos los elementos de un array dentro de otro, además de agrear elementos independientes en la misma expresión
 - `unset nombreArr[i]` : Eliminar del array el elemento del indice 'i'. Si no se especifica el índice, se borra todo el array
 
 ## Operaciones
