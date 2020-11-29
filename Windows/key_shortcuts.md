@@ -22,6 +22,8 @@ __NOTA__: Es importante recordar que algunas combinaciones de teclas podrían no
 - `win` + `P` : Abrir opciones para proyectar pantalla
 - `win` + `R` : Ejecutar lanzador de aplicaciones, util para abrir alguna ruta o un programa por su nombre de paquete (nombreID)
 - `win` + `X` : Abrir menu contextual de la barra de tareas
+- `win` + `D` : Minimizar programa abierto
+- `win` + `V` : Abrir historial de portapapeles. Disponible desde Windos 10, v2004
 
 
 ------------------------
