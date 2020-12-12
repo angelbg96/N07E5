@@ -33,14 +33,14 @@
 - `= indice(matriz, coincidir(valor, rangoCeldasCol, 0),  numCol)` : Busca dentro de la tabla (matriz) el dato indicado (valor) dentro de una columna de tabla y retorna la celda de interés
 - `= indice(matriz, coincidir(valorX, rangoCeldasCol, 0), coincidir(valorY, rangoCeldasFil, 0))` : Busca dentro de la tabla (matriz) el dato indicado (valorX) dentro de una columna de tabla que coincida también con el valor de una fila (ValorY) en un rango de filas (rangoCeldasFil)
 - `= buscarx(valor, rangoBusqueda, rangoResultado, , 0, 1)` : Busca dentro de una columna (rangoBusqueda) el dato indicado (valor) y retorna el valor de la celda de interés (rangoResultado)
-- `= nombreHoja!$celda` | `= nombreHoja!%celdaIni:celdaFin` : Hacer referencia a una celda o grupo de celdas de la hoja especificada
+- `= nombreHoja!$celda` | `= nombreHoja!$celdaIni:celdaFin` : Hacer referencia a una celda o grupo de celdas de la hoja especificada
 - `= '[libro]nombre Hoja!celda'`: Hacer referencia a una celda de otro libro, se abre un cuadro de diálogo para seleccionar un libro. Las comillas se colocan cuando el nombre de la hoja lleva espacios
 - Referencias a tablas
     * `= nombreTabla` : Hace referencia a todos los datos de la tabla (matriz)
     * `= nombreTabla[nombreCol]` : Hace referencia al grupo de celdas de la columna indicada
     * `= nombreTabla[@]` : Hace referencia al rango de celdas de la fila actual cuando la operación es en alguna fila dentro del rango que ocupa el tamaño de tabla
     * `= nombreTabla[@nombreCol]` : Hace referencia a una columna de l fila actual
-
+    * `= nombreTabla[#datos]` : Hace referencia al contenido de la tabla (matriz)
 
 
 
