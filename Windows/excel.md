@@ -33,7 +33,7 @@
 - Concatenación: "texto1" & "texto2"
 - Lógicos: si(prueba, valor_verdadero, valor_falso), y(prueba1, prueba2, pruebaN), o(prueba1, prueba2, pruebaN), no(valor)
 - Comodines para texto: 
-    * `*` Cualquier secuencia de caracteres : "*letras" (termina con letras), "letras*" (empieza con letras), "*letras*" (Contiene las letras)
+    * `*` Cualquier secuencia de caracteres : "\*letras" (termina con letras), "letras\*" (empieza con letras), "\*letras\*" (Contiene las letras)
     * `?` Cualquier caracter, pero solo uno
     * `~` Escapar asteriscos y signo de interrogación "letras~?"
     * `""` Sin contenido (Vacio)
@@ -42,13 +42,26 @@
 
 -------------------------
 ## Formulas utiles
-- `= formulatexto(celda)` : Muestra la formula escrita en la celda señalada
-- `= sifecha(fechaInicial, fechaFinal, "Unidad")` : Retorna la diferencia entre la fecha de inicio y la final. Si la fecha de inicio es mayor que la de fin, retorna _#NUM_. Unidad puede tener los siguientes valores:
-    * Y : Diferencia de años completos
-    * M : Diferencia de meses completos
-    * D : Diferencia en días completos
-    * YM : Diferencia en meses de las fechas. Los días y años de las fechas son omitidos en el cálculo
-    * YD : Diferencia en días de las fechas. Los días y años de las fechas son omitidos en el cálculo
+- Texto
+    * `= espacios("texto")` : Quita todos los dobles espacios extra que se encuentren en el texto
+    * `= concat("texto1", "texto2")` : Concatena las cadenas de texto especificadas o celdas con texto
+    * `= unircadenas("delimitador", ignoraVacios, "texto1", "texto2",)` : Concatena las cadenas de texto especificadas, entre cada texto se colocará la secuencia de caracteres como delimitador, con _ignoraVacios_ que es de tipo booleano, se define si se consideran o no las celdas vacias
+    * `= texto("valor", "formato")` : Convierte un número con un formato especiicado, útil para representar fechas y horas
+    * `= formulatexto(celda)` : Muestra la formula escrita en la celda señalada
+    * `= izquierda("texto", num_caracteres)` | `= derecha("texto", num_caracteres)` : Extrae la cantidad de caracteres indicada del texto desde el pricipio|final
+    * `= extrae("texto", posicion_ini, num_caract)` : Extrae la cantidad de caracteres espeficada a partir de la pisición inicial
+    * `= largo("texto")` : Obtener la longitud de caracteres del texto
+- Fechas
+    * Las fechas se expresan en números enteros de días a partir del 01/01/1900
+    * Las horas se expresan en decimales a partir de las 00:00:00 hrs
+    * `= HOY()` : Retorna la fecha del día actual
+    * `= AHORA()` : Retorna la fecha y hora del día actual
+    * `= sifecha(fechaInicial, fechaFinal, "Unidad")` : Retorna la diferencia entre la fecha de inicio y la final. Si la fecha de inicio es mayor que la de fin, retorna _#NUM_. Unidad puede tener los siguientes valores:
+        + Y : Diferencia de años completos
+        + M : Diferencia de meses completos
+        + D : Diferencia en días completos
+        + YM : Diferencia en meses de las fechas. Los días y años de las fechas son omitidos en el cálculo
+        + YD : Diferencia en días de las fechas. Los días y años de las fechas son omitidos en el cálculo
 
 
 -------------------------
