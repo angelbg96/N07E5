@@ -161,14 +161,20 @@ ___
         + No deja ningún cambio en workspace, lleva el proyecto al estado en el que se encontraba en ese momento
 - `git reverse hashCommit` || `HEAD~X`
     * Revierte los cambios hasta el commit indicado, una vez que se restaura crea un commit indicando dicho cambio. No afecta el historial.
-- `git rebase -i HEAD~X`
-    * Actualizar una rama respecto a _master_ (merge)
-    * Permite reescribir historial de commits (mover, eliminar, cambiar mensajes, etc)
-- `git rebase --abort`
-    * Salir del proceso
+- `git cherry-pick  id_commit` : Permite coger uno o varios commits de otra rama sin tener que hacer un merge completo. Cuando se necesite realizar el merge, arrojará conflico debido al commit previamente combinado con la rama, se debe resolver manualmente
+- `git rebase` : Realizar un merge entre ramas. Si se hace entre una rama y master es como si los cambios hubieran ocurrido directamente en master y la rama "se creó" hasta el commit del rebase, no antes. Primero se debe hacer un rebase en la rama y luego en master para evitar conflictos
+    * `git rebase ramaOri` : Posicionado en la rama destino, se actualiza con lo que tiene la ramaOri
+    * `-i HEAD~X`
+        + Actualizar una rama respecto a _master_ (merge)
+        + Permite reescribir historial de commits (mover, eliminar, cambiar mensajes, etc)
+    * `--abort` : Salir del proceso
 
 ___
-## Cambiando el usuario que realiza commits
+## Configuraciones en GIT
+
+- `git config --global alias.nombreAlias "comando de git"` : Configura el comando especificado en un Alias en las configuraciones globales de git en la computadora.
+
+### Cambiando el usuario que realiza commits
 - Ir a las credenciales de windows, buscar las credenciales de Git y/o GitHub y eliminarlas, o en su caso, modificarlas
 - En el bash de git :
     * `git config --global --list`
