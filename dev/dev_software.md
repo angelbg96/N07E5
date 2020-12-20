@@ -35,6 +35,36 @@
     * No tipados. En su sintaxis no se especifica el tipo de dato al declarar una variable, la reserva de memoria se realiza de forma dinámica (infiere su valor). Por lo regular son debilmente tipados (se puede sobreescribir el tipo de dato de una variable ya declarada)
     * Tipados. Se establece su tipo de dato en tiempo de programación y no puede almacenar valores con otros tipos de dato (fuertemente tipado). Existen lenguajes que aunque no se defina el tipo de dato en tiempo de programación, una vez que se inicialice, no podrá almacenar datos de otros tipos
 
+## Áreas de la programación
+- Desarrollo WEB
+    * Frontend
+    * Backend
+    * Fullstack
+    * Administrador de base de datos
+    * Administrador de servidores
+- Desarrollo movil
+    * Nativo (Android o Apple)
+    * Multiplataforma. A partir de tecnologías web o un lenguaje intermedio, crear una aplicación movil para los diferentes sistemas operativos móviles
+    * PWA. A partir de tecnologías web, una aplicación que funcione de forma offline y capaz de utilizar las APIs del celular
+- Desarrollo de escritorio. Para SO de computadoras
+- Videojuegos
+    * Consola
+    * PC
+    * Movil
+- Realidad virtual (inmerción total de un escenario) y aumentada (agregar elementos virtuales en la realidad)
+- Sistemas operativos, embebidos, IoT
+- Seguridad informática
+    * Ofensiva. Hacking ético (white hat), detecta vulnerabilidades
+    * Defensiva. A nivel de infraestructura, configurar hardware y software; a nivel de desarrollo, buenas prácticas de programación
+- Machine learning, deep learning, data science, big data, visión por computadora
+- Cloud computing
+    * IaaS. Infraestructura como servicio
+    * PaaS. Plataforma como servicio
+    * SaaS. Software como servicio
+    * BaaS. Backend como servicio
+    * DaaS. Escritorio como servicio
+    * FaaS. Funciones como servicio
+
 
 
 
