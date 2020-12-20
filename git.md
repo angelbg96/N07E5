@@ -56,15 +56,25 @@
         + Los campos de cada commit se escapan con _comodines_ como:
             - `%n` : nombre de usuario
             - `%h` : hashCommit
-- `git log -p rutaArchiv`
-    * Muestra el histórico de cambios realizados en el archivo
+    * `-p rutaArchiv` : Muestra el histórico de cambios realizados en el archivo
+    * `-S "palabra a buscar"` : Buscar los commits en los cuales sale una palabra
 -  `git show hashCommit:rutaArchivo`
     * Muestra el código fuente del archivo en el commit indicado
 - `git stash`
     * Manda los cambios actuales del sistema de control de versiones a este espacio
     * Util cuando no se actualizó una rama remota y ya se hicieron cambios locales en el proyecto
-- `git stash pop`
-    * Regresa los cambios al workspace
+    * `-u` : Crea un stash con todos los archivos. (Añadiendo los creados Untracked)
+    * `save "mensaje"` : Crea un stash con el mensaje especificado
+    * `list` : Permite visualizar todos los stash existentes
+    * `clear` : Elimina todos los stash existentes
+    * `drop` : Elimina el stash más reciente, tiene num_stash=0
+    * `drop stash@{num_stash}` : Elimina un stash específico
+    * `apply` : Aplica el stash más reciente (num_stash=0)
+    * `apply stash@{num_stash}` : Aplica los cambios de un stash específico
+    * `pop` : Aplica el stash más reciente al workspace y lo elimina
+    * `pop stash@{num_stash}` : Aplica los cambios de un stash específico y elimina lo stash
+    * `branch nombre_de_rama` : Crea una rama y aplica el stash mas reciente
+    * `branch nombre_de_rama stash@{num_stash}` : Crea una rama y aplica el stash especificado
 - `git gc`
     * Ejecuta el recoletor de basura
 
@@ -139,7 +149,7 @@ ___
     * Revierte los cambios hasta el commit indicado, una vez que se restaura crea un commit indicando dicho cambio. No afecta el historial.
 - `git rebase -i HEAD~X`
     * Actualizar una rama respecto a _master_ (merge)
-    * Permite reescribir historial de commits (mover, eliminarm cambiar mensajes, etc)
+    * Permite reescribir historial de commits (mover, eliminar, cambiar mensajes, etc)
 - `git rebase --abort`
     * Salir del proceso
 
