@@ -18,7 +18,7 @@
 - Por su paradigma
     * Multiparadigma. Compatible con múltiples formas de trabajo
     * Estructurado. Programa que ejecuta instrucciones de forma secuencial
-    * Programación Orientada a Objetos. Separa el programa en entidades y las acciones que son capaces de realizar. Sus pilares son la abstracción, encapsulamiento, herencia y polimorfismo 
+    * Programación Orientada a Objetos. Separa el programa en entidades y las acciones que son capaces de realizar. Sus pilares son la abstracción, encapsulamiento, herencia y polimorfismo. Una clase es el molde con el que se crean los objetos, a la acción de crear un objeto de una clase se le llama _instanciar_, un objeto es una instancia de una clase.
     * Funcional. Todo es una función, deben existir datos de entrada y datos de salida
     * Reactiva. El programa reacciona de acuerdo a la interacción que realice el usuario. Con el framework Rx se brinda la posibilidad de trabajar con este paradigma en distintos lenguajes
     * Otro grupo de clasificación es:
