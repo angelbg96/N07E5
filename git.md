@@ -7,8 +7,11 @@
 - `git init`
     * Inicializar un nuevo repositorio a nivel de la carpeta donde se ejecuta el comando,
     * Se crea una carpeta oculta _.git_ en el nuevo espacio de trabajo
+- `git comando --help` : Consulta el modo de uso de un comando, información detallada
 - `git cat archivo.ext`
     * Visualizar contenido de archivo en la bash
+- `git grep "palabra"` : Busca concidencias con la palabra escrita en los archivos del repositorio
+    * `-n` : mostrar la linea en la cual la palabra aparece en el archivo
 - `git add`
     * Agrega archivos al sistema de control de versiones
     * `git add` `archivo.ext` || `nombre/`
@@ -58,6 +61,13 @@
             - `%h` : hashCommit
     * `-p rutaArchiv` : Muestra el histórico de cambios realizados en el archivo
     * `-S "palabra a buscar"` : Buscar los commits en los cuales sale una palabra
+- `git shortlog` : Ver cuantos commits a hecho los miembros del equipo
+    * `-sn` : Muestra cuantos commit han hecho cada miembro
+    * `-sn --all` : Todos los commits (también los borrados)
+    * `-sn --all --no-merges` : Muestra cuantos commit han hecho cada miembro quitando los merges
+- `git blame archivo` : Visualizar los cambios realizados por los miebros del equipo en un determinado archivo
+    * `-c` : Muestra quien ha hecho cambios en dicho archivo identado
+    * `-Llin_inicial,lin_final -c` : Muestra quien escribio el codigo desde _lin\_inicial_ a _lin\_final_ con un formato legible
 -  `git show hashCommit:rutaArchivo`
     * Muestra el código fuente del archivo en el commit indicado
 - `git stash`
@@ -77,6 +87,10 @@
     * `branch nombre_de_rama stash@{num_stash}` : Crea una rama y aplica el stash especificado
 - `git gc`
     * Ejecuta el recoletor de basura
+- `git clean` : Actúa en archivos sin seguimiento, este tipo de archivos son aquellos que se encuentran en el directorio de trabajo, pero que aún no se han añadido al índice de seguimiento de repositorio
+    * `--dry-run` : Lista los archivos que serán borrados
+    * `-f` : Borrar todos los archivos listados (que no son carpetas)
+    * `-d` : Para considerar en el borrado directorios añadidos
 
 ___
 ## Ramas
