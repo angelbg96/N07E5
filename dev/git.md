@@ -42,6 +42,8 @@
         + Muestra la diferencia de cambios entre ambas ramas
     * `git diff hashCommit1 hashCommit2`
         + Muestra la diferencia de cambios realizados entre ambos commits
+    * `--no-index` : Ver diferencias entre dos archivos que no necesariamente forman parte del repositorio
+    * `--name-only` : Ver unicamente el nombre de los archivos modificados entre dos commits
 - `git checkout hashCommit`
     * Regresar en el tiempo a X commit
     * _hashCommit_ mínimo 7 dígitos
