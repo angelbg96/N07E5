@@ -65,7 +65,27 @@
     * DaaS. Escritorio como servicio
     * FaaS. Funciones como servicio
 
-
+## Tecnicismos
+- _Hardcoding_. Mala prática en la que se incrustan datos (comunmente configuraciones) en lugar de obtenerlos de una fuente de datos. En consecuencia, toda futura modificación tendrá un alto costo
+- _Debugging_. Proceso de identificar y depurar el código de bugs (errores)
+- _Workaround_. Solución temporal ante un problema o limitación en el sistema hasta su corrección definitiva
+- _Build_. Versión funcional de un software que icluye todas las características del producto final
+- _Release_. Lanzamiento de una versión de un software, se identifica con números como v1.2.0
+- _Deploy_. Proceso de lanzar una versión nueva del software al servidor
+- _Refactorizar_. Mejora en el código fuente para mejorar su escalabilidad o legibilidad
+- _Issue_. Es un asunto por resolver, como arreglar un bug, una mejora en el sistema o una tarea pendiente
+- _Testing_. Consiste en probar la calidad del sistema. Puede ser a nivel de código, funcinalidad, rendimiento, etc. Pueden realizarse de forma manual o automatizada
+- _Rollback_. Se revierten los últimos cambios del sistema, volviendo a la última versión estable
+- _Code review_. Ayuda prestada entre desarrolladores para revisar en conjunto el código realizado, aportan ideas, se discuten bugs, mejoras y más
+- _Workspace_. Grupo de archivos que contienen los recursos necesarios y permiten al desarrollador trabajar con ellos como una unidad
+- _Enviroment_. Ambiente, entorno de trabajo donde el desarrollador obtiene los servicios necesarios para desarrollar software
+- _CLI_. Interfaz de línea de comandos, se utiliza para intercatuar con software y con el SO
+- _REPL_. Acrónimo que signica Read, Eval, Print, Loop, es un entorno por consola que permite ejecutar intrucciones y/o comandos
+- _Shell_. Término usado en informática para referirse a un intérprete de comandos. Mediante instrucciones que aporta el intérprete, el usuario puede comunicarse con el kernel y por extensión, ejecutar dichas órdenes, así como herramientas que le permiten controlar el funcionamiento del sistema
+- _Bash_. Acrónimo de Bourne-again shell, es un intérprete de órdenes, es un superconjunto de sh (Bourne Shell es un programa informático cuya función consiste en interpretar órdenes basadas en POSIX. Incorpora características como control de procesos, redirección de entrada/salida, listado y lectura de ficheros, protección, comunicaciones y un lenguaje de órdenes para escribir programas por lotes o “scripts”)
+- _Stringfy_. Método con el que un objeto o valor se convierte en una cadena de texto JSON
+- _Serialización_. Proceso de convertir un tipo de dato A a un tipo de dato B a través de un flujo de red o un flujo hacia un archivo
+- _ORM_. acrónimo de Object Relational Mapping, es una técnica de programación para convertir datos entre el sistema de tipos utilizado en un lenguaje de programación orientado a objetos y la utilización de una base de datos relacional como motor de persistencia
 
 
 
