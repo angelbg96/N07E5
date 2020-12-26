@@ -1,7 +1,7 @@
 # Desarrollo de Scripts bash
 
-- Su extensión es _.sh_
-- A principio de cada archivo se coloca `#!/bin/bash`
+- Su extensión es _.sh_ y debe tener permisos de ejecución
+- El script debe incluir un "shebang line" como su primera línea, debe comenzar con los caracteres `#!` y debe especificar la ruta en la que se encuentra el intérprete. Si se usa bash es `#!/bin/bash`. Si se usa `#!/bin/sh`, esto es un enlace simbólico que apunta al intérprete configurado por default (suele ser bash)
 - Alto manejo de las entradas y salidas estándar _stdin_, _stdout_, _stderr_
 - Cada instrucción en una línea
 - Respetar la sintaxis descrita para un correcto funcionamiento
