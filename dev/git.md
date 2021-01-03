@@ -93,6 +93,18 @@
     * `--dry-run` : Lista los archivos que serán borrados
     * `-f` : Borrar todos los archivos listados (que no son carpetas)
     * `-d` : Para considerar en el borrado directorios añadidos
+- `git archive`
+    * Crea un archivo comprimido a partir de una rama o archivos específicos
+    * `-l` | `--list` : Muestra los formatos de compresión disponibles
+    * `--format=nombreF` : Indicar el formato de compresión a exportar
+    * `-o ruta/archivo` | `--outupt=ruta/archivo` : nombre de archivo con el que será exportado
+    * `--remote=//servidor/ruta` : Guardar el archivo comprimido en la ruta del servidor
+    * `git archive --format=zip master > project.zip` : Archiva la rama master en formato zip y el comprimido se llama "project"
+    * `git archive master > project.zip` : Archiva la rama master en formato zip, otra forma de hacerlo
+    * `git archive master | bzip2 > latest.tar.bz2` : Archiva la rama master, la compresión se realiza con comando de SO
+    * `git archive -o latest.zip head` : Archivar en zip los últimos cambios realizados
+    * `git archive --format=zip master^ carpeta1/ carpeta2/ *.ext > project.zip` : Exporta las carpetas señaladas y los archivos con extensión indicada en formato zip
+    * `gdiff --name-only hashcommit | xargs git archive master --format=tar --output=archivo.tar` : archivar los ficheros afectados desde el commit indicado, con el formato y nombre indicado de la rama master
 
 ___
 ## Ramas
