@@ -39,6 +39,12 @@
     * `""` Sin contenido (Vacio)
     - `"<>"` Cualquier contenido de texto
 
+## Referencias
+- Relativa. Al indicar alguna operación con una celda o rangos de celdas y se copia la operación a lo largo de las filas y/o columnas, se incrementarán estas también. Por default se utiliza esta refencia (`A5`, `B3:C7`, etc)
+- Absoluta. Al copiar una operación con una celda a lo largo de filas/columnas, la referencia a dicha no cambiará con el incremento entre filas o columnas. Sintaxis: `$columna$numero`, etc
+- Mixta. Se puede dejar fija solo una parte de la referencia hacia la celda o rango de celdas, el signo `$` se antepone a la izquierda del nombre de la celda o del número de columna si se desea fijar alguna de las dos coordenadas
+    * Fijar fila: `columna$numero`
+    * Fiajr columna: `$columnaNumero`
 
 -------------------------
 ## Formulas utiles
