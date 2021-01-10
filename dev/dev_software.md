@@ -86,6 +86,11 @@
 - _Stringfy_. Método con el que un objeto o valor se convierte en una cadena de texto JSON
 - _Serialización_. Proceso de convertir un tipo de dato A a un tipo de dato B a través de un flujo de red o un flujo hacia un archivo
 - _ORM_. acrónimo de Object Relational Mapping, es una técnica de programación para convertir datos entre el sistema de tipos utilizado en un lenguaje de programación orientado a objetos y la utilización de una base de datos relacional como motor de persistencia
+- _Hooking_. Técnicas utilizadas para alterar o aumentar el comportamiento de un sistema operativo, de aplicaciones o de otros componentes de software interceptando llamadas de función, mensajes o eventos pasados entre componentes de software.
+- _Hardening o endurecimiento_. Es el proceso de asegurar un sistema reduciendo sus vulnerabilidades o agujeros de seguridad, para los que se está más propenso cuanto más funciones desempeña
+- _Ofuscación_. Se refiere a hacer ilegible el código sin afectar su funcionalidad. Las técnicas utilizadas para ocultar el código de esta manera varían considerablemente. Abarcan desde la sustitución de nombres legibles en el código por alternativas difíciles de descifrar (ofuscación de nombre) hasta la modificación de la estructura lógica del código para hacerlo menos predecible y rastreable (ofuscación de flujo de control). Otra técnica consiste en la conversión de expresiones aritméticas y lógicas simples en equivalentes complejas (ofuscación aritmética).
+    * Al sustituir todos los nombres de las variables y de las funciones por nombres de una sola letra, es prácticamente imposible comprender el código del programa. En ocasiones, también se utilizan ofuscadores de este tipo con el propósito de reducir el tamaño del código fuente
+- _Encriptación_ Garantiza que el código y los datos de la aplicación no se puedan acceder mientras la aplicación está en reposo. El código encriptado es descifrado inmediatamente cuando se ejecuta la aplicación, lo que garantiza que funcione según lo previsto. Para ser efectiva, la encriptación debe aplicarse en varias capas. Las técnicas de encriptación esenciales incluyen la encriptación de cadenas, encriptación de clases, encriptación de asset y encriptación de recursos.
 
 
 
