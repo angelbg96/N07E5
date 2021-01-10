@@ -92,5 +92,22 @@
     * Al sustituir todos los nombres de las variables y de las funciones por nombres de una sola letra, es prácticamente imposible comprender el código del programa. En ocasiones, también se utilizan ofuscadores de este tipo con el propósito de reducir el tamaño del código fuente
 - _Encriptación_ Garantiza que el código y los datos de la aplicación no se puedan acceder mientras la aplicación está en reposo. El código encriptado es descifrado inmediatamente cuando se ejecuta la aplicación, lo que garantiza que funcione según lo previsto. Para ser efectiva, la encriptación debe aplicarse en varias capas. Las técnicas de encriptación esenciales incluyen la encriptación de cadenas, encriptación de clases, encriptación de asset y encriptación de recursos.
 
+## Buenas prácticas
+- Variables
+    * Nombrar las va. con sentido (que sean autodescriptivas) que indiquen el dato que está almacenando. ¡No nos cobran por caracter!
+    * Utilizar "_Camel Case_" para identificar va. con nombres compuestos por más de dos palabras: `miVariable`, `DatoNombre`, etc
+    * En dado caso de no utilizar _Camel Case_, se sugiere utilizar `\_` entre cada palabra si es que el lenguaje soporta ese caracter para nombrar variables: `mi_variable`
+    * Notación Húngara. Cuando se tienen arreglos de datos o el mismo dato con diferentes tipos, se puede identificar con un prefijo en el nombre de la va. haciendo referencia a dicho tipo: `lstPersonas` - lista de personas, `arrPersonas` - arreglo de personas, `iNumero` - Numero entero, `sNumero` - Numero como texto
+    * En caso de utilizar constantes, nombrarlas con mayúsculas o con algún prefijo
+    * Evitar usar o tener demasiadas variables globales
+    * Recomendación: declarar las va. a utilizar al principio de la función
+- Funciones
+    * Tener en promedio en el bloque de código aproximadamente 20 instrucciones
+    * Tener un nombre descriptivo de lo que hace la función
+    * Dedicarse a un único objetivo. Si se requiere lógica adicional a lo que indica que realiza la función, utilizar otra función. Estas funciones adicionales se recomienda colocar debajo de la función que las invoca
+    * Evitar anidar demasiadas sentencias de control condicional, se vuelve poco legible el códig
+- Dcoumentar
+    * Evitar comentarios o redundantes. Si la va./función ya tiene un nombre descriptivo no es necesario comentar a que hace referencia
+    * Evitar bloques de código. Tener código comentado mezclado con código funcional vuelve ilegible la comprensión de este
 
 
