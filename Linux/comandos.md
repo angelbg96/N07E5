@@ -298,7 +298,7 @@ Son un tipo especial de redirección que permiten enviar la salida estándar de 
     * `-l` : Imprime el nombre de cada fichero de entrada donde se encuentren coincidencias
     * `-n` : Imprime el número de línea en donde se encuentren coincidencias
     * `-o` : Imprime sólo la parte que coincide
-    * `-v` : Invierte el sentido de la búsqueda
+    * `-v` : Busca las coincidencias que no sean el patrón/palabra indicada
     * `–color` : Resalta la palabra que coincide con el color especificado en la variable de entorno `GREP_COLOR` (rojo por defecto)
     * `-r,-R` : Busca coincidencias en todos los ficheros que se encuentran debajo de un directorio, incluyendo los subdirectorios
 	* `grep query1 file | grep query2 file` || `grep -E 'query1|query2' file`
