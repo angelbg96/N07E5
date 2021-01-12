@@ -28,12 +28,12 @@
     * General (GPL). Se puede desarrollar cualquier aplicación y resolver cualquier problema.
     * Específico (DSL - Domain Specific Language). Lenguaje que fue creado para un uso en particular. Por ejemplo, SQL
 - Por su nivel de abstracción
-    * Alto nivel. Lenguaje con sintaxis más facil de entender por el humano. Se ejecuta sobre la capa de abstacción de software
+    * Alto nivel. Lenguaje con sintaxis más fácil de entender por el humano. Se ejecuta sobre la capa de abstracción de software
     * Mediano nivel. Lenguaje que es entendible por los humanos pero con una sintaxis que permite una interacción muy cercana con el SO y hardware. Lenguaje C
     * Bajo nivel. Lenguaje que se comunica y manipula el hardware. Ensamblador y máquina
 - Por su tipado
-    * No tipados. En su sintaxis no se especifica el tipo de dato al declarar una variable, la reserva de memoria se realiza de forma dinámica (infiere su valor). Por lo regular son debilmente tipados (se puede sobreescribir el tipo de dato de una variable ya declarada)
-    * Tipados. Se establece su tipo de dato en tiempo de programación y no puede almacenar valores con otros tipos de dato (fuertemente tipado). Existen lenguajes que aunque no se defina el tipo de dato en tiempo de programación, una vez que se inicialice, no podrá almacenar datos de otros tipos
+    * No tipados. En su sintaxis no se especifica el tipo de dato al declarar una variable, la reserva de memoria se realiza de forma dinámica (infiere su valor). Por lo regular son débilmente tipados (se puede sobrescribir el tipo de dato de una variable ya declarada)
+    * Tipados. Se establece su tipo de dato en tiempo de programación y no puede almacenar valores con otros tipos de dato (fuertemente tipado). Existen lenguajes que, aunque no se defina el tipo de dato en tiempo de programación, una vez que se inicialice, no podrá almacenar datos de otros tipos
 
 ## Áreas de la programación
 - Desarrollo WEB
