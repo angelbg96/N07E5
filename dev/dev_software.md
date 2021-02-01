@@ -9,6 +9,11 @@
     * Legible
     * Finito. Debe tener un Inicio y un Final
 - __Paradigma.__ Forma de programar para resolver un problema
+- __Ciudadanos de primera clase.__ Elementos de un lenguaje de programación que tienen más privilegios que otros elementos dentro del mismo lenguaje. Se consideran elementos de primera clase si:
+    * Puede ser guardado en variables
+    * Puede ser enviado como argumento en funciones
+    * Puede ser usado como valor de retorno
+    * Tiene identidad propia
 
 ## Tipos de lenguajes de programación
 - Por su compilación
@@ -111,3 +116,19 @@
     * Evitar bloques de código. Tener código comentado mezclado con código funcional vuelve ilegible la comprensión de este
 
 
+## Sobre paradigmas
+### Funcional
+- Centrado en funciones, son ciudadanos de primera clase.
+- Función de orden superior. Pueden recibir o retornar funciones.
+- Principales operaciones: _map_ (transformación de un valor a otro), _reduce_ (acumulación de elementos), _filter_ (criterios de elegibilidad  de elementos de una colección para introducirlos en otra)
+- Utiliza recursividad en lugar de iteración
+- No existe la mutabilidad de una variable asignada declarada dentro de un bloque de código
+- No almacena estados. Al llamar a una función multiples veces con las mismas entrdas siempre devolverá los mismos resultados, estos no se verán influenciados por condiciones externas o estados almacenados previamente. También se le conoce como _transparencia referencial_,
+- Útil en procesamiento paralelo
+- Suelen ser declarativo: se le dice al programa que hacer pero no como
+
+### Reactiva
+- Útil en procesos asíncronos, flujo asíncronos de datos
+- Una forma de implementar el patrón de diseño Observer
+- Obsevables. Flujos de datos, añade suscriptores al flujo de datos
+- Observadores. Módulos que consumen los flujos de datos. Implementan 3 métodos: reaccionar al siguiente valor, reaccionar a un error, reaccionar al informe de término del flujo de datos
