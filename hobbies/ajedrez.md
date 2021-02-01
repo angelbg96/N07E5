@@ -16,6 +16,9 @@
     * Método de simplificación : Intercambio de piezas
     * Defensa pasiva : Llevar piezas a defender el punto atacado
     * Buscar entradas contra el rey atacado
+- Columna abierta: No existen peones sobre la columna, cuando no hay un peon de alguno de los dos bandos se dice que la columna está semiabierta
+- Fila libre: No hay piezas colocadas en esa fila, sirve para cambiar de flanco
+- Fortaleza: Piezas contrarias no pueden llegar a la posición del rey para dar jaque, las pienzas defensivas no permiten la acción de las atacantes sobre el rey
 
 ## Táctica
 - Doble amenaza : Usualmente se dan con el avance de un peón, saltos de caballo, jaque más ataque a pieza indefensa
@@ -48,4 +51,19 @@
     * Se avanza peón de un extremo, el contrario captura con uno de los peones centrales
     * Se avanza peón del otro extremo, el contrario captura con el otro peón cental
     * Se avanza un peón central, inevitablemente ya se está generando peón pasado
+
+
+## Patrones geométricos
+- Peon vs Rey: Cuando el peon se encuentra a más de la mitad del tablero se imagina una diagonal desde su posición hasta la fila de coronación, si el rey se encuentra dentro del cuadrado formado, alcanza al peon para capturarlo
+- Alfil vs Caballo: si el alfil se coloca a 3 casillas del caballo (por fila o por columna), controla 4 posibles saltos de caballo
+- Torre vs Caballo: si la torre se encuentra a 2 casillas en diagonal del caballo, lo limita en la disponibilidad de sus saltos
+- Rey + Caballo vs Torre: la combinación rey caballo es superior a la torre para conseguir tablas siempre y cuando estas piezas no se separen a más de 1 salto del caballo
+- Rey vs Caballo: Cuando el rey recibe un jaque por el caballo, se recomienda que se aleje de tal forma que exista una separación de 2 casillas en diagonal entre las piezas, por lo que el caballo tardaría 3 turnos en volver a dar jaque
+- Rey vs Rey: Oposición, se dice que los reyes están en oposición cuando están a una casilla o a un número impar de casillas de separación, un rey gana la oposición cuando imita los movimientos del rey rival, imposibilitando su progreso en la posición o impiendo llegar a una parte del tablero
+    * Ganar una oposición: cuando se es el rey que pierde la oposición, para revertirla se debe "invetir el orden de los turnos", es decir llegar a la misma posición pero el rey contrario ahora será quien pierda la opsición. Para ello se debe alejar una casilla (distancia de celdas par del rey) preferiblemente en diagonal, después avanzar una columna y luego avanzar una fila, de esta forma se revierte la oposición. El patrón de movimiento forma un triángulo rectángulo
+- Rey vs Rey: En un final de peones, se recomienda que el Rey avance unas cuantas casillas en "Zig Zag (^, v)" si el rey contrario está lejos para ganarle la oposición
+- Dama vs Rey: Colocar la dama a distancia de caballo "L" para acortar campo de movimiento, imitar el avance del rey para seguir acortando movilidad
+- Dos Alfiles: Cuando se colocan uno a lado de otro, forman un triángulo por las diagonales, por lo que su dominio del tablero es muy fuerte
+- Rey enrocado en Fianchetto: Colocar el rey al centro de los peones y avanzar algún peon de los extremos para fortalecer el enroque
+- Dos Peones vs Rey: Cuando estos dos peones se encuentran separados y en fila, además el rey se encuentra entre ambos, si se forma un cuadrado imaginario entre los peones el rey NO logra detener la coronación de alguno de ellos, por el contrario si se forma un rectángulo sí logra detener las dos coronaciones
 
