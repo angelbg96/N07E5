@@ -116,6 +116,30 @@
     * Evitar bloques de código. Tener código comentado mezclado con código funcional vuelve ilegible la comprensión de este
 
 
+## Versionamiento Semántico (VerSem)
+Divide el número de cada versión en tres segmentos numéricos, que tienen el propósito de indicar el estado y la compatibilidad de una pieza de software: `cambiosMayores.características.parches`
+- _La parte más pequeña o el segmento de los parches_. Este número se usa para indicar que no se está introduciendo nueva funcionalidad en ella. Comúnmente se usa cuando se corrigen errores dentro de esta o cualquier otro cambio que no modifique la apariencia "externa" de una API. Este número puede cambiar con rapidez a medida que se resuelven errores o casos excepcionales en el código.
+- _Segmento de los cambios menores o características_. Se usa para indicar que se le ha añadido funcionalidad nueva a la biblioteca pero que nada de lo anterior dejará de funcionar de la manera en la que ya lo hace. Es decir, mientras que la apariencia exterior de la biblioteca versionada ha cambiado, lo que antes se conectaba con ella, puede seguir haciéndolo sin problema. Si la versión menor cambia, el número de parches debe ser reestablecido a 0.
+- _Componente de cambios mayores o de ruptura_. Se emplea para indicar cambios tanto externos como internos que resultan en hacer que el software no sea compatible con versiones anteriores. Se llama _de ruptura_ puesto que si la persona que usa una biblioteca actualiza descuidadamente la versión, probablemente encontrará muchos errores y cosas inservibles en su código.
+### Especificación de Versionado Semántico
+En el documento original se usa el __RFC 2119__ para el uso de las palabras _MUST_, _MUST NOT_, _SHOULD_, _SOULD NOT_ y _MAY_. Para que la traducción sea lo más fiel posible, MUST se traduce como el verbo _deber en presente_ (DEBE, DEBEN), _SHOULD_ como el verbo _deber en condicional_ (DEBERÍA, DEBERÍAN) y el verbo _MAY_ como el verbo _PODER_.
+1. El software que use Versionado Semántico DEBE declarar una API pública. Esta API puede ser declarada en el código mismo o existir en documentación estricta. De cualquier manera, debería ser precisa y completa.
+2. Un número normal de versión DEBE tomar la forma X.Y.Z donde X, Y, y Z son enteros no negativos. X es la versión “major”, Y es la versión “minor”, y Z es la versión “patch”. Cada elemento DEBE incrementarse numéricamente en incrementos de 1.
+    - Por ejemplo: 1.9.0 -> 1.10.0 -> 1.11.0.
+3. Una vez que un paquete versionado ha sido liberado (release), los contenidos de esa versión NO DEBEN ser modificadas. Cualquier modificación DEBE ser liberada como una nueva versión.
+4. La versión major en cero (0.y.z) es para desarrollo inicial. Cualquier cosa puede cambiar en cualquier momento. El API pública no debiera ser considerada estable.
+5. La versión 1.0.0 define el API pública. La forma en que el número de versión es incrementado después de este release depende de esta API pública y de cómo esta cambia.
+6. La versión patch Z (x.y.Z | x > 0) DEBE incrementarse cuando se introducen solo arreglos compatibles con la versión anterior. Un arreglo de bug se define como un cambio interno que corrige un comportamiento erróneo.
+7. La versión minor Y (x.Y.z | x > 0) DEBE ser incrementada si se introduce nueva funcionalidad compatible con la versión anterior. Se DEBE incrementar si cualquier funcionalidad de la API es marcada como deprecada. PUEDE ser incrementada si se agrega funcionalidad o arreglos considerables al código privado. Puede incluir cambios de nivel patch. La versión patch DEBE ser reseteada a 0 cuando la versión minor es incrementada.
+8. La versión major X (X.y.z | X > 0) DEBE ser incrementada si cualquier cambio no compatible con la versión anterior es introducida a la API pública. PUEDE incluir cambios de niver minor y/o patch. Las versiones patch y minor DEBEN ser reseteadas a 0 cuando se incrementa la versión major.
+9. Una versión pre-release PUEDE ser representada por adjuntar un guión y una serie de identificadores separados por puntos inmediatamente después de la versión patch. Los identificadores DEBEN consistir solo de caracteres ASCII alfanuméricos y el guión. Las versiones pre-release satisfacen pero tienen una menor precedencia que la versión normal asociada.
+    - Ejemplos: 1.0.0-alpha, 1.0.0-alpha.1, 1.0.0-0.3.7, 1.0.0-x.7.z.92.
+10. La metadata de build PUEDE ser representada adjuntando un signo más y una serie de identificadores separados por puntos inmediatamente después de la versión patch o la pre-release. Los identificadores DEBEN consistir sólo de caracteres ASCII alfanuméricos y el guión. Los meta-datos de build DEBIERAN ser ignorados cuando se intenta determinar precedencia de versiones. Dos paquetes con la misma versión pero distinta metadata de build se consideran la misma versión.
+    - Ejemplos: 1.0.0-alpha+001, 1.0.0+20130313144700, 1.0.0-beta+exp.sha.5114f85.
+11. La precedencia DEBE ser calculada separando la versión en major, minor, patch e identificadores pre-release en ese orden (La metadata de build no figuran en la precedencia). Las versiones major, minor, y patch son siempre comparadas numéricamente. La precedencia de pre-release DEBE ser determinada comparando cada identificador separado por puntos de la siguiente manera: los identificadores que solo consisten de números son comparados numéricamente y los identificadores con letras o guiones son comparados de acuerdo al orden establecido por ASCII. Los identificadores numéricos siempre tienen una precedencia menor que los no-numéricos.
+    - Ejemplo: 1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0.
+
+
 ## Sobre paradigmas
 ### Funcional
 - Centrado en funciones, son ciudadanos de primera clase.
