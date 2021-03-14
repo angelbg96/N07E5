@@ -24,6 +24,7 @@ __NOTA__: Es importante recordar que algunas combinaciones de teclas podrían no
 - `win` + `X` : Abrir menu contextual de la barra de tareas
 - `win` + `D` : Minimizar programa abierto
 - `win` + `V` : Abrir historial de portapapeles. Disponible desde Windos 10, v2004
+- `win` + `.` : Abrir menu de emojis
 
 
 ------------------------
