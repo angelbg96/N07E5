@@ -38,4 +38,11 @@
     * Como ejemplo: Cassandra
 
 ## SQL
+### Características
+- Significa Lenguaje de Consulta Estructurada (Structured Query Language)
+- Se debe modelar el esquema/estructura de las tablas y sus relaciones antes de implementarla
+- Se escalan verticalmente principalmente (CPU, RAM, SSD)
+- Son de rápida escritura
+- Útiles para ejecutar consultas de datos complejas (de diferentes tablas y filtros), pero con el costo de tiempo cuando la cantidad de datos es alta
+- Utilizan las formas Noramles para mantener la consistencia de los datos
 
