@@ -100,10 +100,12 @@
 ## Buenas prácticas
 - Variables
     * Nombrar las va. con sentido (que sean autodescriptivas) que indiquen el dato que está almacenando. ¡No nos cobran por caracter!
-    * Utilizar "_Camel Case_" para identificar va. con nombres compuestos por más de dos palabras: `miVariable`, `DatoNombre`, etc
-    * En dado caso de no utilizar _Camel Case_, se sugiere utilizar `\_` entre cada palabra si es que el lenguaje soporta ese caracter para nombrar variables: `mi_variable`
-    * Notación Húngara. Cuando se tienen arreglos de datos o el mismo dato con diferentes tipos, se puede identificar con un prefijo en el nombre de la va. haciendo referencia a dicho tipo: `lstPersonas` - lista de personas, `arrPersonas` - arreglo de personas, `iNumero` - Numero entero, `sNumero` - Numero como texto
-    * En caso de utilizar constantes, nombrarlas con mayúsculas o con algún prefijo
+    * Convención (notación) de nombres para variables:
+        + _Camel Case_. Combina las palabras directamente, sin usar ningún símbolo, estableciendo que la primera letra de cada palabra esté en mayúscula: `miVariable` (Lower Camel Case), `DatoNombre` (Upper Camel Case)
+        + _Snake Case_. Combina las palabras usando un guión bajo `\_` como nexo: `mi_variable`
+        + _Kebab Case_. Combina las palabras usando un guión `\-` como nexo. Las letras están en minúscula. Es el estándar que se usa en la creación de URLs: `mi-variable`
+        + _Notación Húngara_. Cuando se tienen arreglos de datos o el mismo dato con diferentes tipos, se puede identificar con un prefijo en el nombre de la va. haciendo referencia a dicho tipo: `lstPersonas` - lista de personas, `arrPersonas` - arreglo de personas, `iNumero` - Numero entero, `sNumero` - Numero como texto
+        + En caso de utilizar constantes, nombrarlas con mayúsculas (_Upper Case_ \+ _Snake Case_) o con algún prefijo (_Upper Case_ \+ _Notación Húngara_)
     * Evitar usar o tener demasiadas variables globales
     * Recomendación: declarar las va. a utilizar al principio de la función
 - Funciones
