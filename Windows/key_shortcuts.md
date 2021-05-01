@@ -25,6 +25,7 @@ __NOTA__: Es importante recordar que algunas combinaciones de teclas podrían no
 - `win` + `D` : Minimizar programa abierto
 - `win` + `V` : Abrir historial de portapapeles. Disponible desde Windos 10, v2004
 - `win` + `.` : Abrir menu de emojis
+- `win` + `shift` + `S` : Abre la herramienta de captura/recorte de pantalla
 
 
 ------------------------
