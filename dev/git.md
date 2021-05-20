@@ -7,6 +7,16 @@
 - `git init`
     * Inicializar un nuevo repositorio a nivel de la carpeta donde se ejecuta el comando,
     * Se crea una carpeta oculta _.git_ en el nuevo espacio de trabajo
+    * `--bare ruta/directorio.git` : Crea un repositorio de Git vacío, pero omite el directorio de trabajo, lo que imposibilita la edición de archivos y la confirmación de cambios en ese repositorio. Útil para aplicar `git push` y `git pull`, pero nunca realizar confirmaciones directamente en él.
+    * `--template ruta/directorio` : Inicializa un nuevo repositorio de Git y copia los archivos de la plantilla al repositorio. Se puede configurar una plantilla para que tenga los directorios y archivos predeterminados que se copiarán en el subdirectorio de _.git_ del nuevo repositorio. Las plantillas de Git suelen ubicarse en /_usr/share/git-core/templates_, pero pueden encontrarse en una ruta diferente.
+    * `--separate-git-dir=ruta/directorio` : Crea un archivo de texto que contiene la ruta al direcotrio _.git_ .
+        + Resulta muy útil:
+        + Si se quiere almacenar el directorio _.git_ en una ubicación o unidad independiente de los archivos de trabajo del proyecto.
+        + Para mantener los archivos ocultos de la configuración del sistema (.bashrc, .vimrc, etc.) en el directorio principal, mientras que la carpeta de .git se conserva en otro lugar.
+        + Cuando el historial de Git ocupa mucho espacio en el disco y necesitas moverlo a otro sitio de una unidad independiente de gran capacidad.
+        + Cuando se quiere tener un proyecto de Git en un directorio de acceso público como _www:root_.
+        + Se puede llamar a `git init --separate-git-dir` en un repositorio que ya exista y el directorio de _.git_ se moverá a la ruta de especificada.
+    * `--SHARED[=(FALSE|TRUE|UMASK|GROUP|ALL|WORLD|EVERYBODY|0XXX)]` : Define los permisos de acceso del nuevo repositorio. Esto especifica qué usuarios y grupos de los que utilizan permisos de nivel de Unix pueden realizar las acciones de envío e incorporación de cambios en el repositorio.
 - `git comando --help`
     * Consulta el modo de uso de un comando, información detallada
 - `git cat archivo.ext`
