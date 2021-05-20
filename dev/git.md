@@ -185,8 +185,35 @@ ___
 
 ___
 ## Configuraciones en GIT
-
-- `git config --global alias.nombreAlias "comando de git"` : Configura el comando especificado en un Alias en las configuraciones globales de git en la computadora.
+- Niveles de configuración
+    * `--local` : De manera predeterminada, `git config` escribirá en un nivel local si no se pasa ninguna opción de configuración. Se aplica al repositorio en el que se invoca `git config`. Los valores de configuración locales se almacenan en un archivo que se puede encontrar en el directorio _.git_ del repositorio: _.git/config_
+    * `--global` : Es específica del usuario, lo que significa que se aplica al usuario de un SO. Los valores de configuración globales se almacenan en un archivo que se encuentra en el directorio principal de un usuario. _~ /.gitconfig_ en sistemas unix y _C:\\.gitconfig _en Windows.
+    * `--system` : Se aplica a toda una máquina. Afecta a todos los usuarios de un SO y a todos los repositorios. El archivo de configuración de nivel de sistema se encuentra en un archivo _gitconfig_ fuera de la ruta raíz del sistema. _/etc/gitconfig_ en sistemas Unix. En Windows, este archivo se encuentra en _C:\ProgramData\Git\config_.
+- `git config --list`
+    * Muestra todas las configuraciones establecidas en el archivo _~/.gitconfig_
+- `git config --global alias.nombreAlias "comando de git"`
+    * Configura el comando especificado en un Alias en las configuraciones globales de git en la computadora.
+- `git config --global commit.template ~/.gitmessage.txt`
+    * Configura el archivo _.gitmessage.txt_ como  plantilla para la escritura de commits de forma global
+- `git config --global core.editor nombreEditor`
+    * Configura el editor por defecto para escritura de commits, por defecto es _Vim_
+    * Opciones _vim_, _emacs_, _nano_, personalizado: _"'c:/ruta/editor.exe' -w"~_
+- `git config --global core.pager paginador`
+    * Cuando se muestra un log o diff, git utiliza por defecto _less_, se puede configurar _more_ o incluso `''` para no utilizar ningún paginador y mostrar todo el contenido directamente
+- `git config --global core.excludesfile ~/.gitignore_global`
+    * Configura de forma global el archivo _.gitignore\_global_, funciona como un archivo _.gitignore_ pero de forma global
+- `git config --global help.autocorrect tiempo`
+    * Cuando se establece esta configruación, git intenta corregir el error en el comando escrito, la unidad de tiempo establecida es en _100ms_, si se coloca 50, el tiempo de espera hasta la ejecución del comando es de _5s_
+- `git config --global core.autocrlf valor`
+    * Git convierte automáticamente los finales CRLF en LF al hacer confirmaciones de cambios (commit); y, viceversa, al extraer código (checkout) a la carpeta de trabajo.
+    * Si se trabaja en Windows, colocar `true`, para convertir finales LF en CRLF cuando se extraiga código (checkout)
+    * Si se trabaja en Linux o Mac, entonces no es de interés convertir automáticamente los finales de línea al extraer código, sino indicar a Git que convierta CRLF en LF al confirmar cambios (commit) con un valor `input`
+    * Si se trabaja en un entorno donde solo haya máquinas Windows, puedes desconectar esta funcionalidad, para almacenar CRLFs en el repositorio. Ajustando el parámero a `false`
+- `git config --global core.whitespace opciones`
+    * Git viene preajustado para detectar y resolver algunos de los problemas más típicos relacionados con los espacios en blanco. Puede vigilar seis tipos de problemas de espaciado: tres los tiene activados por defecto  y tres vienen desactivados por defecto.
+    * Los que están activos de forma predeterminada son `blank-at-eol`, que busca espacios al final de la línea; `blank-at-eof`, que busca líneas en blanco al final del archivo y `espace-before-tab`, que busca espacios delante de las tabulaciones al comienzo de una línea.
+    * Los que están inactivos de forma predeterminada son `ident-with-non-tab`, que busca líneas que empiezan con espacios en blanco en lugar de tabulaciones (y se controla con la opción _tabwidth_); `tab-in-indent`, que busca tabulaciones en el trozo indentado de una línea; y `cr-at-eol`, que informa a Git de que los CR al final de las líneas son correctos.
+    * Para activar o desactivar, usar los valores on/off separados por comas. Se Pueden desactivar dejándolos fuera de la cadena de ajustes, como añadiendo el prefijo `-` delante del valor.
 
 ### Cambiando el usuario que realiza commits
 - Ir a las credenciales de windows, buscar las credenciales de Git y/o GitHub y eliminarlas, o en su caso, modificarlas
