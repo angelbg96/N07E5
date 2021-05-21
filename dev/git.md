@@ -208,6 +208,43 @@ ___
     * `--abort` : Salir del proceso
 
 ___
+## Git Hooks
+- Los hooks son scripts que se ejecutan automáticamente cada vez que ocurre un evento en particular en un repositorio de Git. Permiten personalizar el comportamiento interno de Git y desencadenar acciones personalizables en puntos clave del ciclo de vida del desarrollo.
+- Los casos de uso incluyen alterar el entorno del proyecto según el estado del repositorio e implementar flujos de trabajo de integración continua, automatizar u optimizar prácticamente cualquier aspecto de su flujo de trabajo de desarrollo.
+- Los hooks pueden residir en repositorios locales o del lado del servidor, y solo se ejecutan en respuesta a acciones en ese repositorio.
+- Los hooks residen en el directorio _.git/hooks_ de cada repositorio de Git. Los hooks deben tener permisos de ejecucicón del SO
+- Puede utilizar cualquier lenguaje de secuencias de comandos que desee siempre que se pueda ejecutar. La línea shebang (`#!/bin/sh`) en cada secuencia de comandos define cómo se debe interpretar su archivo. Para usar un lenguaje diferente, se debe cambiar a la ruta de su intérprete. Ejemplo: `#!/usr/bin/env python`
+- Mantener enlaces para un equipo de desarrolladores puede ser un poco complicado porque el directorio _.git/hooks_ no se clona con el resto del proyecto, ni está bajo el control de versiones. Una solución simple es almacenar los hooks en el directorio del proyecto. Para instalar el hook, puede crear un enlace simbólico en _.git/hooks_ o simplemente copiarlo y pegarlo en el directorio cada vez que se actualice.
+- Hooks que se pueden configurar:
+    * Los primeros 4 ganchos permiten conectarse a todo el ciclo de vida de la confirmación, y los 2 finales permiten realizar algunas acciones adicionales o verificaciones de seguridad para los comandos `git checkout` y `git rebase`.
+    * Todos los hooks _pre_ permiten modificar la acción que está a punto de tener lugar, mientras que los _post_ se utilizan solo para notificaciones.
+    * __pre-commit__. Se ejecuta cada vez que ejecuta `git commit` antes de que Git le pida al desarrollador un mensaje de confirmación o genere un objeto de confirmación. Puede utilizar este hooks para inspeccionar la instantánea que está a punto de confirmarse, ejecutar algunas pruebas automatizadas que se aseguren de que la confirmación no interrumpa ninguna funcionalidad existente. No se pasan argumentos al hook y si termina con un estado distinto de cero aborta toda la confirmación. 
+    * __prepare-commit-msg__. Se llama después del hook _pre-commit_ para llenar el editor de texto con un mensaje de confirmación. Este es un buen lugar para modificar los mensajes de confirmación generados automáticamente para confirmaciones pull-request o fusionadas. Se pasan de uno a tres argumentos al prepare-commit-msgscript:
+        + El nombre de un archivo temporal que contiene el mensaje. Cambia el mensaje de confirmación modificando este archivo en el lugar.
+        + El tipo de compromiso. Esto puede ser message (-m o -F), template (-t), merge (si la confirmación es una confirmación de fusión) o squash (si la confirmación es un pull-request).
+        + El hash SHA1 de la confirmación relevante. Sólo si se da la opción -c, -C o --amend.
+        + Si el hook termina con un estado distinto de cero aborta la confirmación.
+    * __commit-msg__. Se llama después de que el usuario ingresa un mensaje de confirmación. Este es un lugar apropiado para advertir a los desarrolladores que su mensaje no se adhiere a los estándares de su equipo. El único argumento que se pasa a este hook es el nombre del archivo que contiene el mensaje. Si no le gusta el mensaje que ingresó el usuario, puede alterar este archivo en el lugar (al igual que con prepare-commit-msg) o puede abortar la confirmación por completo saliendo con un estado distinto de cero.
+    * __post-commit__. Se llama inmediatamente después del hook `commit-msg`. No puede cambiar el resultado de la operación `git commit`, por lo que se usa principalmente con fines de notificación. El script no toma parámetros y su estado de salida no afecta la confirmación de ninguna manera. Para la mayoría de los scripts `post-commit`, querrá acceder a la confirmación que se acaba de crear. Puede usar `git rev-parse HEAD` para obtener el hash SHA1 de la nueva confirmación, o puede usar `git log -1 HEAD` para obtener toda su información.
+    * __post-checkout__. Funciona de manera muy similar al hook _post-commit_, pero se llama siempre que verifica con éxito una referencia con `git checkout`. Esto es bueno para limpiar su directorio de trabajo de archivos generados que de otra manera causarían confusión. Este gancho acepta tres parámetros y su estado de salida no afecta al git checkoutcomando.
+        + La referencia del HEAD anterior
+        + La referencia del nuevo HEAD
+        + Una bandera que le indica si se trató de un checkout de rama o de un archivo. La bandera será 1 y 0, respectivamente.
+    * __pre-rebase__. Se llama antes de que `git rebase` cambie algo, por lo que es un buen lugar para asegurarse de que no suceda algo terrible. Este gancho toma 2 parámetros: 
+        + La rama ascendente desde la que se bifurcó la serie y la rama que se está rebasando.
+        + El segundo parámetro está vacío si el rebase es sobre la rama actual.
+        + Para abortar el rebase, salga con un estado distinto de cero.
+- Hooks del lado del servidor. Funcionan igual que los locales, excepto que residen en repositorios del lado del servidor (un repositorio central o un repositorio público de un desarrollador). Cuando se adjuntan al repositorio oficial, algunos de estos pueden servir como una forma de hacer cumplir la política al rechazar ciertas confirmaciones. Existen 3 ganchos:
+    * Los hooks permiten reaccionar en diferentes etapas del proceso `git push`. La salida de los hooks del lado del servidor se envía a la consola del cliente, por lo que es muy fácil enviar mensajes al desarrollador. Pero, también debe tener en cuenta que estos scripts no devuelven el control del terminal hasta que terminan de ejecutarse, por lo que debe tener cuidado al realizar operaciones de larga duración.
+    * __pre-receive__. Se ejecuta cada vez que alguien usa `git push` para enviar confirmaciones al repositorio. Siempre debe residir en el repositorio remoto que es el destino del envío. El hook se ejecuta antes de que se actualicen las referencias, por lo que es un buen lugar para hacer cumplir cualquier tipo de política de desarrollo que desee. Si no le gusta quién realiza el push, cómo está formateado el mensaje de confirmación o los cambios contenidos en la confirmación, puede rechazarlo. No puede evitar que los desarrolladores realicen confirmaciones mal formadas, puede evitar que estas confirmaciones ingresen al código base oficial. El script no toma parámetros, pero cada referencia que se empuja se pasa al script en una línea separada en la entrada estándar. Si se hace push de varias referencias, y el hook devuelve un estado distinto de cero se cancelan todas.
+    * __update__. Se llama después _pre-receive_ y funciona de la misma manera, se llama por separado para cada referencia que se hizo push. Eso significa que si el usuario intenta empujar 4 ramas, el hook se ejecuta 4 veces. Acepta los siguientes 3 argumentos:
+        + El nombre de la referencia que se está actualizando
+        + El nombre del objeto antiguo almacenado en la referencia
+        + El nuevo nombre del objeto almacenado en la referencia
+        + Puede rechazar algunas referencias y permitir otras
+    * __post-receive__. Se ejecuta después de una operación de inserción exitosa, lo que lo convierte en un buen lugar para realizar notificaciones. Enviar correos electrónicos a otros desarrolladores y activar un sistema de integración continua son casos de uso comunes. El script no toma parámetros, pero se envía la misma información que a _pre-receive_ través de la entrada estándar.
+
+___
 ## Configuraciones en GIT
 - Niveles de configuración
     * `--local` : De manera predeterminada, `git config` escribirá en un nivel local si no se pasa ninguna opción de configuración. Se aplica al repositorio en el que se invoca `git config`. Los valores de configuración locales se almacenan en un archivo que se puede encontrar en el directorio _.git_ del repositorio: _.git/config_
@@ -251,6 +288,7 @@ ___
     * `git config --global --add user.email ejemplo@correo.com`
         + Configurar los nuevos datos (username y correo)
 
+___
 ## Git Attributes
 - Algunos ajustes pueden ser especificados para una ruta (path) concreta, de tal forma que Git los aplicará únicamente para una carpeta o grupo de archivos determinado. Estos ajustes específicos se denominan atributos en Git, y se establecen mediante un archivo _.gitattributes_ en uno de los directorios del proyecto (normalmente en la raíz del proyecto), o mediante el archivo _git/info/attributes_.
 - Por medio de los atributos, se pueden indicar diferentes estrategias de fusión para archivos o carpetas concretas del proyecto, decirle a Git cómo comparar archivos no textuales, o indicar a Git que filtre ciertos contenidos antes de guardarlos o de extraerlos del repositorio.
