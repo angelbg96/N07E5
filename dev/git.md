@@ -34,6 +34,15 @@
         + Agregar todos los archivos nuevos o modificados al siguiente commit
     * `git commit -am "mensaje corto"`
         + Agrega todos los archivos nuevos o modificados y escribe un mensaje corto en el commit
+- `git tag`
+    * Permite añadir un identificador textual a un commit
+    * `git tag` : Muestra los tags creados
+    * `git tag -l "nombreTag*"` : Muestra y filtra los tags con cierto texto en particular
+    * `git tag nombreTag hashcommit` : Crea un tag para el commit indicado
+    * `git tag nombreTag -d` : Borra el tag indicado
+    * `git tag -f nombreRama` : Actualziar una etiqueta existente
+    * `git tag -a nombreTag` : Crea un tag a la que se le añade una descripción más extensa (como un commit)
+    * `git push origin nombreEtiqeta` : Enviar etiqueta al repositorio remoto
 - `git checkout archivo.ext` || `git checkout -- archivo.ext` || `git restore archivo.ext`
     * Deshace los últimos cambios del archivo respecto al último commit realizado
     * `git checkout -f`
@@ -81,7 +90,7 @@
     * `-sn --all` : Todos los commits (también los borrados)
     * `-sn --all --no-merges` : Muestra cuantos commit han hecho cada miembro quitando los merges
 - `git blame archivo`
-    * Visualizar los cambios realizados por los miebros del equipo en un determinado archivo
+    * Visualizar los cambios realizados por los miembros del equipo en un determinado archivo
     * `-c` : Muestra quien ha hecho cambios en dicho archivo identado
     * `-Llin_inicial,lin_final -c` : Muestra quien escribio el codigo desde _lin\_inicial_ a _lin\_final_ con un formato legible
 -  `git show hashCommit:rutaArchivo`
