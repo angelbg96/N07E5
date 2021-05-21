@@ -241,3 +241,84 @@ ___
     * `git config --global --add user.name nuevoUsuario`
     * `git config --global --add user.email ejemplo@correo.com`
         + Configurar los nuevos datos (username y correo)
+
+## Git Attributes
+- Algunos ajustes pueden ser especificados para una ruta (path) concreta, de tal forma que Git los aplicará únicamente para una carpeta o grupo de archivos determinado. Estos ajustes específicos se denominan atributos en Git, y se establecen mediante un archivo _.gitattributes_ en uno de los directorios del proyecto (normalmente en la raíz del proyecto), o mediante el archivo _git/info/attributes_.
+- Por medio de los atributos, se pueden indicar diferentes estrategias de fusión para archivos o carpetas concretas del proyecto, decirle a Git cómo comparar archivos no textuales, o indicar a Git que filtre ciertos contenidos antes de guardarlos o de extraerlos del repositorio.
+- Cada línea del archivo tiene la forma: `pattern attr1 attr2 ...`
+- Los espacios en blanco iniciales y finales se ignoran
+- Las líneas que comienzan con `#` se ignoran
+- Cuando el patrón coincide con la ruta en cuestión, los atributos enumerados en la línea se asignan a la ruta
+- Cuando más de un patrón coincide con la ruta, la línea posterior anula la línea anterior.Esta anulación se hace por atributo.
+- Los patrones negativos están prohibidos
+- Los patrones que coinciden con un directorio no coinciden recursivamente con las rutas dentro de este (usar `path/` no tiene efecto, usar `path/**` en su lugar)
+- Cada atributo puede estar en alguno de estos estados para cada ruta:
+    * _Set_ : La ruta tiene el atributo con valor especial "true"; esto se especifica listando sólo el nombre del atributo en la lista de atributos.
+    * _Unset_ : La ruta tiene el atributo con valor especial "falso"; esto se especifica enumerando el nombre del atributo con el prefijo de un guión `-` en la lista de atributos.
+    * _Set to a value_ : La ruta tiene el atributo con un valor de cadena especificado; esto se especifica enumerando el nombre del atributo seguido de un signo `=` y su valor en la lista de atributos.
+    * _Unspecified_ : Ningún patrón coincide con la ruta, y nada dice si la ruta tiene o no el atributo, se dice que el atributo no está especificado.
+- Check-out y check-in. Estos atributos afectan la forma en que los contenidos almacenados en el repositorio se copian en los archivos del árbol de trabajo cuando se ejecutan comandos como `git switch`, `git checkout` y `git merge`. También afectan la forma en que Git almacena el contenido que se prepara en el árbol de trabajo en el repositorio después de `git add` y `git commit`.
+
+### Text
+- Habilita y controla la normalización de final de línea en el directorio de trabajo, use el atributo `eol` para un solo archivo y la variable de configuración `core.eol` para todos los archivos de texto. Tenga en cuenta que la configuración `core.autocrlf = true | input` anula `core.eol`
+- _Set_ : Habilita la normalización de final de línea y marca la ruta como un archivo de texto. La conversión de final de línea se realiza sin adivinar el tipo de contenido.
+- _Unset_ : Le indica a Git que no intente ninguna conversión de final de línea.
+- _Set to a value_ : "auto". La ruta se marca para la conversión automática de final de línea. Si Git decide que el contenido es texto, sus finales de línea se convierten a LF. Cuando el archivo se ha confirmado con CRLF, no se realiza ninguna conversión.
+- _Unspecified_ : Si no está especificado, Git usa la variable de configuración _core.autocrlf_ para determinar si el archivo debe convertirse.
+- `eol`
+    * Este atributo establece un estilo de final de línea específico que se utilizará en el directorio de trabajo. Permite la conversión de final de línea sin ninguna verificación de contenido.
+    * _Set to a value_ : "crlf". Este ajuste obliga a Git a normalizar las terminaciones de las líneas de este archivo en CRLF.
+    * _Set to a value_ : "lf". Este ajuste obliga a Git a normalizar las terminaciones de línea a LF.
+~~~ yml
+    *           text=auto
+    *.txt       text
+    *.vcproj    text eol=crlf
+    *.sh        text eol=lf
+    *.jpg       -text
+~~~
+
+### Archivos binarios
+Indicarle a Git cuáles archivos son binarios (en los casos en que Git no podría llegar a determinarlo por sí mismo), dándole a Git instrucciones especiales sobre cómo tratar estos archivos. Por ejemplo, algunos archivos de texto se generan automáticamente y no tiene sentido compararlos; mientras que algunos archivos binarios sí que pueden ser comparados. Con esto, Git no intentará convertir ni corregir problemas CRLF en los finales de línea, ni intentará hacer comparaciones ni mostar diferencias de este archivo cuando se ejecuten comandos `git show` o `git diff` en el proyecto.
+- `*.ext binary`
+    * Indica a git que trate archivos con determinada extensión como archivos binarios
+- `*.ext diff=nombreHerramienta`
+    * Indica a Git que herramienta debe utilizar para comparar los cambios en un archivo
+    * Para establecer una herramienta personalizada para comparar archivos bianrios `git config diff.nombreHerramienta.textconv programa`
+
+### working-tree-encoding
+- Git reconoce archivos codificados en ASCII o uno de sus superconjuntos (UTF-8, ISO-8859-1) como archivos de texto. Los archivos codificados en otras codificaciones (por ejemplo UTF-16) se interpretan como binarios y, por lo tanto, las herramientas de procesamiento de texto Git integradas (por ejemplo, git diff ), así como la mayoría de las interfaces web de Git no visualizan el contenido de estos archivos de forma predeterminada.
+- Puede decirle a Git la codificación de un archivo en el directorio de trabajo, Git vuelve a codificar el contenido de la codificación especificada a UTF-8.
+- Las implementaciones alternativas de Git (JGit o libgit2) y las versiones anteriores de Git (a partir de marzo de 2018) no admiten este atributo. Si decide utilizar el atributo, se recomienda  asegurarse de que todos los clientes que trabajan con el repositorio lo admitan.
+- Volver a codificar contenido a codificaciones que no sean UTF puede provocar errores, ya que es posible que la conversión no sea segura para el viaje de ida y vuelta UTF-8. Si sospecha que su codificación no es segura de ida y vuelta, agréguela a `core.checkRoundtripEncoding` para que Git verifique la codificación de ida y vuelta.
+- Use este atributo solo si no puede almacenar un archivo en codificación UTF-8 y si desea que Git pueda procesar el contenido como texto.
+- Uso: `*.ext   text working-tree-encoding=UTF-16LE eol=CRLF`
+
+### Filtros
+- Se puede escribir filtros personalizados para realizar sustituciones en los archivos al guardar o recuperar (commit/checkout). Se trata de los filtros “clean” y “smudge”.
+- Se indican filtros para carpetas o archivos determinados y luego preparar scripts personalizados para procesarlos justo antes de confirmar cambios en ellos (“clean”), o justo antes de recuperarlos (“smudge”).
+- `*.ext filter=nombreFiltro`
+    * Establece el atributo a archivos con determinada extensión
+- Estableciendo los filtros en las configuraciones
+    * `git config filter.nombreFiltro.smudge programa | script`
+    * `git config filter.nombreFiltro.clean 'comando'`
+
+### Exportación del repositorio
+- Se puede indicar a Git que ignore y no exporte ciertos archivos o carpetas cuando genera un archivo de almacenamiento. Cuando se tiene alguna carpeta o archivo que no se desea incluir en los registros, pero que se quiere tener controlado en el proyecto.
+- Cada vez que se ejecute el comando `git archive` para crear un archivo comprimido del proyecto, esa carpeta no se incluirá en él.
+- Uso: `patron export-ignore`
+- Otra cosa que se puede realizar sobre los archivos es algún tipo de sustitución simple de claves. Git te permite poner la cadena `$Format:$` en cualquier archivo, con cualquiera de las claves de formateo de `--pretty=format`
+- Por ejemplo, si se desea incluir un archivo llamado _LAST\_COMMIT_ en el proyecto, y poner en él automáticamente la fecha de la última confirmación de cambios cada vez que se ejecute el comando `git archive`
+~~~ bash
+echo 'Last commit date: $Format:%cd$' > LAST_COMMIT
+echo "LAST_COMMIT export-subst" >> .gitattributes
+git add LAST_COMMIT .gitattributes
+git commit -am 'adding LAST_COMMIT file for archives'
+~~~
+
+### Estrategias de fusión (merge)
+- Una opción muy útil es la que permite indicar a Git que no intente fusionar ciertos archivos concretos cuando tengan conflictos, manteniendo en su lugar los archivos principales sobre los de cualquier otro.
+- Puede ser interesante si una rama del proyecto es divergente o esta especializada, pero se desea seguir siendo capaz de fusionar cambios de vuelta desde ella, e ignorar ciertos archivos. Si hay un archivo modificado en las dos ramas, y se desea fusionar en la otra rama sin perturbarlo:
+    * `archivo.ext merge=ours`
+    * Se define una estrategia ours con: `git config --global merge.ours.driver true`
+    * Con esto, se realiza un auto merging recursivo
+
