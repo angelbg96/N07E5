@@ -99,15 +99,25 @@
     * `npm i nombreModulo --save` : instala el módulo en el proyecto actual y actualiza el archivo _package.json_
     * `npm uninstall nombreModulo --save` : desinstala el módulo en el proyecto actual y actualiza el archivo _package.json_
 - El archivo _package.json_ contiene metadatos, configuraciones, scripts y dependecias del proyecto.
-    * Como metadatos está el nombre del proyecto, número de versión, autor, descripción, keywords y licencia
+    * Como metadatos está el nombre del proyecto, número de versión, autor, descripción, keywords (separados por comas) y licencia
     * Como configuración está el archivo de entrada (primer archivo a ejecutarse), repositorio de control de versiones y scripts, que le indican a npm que debe ejecutar un comando bajo algún nombre como keyword "start", "test" (`npm start`), o keyword "personalizado" (`npm run personalizado`).
     * Como dependencias se encuentran el nombre y versión de los módulos, además de que también existe una sección de dependencias exclusivamente de desarrollo
 - El archivo _package-lock.json_ es un archivo generado automáticamente cuando se instalan paquetes o dependencias en el proyecto. Su finalidad es mantener un historial de los paquetes instalados y optimizar la forma en que se generan las dependencias del proyecto y los contenidos de la carpeta _node\_modules/_
+- Crear configuraciones default:
+    ~~~ bash
+    npm set init.author.email "your@email.com" # Establece el email
+    npm set init.author.name "your name" # Establece el nombre del autor
+    npm set init.license "MIT" # Establece la licencia MIT
+    ~~~
 - Actualizar Node con NPN:
-    ~~~ js
-    npm cache clean -f // borra cache
-    npm install -g n // instala el módulo "n" de forma global
-    n estable // Instala la última versión estable de Node, también se puede especificar una versión con #.#.#
+    ~~~ bash
+    npm cache clean -f # borra cache
+    npm install -g n # instala el módulo "n" de forma global
+    n estable # Instala la última versión estable de Node, también se puede especificar una versión con #.#.#
+    ~~~
+- Actualizar NPM:
+    ~~~ bash
+    npm install@latest -g
     ~~~
 
 
