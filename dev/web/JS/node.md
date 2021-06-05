@@ -1,6 +1,30 @@
 # Node JS
 
 - Se ejecuta a través del motor V8 de Chrome, que interpreta el código JS para convertirlo en  lenguaje máquna. Está escrito en C++
+    * Funcionamiento:
+    * Genera un entorno Global
+        + Genera el objeto global, en el navegador es `window`
+        + Genera la variable `this`, depende del contexto donde se esté llamando. por default su valor es `windows`
+        + Contexto de ejecución: Ejecuta el código JS a través de un stack de tareas.
+    * Interacción V8 con Navegador
+        + Parseo: Busca en el documento JS las _keywords_ del lenguaje
+        + AST (Arbol de Sintaxis Abstracta) : JS genera un arbol sintáxico del documento para que después lo pueda interpretar en el navegador
+        + Interpretar: Genera código Bytecode. Si el intérprete se da cuenta que hay código que se puede optimizar, un Profiler (monitor) lo intenta refactorizar, lo compila y regresa el bytecode optimizado
+    * Hoisting : El motor de JS intenta ayudar en la optimización del código, que por malas práticas puede ocasionar errores en la ejecución del código. Sucede con variables y funciones
+        + Si se llama una variable antes de ser declarada, el compilador crea la variable en la _memory heap_ y la inicializa como _undefined_
+        + Con las funciones, primero se llaman a las funciones antes de ejecutarlas.
+        + El hoisting funciona pero no se tiene el control de las variables que se van a cambiar
+        + Si se llama a una constante (const) antes de inicializar retorna un error de tipo: _Uncaught ReferenceError_, que corresponde a variables que son referenciadas pero no pudieron ser capturadas
+    * Ejecución:
+        + _Memory Heap_ : Las variables y constantes se guardan en este espacio de memoria
+        + _Call Stack_ : Espacio de memoria que apila las tareas (llamados a funciones) una tras otra (LIFO). Se ejecuta una tarea a la vez y al terminar, se quita del stack
+        + _Garbage Collection_ : Cuando hay elementos que ya no se están llamando, el _Engine_ las marca (mark) y las limpia (Sweep). p.ej. al sobreescribir el valor de una variable
+        + _Stack Overflow_ : Se genera cuando el _call stack_ se llena completamente (pila de tareas).Esto pasa cuando se trabaja con bucles infinitos, recurcividad y funciones
+    * JS Runtime
+        + Memory Heap y Call Stack
+        + Web APIs
+        + Callback Queue. Cuando hay funciones que no le corresponden a JS sino al navegador o SO lo delega y JS continúa ejecutando las tareas del _call stack_, al terminar de ejecutarse la función delegada, se coloca en esta lista (fila de espera)
+        + Event Loop. Monitorea constantemente (watcher) el _call stack_ y el _callback queue_, en cuanto una tarea del _callback queue_ ha terminado, la coloca en el _call stack_ para ser atendida
 - Basado en módulos, para añadir funcionalidad se deben importar
 - Existen módulos globales como: _console_, _module_, _interval_, _timeout_, _require()_
 - `node ruta/archivo.js` : Ejecuta un script
