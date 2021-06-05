@@ -1,6 +1,6 @@
 # Node JS
 
-- Se ejecuta a través del motor V8 de Chrome, que interpreta el código JS para convertirlo en  lenguaje máquna. Está escrito en C++
+- Se ejecuta a través del motor V8 de Chrome, que interpreta el código JS para convertirlo en  lenguaje máquna (Bytecode). Está escrito en C++
     * Funcionamiento:
     * Genera un entorno Global
         + Genera el objeto global, en el navegador es `window`
@@ -10,16 +10,17 @@
         + Parseo: Busca en el documento JS las _keywords_ del lenguaje
         + AST (Arbol de Sintaxis Abstracta) : JS genera un arbol sintáxico del documento para que después lo pueda interpretar en el navegador
         + Interpretar: Genera código Bytecode. Si el intérprete se da cuenta que hay código que se puede optimizar, un Profiler (monitor) lo intenta refactorizar, lo compila y regresa el bytecode optimizado
-    * Hoisting : El motor de JS intenta ayudar en la optimización del código, que por malas práticas puede ocasionar errores en la ejecución del código. Sucede con variables y funciones
+    * Hoisting : Es el proceso que realiza el motor de JS de colocar las declaraciones de variables y funciones hasta arriba de nuestro código, almacenándolas así previamente en memoria dentro de un contexto de ejecución. El motor de JS intenta ayudar en la optimización del código, que por malas práticas puede ocasionar errores en la ejecución del código. Sucede con variables y funciones
         + Si se llama una variable antes de ser declarada, el compilador crea la variable en la _memory heap_ y la inicializa como _undefined_
         + Con las funciones, primero se llaman a las funciones antes de ejecutarlas.
         + El hoisting funciona pero no se tiene el control de las variables que se van a cambiar
         + Si se llama a una constante (const) antes de inicializar retorna un error de tipo: _Uncaught ReferenceError_, que corresponde a variables que son referenciadas pero no pudieron ser capturadas
     * Ejecución:
-        + _Memory Heap_ : Las variables y constantes se guardan en este espacio de memoria
+        + JS solo puede ejecutar una tarea a la vez
+        + _Memory Heap_ : Es el espacio de memoria donde se guardan objetos y funciones en bloques de memoria de forma arbitraría y sin un orden, los cuales pueden ser usados múltiples veces a través de una referencia única.
         + _Call Stack_ : Espacio de memoria que apila las tareas (llamados a funciones) una tras otra (LIFO). Se ejecuta una tarea a la vez y al terminar, se quita del stack
         + _Garbage Collection_ : Cuando hay elementos que ya no se están llamando, el _Engine_ las marca (mark) y las limpia (Sweep). p.ej. al sobreescribir el valor de una variable
-        + _Stack Overflow_ : Se genera cuando el _call stack_ se llena completamente (pila de tareas).Esto pasa cuando se trabaja con bucles infinitos, recurcividad y funciones
+        + _Stack Overflow_ : Se genera cuando el _call stack_ se llena completamente (pila de tareas). Esto pasa cuando se trabaja con bucles infinitos, recurcividad y funciones
     * JS Runtime
         + Memory Heap y Call Stack
         + Web APIs
