@@ -94,14 +94,35 @@
     * `npm init` : presenta asistente para inicializar un proyecto node, se crea archivo _package.json_
     * `npm install -g npm` : actualizar a una versión superior NPM de forma global
     * `npm install -g nombreModulo` : Instala el módulo de forma global
-    * `npm i nombreModulo` : Instala el módulo en el directorio actual
+    * `npm i nombreModulo@#.#.#` : Instala el módulo en el directorio actual con el número de versión especificada
     * `npm i` : instala los módulos indicados en el archivo _package.json_
-    * `npm i nombreModulo --save` : instala el módulo en el proyecto actual y actualiza el archivo _package.json_
+    * `npm i nombreModulo --save` | `npm i nombreModulo -S` : instala el módulo en el proyecto actual y actualiza el archivo _package.json_
     * `npm uninstall nombreModulo --save` : desinstala el módulo en el proyecto actual y actualiza el archivo _package.json_
+    * `npm uninstall nombreModulo --no-save` : desinstala el módulo en el proyecto actual sin actualizar el archivo _package.json_
+    * `npm i nombreModulo --save-dev` | `npm i nombreModulo -D` : Agrega una dependencia únicamente para el ambiente de desarrollo
+    * `npm i nombreModulo -O` : Indica que la instalación de ese módulo es opcional
+    * `npm i nombreModulo --dry-run` : Simula la instalación del módulo, muestra los detalles de la isntalación aunque no se haya efectuado
+    * `npm list` : Muestra el listado de los módulos instalados en el proyecto
+    * `npm list -g --depth 0` : Listado de módulos instalados de forma global
+    * `npm outdate` : Muestra los módulos que pueden estar desactualizados. Con el flag `--dd` se puede obtener una salida más detallada
+    * `npm update` : Realiza la actualziación de todos los paquetes desactualizados
+    * `npm update nombreModulo@latest` : Realiza la actualziación del paquete señalado en la última versión 
+    * `npm cache clean --force` : Borra el cache de los módulos instalados
+    * `npm cache verify` : Valida que el cache se encuentre limpio
+    * `npm audit` : Revisa las vulnerabilidades de los paquetes instalados y su impacto
+        * `npm audit --json` : Realiza la auditoría y entrega el resultado en JSON
+    * `npm audit fix` : Actualiza todos los paquetes que tienen vulnerabilidades
 - El archivo _package.json_ contiene metadatos, configuraciones, scripts y dependecias del proyecto.
     * Como metadatos está el nombre del proyecto, número de versión, autor, descripción, keywords (separados por comas) y licencia
     * Como configuración está el archivo de entrada (primer archivo a ejecutarse), repositorio de control de versiones y scripts, que le indican a npm que debe ejecutar un comando bajo algún nombre como keyword "start", "test" (`npm start`), o keyword "personalizado" (`npm run personalizado`).
     * Como dependencias se encuentran el nombre y versión de los módulos, además de que también existe una sección de dependencias exclusivamente de desarrollo
+        + ` ` : Vacío, mantiene la versión del paquete estática
+        + `^` : Actualiza la versión del paquete de cambios menores y parches
+        + `~` : Actualiza la versión del paquete solamente en parches
+        + `<` : Versión menor a la indicada
+        + `<=` : Versión menor o igual a la indicada
+        + `>` : Versión mayor a la indicada
+        + `>=` : Versión mayor o igual a la indicada
 - El archivo _package-lock.json_ es un archivo generado automáticamente cuando se instalan paquetes o dependencias en el proyecto. Su finalidad es mantener un historial de los paquetes instalados y optimizar la forma en que se generan las dependencias del proyecto y los contenidos de la carpeta _node\_modules/_
 - Crear configuraciones default:
     ~~~ bash
@@ -119,5 +140,24 @@
     ~~~ bash
     npm install@latest -g
     ~~~
-
+- Crear un módulo de NPM:
+    * Iniciar un proyecto Git y conectarlo al repositorio remoto y luego iniciar proyecto Node
+    * Escribir un Readme
+    * Crear la carpeta _bin_ y dentro el archivo global.js establecer la _shebang line_ como `#!/usr/bin/env node` y utilizar el módulo
+    * En el archivo _package.json_ agregar
+    ~~~ json
+    "bin" : {
+        "nombre-modulo" : "./bin/global.js"
+    },
+    "preferGlobal" : true,
+    ~~~
+    * `npm link` : Ejecutar el comando en el directorio del proyecto, con esto, se instala de forma global y realiza análisis de vulnerabilidades
+        + `npm i -g ruta/proyecto` : Si se realizan cambios en el proyecto, volver a instalar el paquete
+    * Registrarse en NPM para publicar paquete
+        + `npm adduser` : Agregar credenciales de NPM -> username, password, email
+    * `npm publish` : Ejecutar en la carpeta del proyecto, se publica paquete en NPM
+    * Al realizar cambios en el proyecto, se debe actualizar su versión con los siguientes comandos, automáticamente se actualiza el archivo _package.json_ y volver a publicar:
+        + `npm version patch` : Actualiza la versión en la sección de parches
+        + `npm version minor` : Actualiza la versión en la sección de cambio menor
+        + `npm version major` : Actualiza la versión en la sección de cambio mayor
 
