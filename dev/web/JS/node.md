@@ -38,6 +38,32 @@
     * `module.exports = obj` : exporta todo un objeto o función. Si se trata de un objeto es como si se exportara una a una sus propiedades (`exports.prop = valor`)
 - Módulos del core de Node: _file system_, _os_, _net_, _process_, _http_, _https_, _path_, _repl_, entre otros más
 - Las funciones del core de Node normalmente son asíncronas, por lo que se le puede mandar un _callback_ como parámetro para que al final de su ejecicón informe si se obtuvo un error o realizar alguna notificación, pero en algunos casos existe su versión síncrona
+- Nueva sintaxis:
+    * Exportar
+        ~~~ js
+        export function hello() {
+	        return 'Hello!'
+        }
+
+        export const bye = 'Bye!'
+        ~~~
+    * Importar
+        ~~~ js
+        /** Una a una cada propiedad / función
+         * Con la posibilidad de reenombrar alguna propiedad
+         */
+        import { hello, bye as byeGreeting } from './module'
+
+        console.log(hello())
+        console.log(byeGreeting)
+        ~~~
+        ~~~ js
+        // Todo el módulo
+        import * as allGreetings from './module'
+
+        console.log(allGreetings.hello())
+        console.log(allGreetings.bye)
+        ~~~
 
 ## NPM
 - Es el gestor de dependencias de Node, la mejor forma de añadir dependencias es con:
