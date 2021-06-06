@@ -56,8 +56,8 @@
     * exec expr: Ejecuta una expresión dentro del contexto del script en ejecución
 
 ## Modulos
-- `const nombreCTE = require(modulo)` : Importar un módulo instalado en el proyecto o en el sistema, generalmente se trata de un objeto con múltiples propiedades y funciones
-- `const nombreCTE = require(./ruta/archivo.js)` : Importar un módulo JS de nuestro mismo proyecto
+- `const nombreCTE = require('modulo')` : Importar un módulo instalado en el proyecto o en el sistema, generalmente se trata de un objeto con múltiples propiedades y funciones
+- `const nombreCTE = require('./ruta/archivo.js')` : Importar un módulo JS de nuestro mismo proyecto
 - `nombreCTE.prop` : Modo de uso de la variable, objeto, arreglo o función del módulo importado
 - `exports.prop = valor` : Modo de exportar un valor, variable, objeto, arreglo o función de la definición de un módulo. Si no se exporta alguna variable o función, esa propiedad no estará definida en el script que importa este módulo
     * `module.exports = obj` : exporta todo un objeto o función. Si se trata de un objeto es como si se exportara una a una sus propiedades (`exports.prop = valor`)
@@ -89,6 +89,19 @@
         console.log(allGreetings.hello())
         console.log(allGreetings.bye)
         ~~~
+### Uso de módulos
+- `child_process` : Tiene dos funciones `spawn` y `exec`, mediante las cuales se inicia un proceso secundario para ejecutar otros programas en el sistema. La diferencia entre estas es que `spawn` devuelve un _stream_ y `exec` devuelve un _buffer_.
+    * Usar `spawn` cuando se quiera que el proceso hijo devuelva datos binarios enormes a Node y cuando se quiera recibir datos desde que el proceso arranca.
+    * Usar `exec` cuando se quiera que el proceso hijo devuelva mensajes de estado simples o cuando solo se quiera recibir datos al final de la ejecución.
+
+## Variables de Entorno
+- El script se debe ejecutar de la siguiente manera: `VAR1=valor VAR2=valor node script.js`
+- Para obtener los valores de las va. se codifica:
+    ~~~ js
+    const var1 = process.env.VAR1 || 'valor default'; // Buena práctica establecer un valor default por si no se pasa el valor de la variable con el script
+    const var2 = process.env.VAR2 || 0 ;
+    ~~~
+- También se pueden leer las variables desde un archivo _.env_ haciendo uso del módulo `dotenv`
 
 ## NPM
 - Es el gestor de dependencias de Node, la mejor forma de añadir dependencias es con:
