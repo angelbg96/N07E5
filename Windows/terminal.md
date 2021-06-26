@@ -59,6 +59,16 @@
     "startingDirectory" : "D:\\angel\\Documents"
 ~~~
 - O en su caso, realizar modificaciones por cada perfil (terminal)
+- Instalar un prompt
+    * Ir al sitio web oficial de [Oh My Posh](https://ohmyposh.dev/docs/)
+    * Utilizar una tipogrfía de [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
+    * Powershell
+        - `Get-PoshThemes` : Listar temas de terminal
+        - `Set-PoshPrompt -Theme nombreTema` : Establecer tema a la terminal
+        - Powershell: Guardar tema en el perfil del la terminal `notepad $PROFILE`
+    * Linux
+        - Seguir procedimiento de documentación
+        - Guardar configuración en archivo `~/.profile`
 
 
 ## Atajos de teclado
