@@ -1,12 +1,14 @@
 # Configuraciones de Visual Studio Code
 
 ## Extensiones
-- __Bracket Pair Colorizer__, _CoenraadS_ : para colorear los pares de paréntesis, llaves y corchetes
+- __Better Comments__, _Aaron Bond_ : Escribir comentarios que resultan visualmente más facil de leer y más descriptivos
+- __Bracket Pair Colorizer__, _CoenraadS_ : Colorear los pares de paréntesis, llaves y corchetes
 - __Live Server__, _Ritwick Dey_ : Servidor local para levantar proyectos web
 - __MinifiAll__, _Jose Garcia Berenguer_ : Minimizar código fuente en diferentes lenguajes de programación, muy útil para desarrollo web
 - __open in browser__, _TechER_ : Abrir el archivo actual en el navegador
 - __simple icons__, _Laurent Tréguiler_ : Iconos para visualizar los archivos fuente de distintos lenguajes
 - __SonarLint__, _SonarSource_ : Reglas para seguir buenas prácticas de desarrollo en diferentes lenguajes
+- __Thunder Client__, _Ranga Vadhineni_ : Cliente para solicitudes HTTP, es una GUI
 - __Go__, _Go Team at Google_ : Herramientas para soporte de Golang
 
 
