@@ -73,8 +73,9 @@
 
 ## Atajos de teclado
 - Cerrar una ventana `ctrl shift w`
+- Clonar panel actual `alt shift D`
 - Crear subventana a lado | abajo `alt shit +` | `-`
 - Cambiar tamaño de la ventana `alt shift ←`| `↑` | `→` | `↓`
 - Abrir una nueva ventana de acuerdo a su consecutivo en el menú de terminales `ctrl shift n`, n: 1, 2, ...
-- Navegar entre pestañas `ctrl shift tab`
-
+- Navegar entre pestañas `ctrl shift tab` || `alt ←`| `↑` | `→` | `↓`
+- Crear un panel de otra terminal en panel actual `click alt panel`
