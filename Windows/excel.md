@@ -103,5 +103,20 @@
     * Da la posibilidad de mostrar un mensaje de ayuda y un mensaje de error en caso de no cumplir con el criterio preestablecido
     * Si se decide utilizar una lista, se deben seleccionar el rango de celdas donde se encuentran los datos o personalizar una referencia a los datos p.ej. `= Etiq_miLista`
     * Si se elige la opción personalizada, se deben colocar las funciones en las que se vuelve partícipe la celda a evaluar. Debe retornar un valor lógico (Verdadero, Falso)
-    
+
+
+-------------------------
+## Casos de uso
+- Validar registros duplicados
+    * Formato condicional con fórmula: `CONTAR.SI(L_numeros, $celda2) > 1`
+        + Se debe utilizar una lista de nombres de la columna de interés
+        + La primer celda hace referencia a la columna de interés
+    * Validación de datos con fórmula: `+ CONTAR.SI(L_numeros, $celda2) = 1`
+        + Se debe utilizar una lista de nombres de la columna de interés
+        + Opcional: colcoar un mensaje personalizado de error
+- Colocar iconos en celdas con formato condicional
+    * Crear una tabla con valores 1 y 0, seleccionar las celdas y establecer un formato de celdas personalizada: `"si";;"no"`
+    * Crear tabla donde se van a utilizar los iconos y a los campos donde van a estar, establecer el mismo formato de celda personalizado. Opcionalmente utilizar validación de datos a partir de lista con los datos de la tabla anterior.
+    * Con el formato condicional y al ser números los verdaderos valores, establecer un icono para algo afirmativo y otro para algo negativo. Seleccionar la casilla para que solo se muestre el icono.
+
 
