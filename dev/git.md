@@ -316,8 +316,8 @@ ___
     * Este atributo establece un estilo de final de línea específico que se utilizará en el directorio de trabajo. Permite la conversión de final de línea sin ninguna verificación de contenido.
     * _Set to a value_ : "crlf". Este ajuste obliga a Git a normalizar las terminaciones de las líneas de este archivo en CRLF.
     * _Set to a value_ : "lf". Este ajuste obliga a Git a normalizar las terminaciones de línea a LF.
-~~~ yaml
-    \*           text=auto
+~~~ properties
+    *          text=auto
     *.txt       text
     *.vcproj    text eol=crlf
     *.sh        text eol=lf
