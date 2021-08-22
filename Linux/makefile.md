@@ -6,7 +6,7 @@ Es un comando que permite ejecutar comandos a partir de _reglas_ escritas en un 
 
 ### Reglas
 Tienen la siguiente sintaxis:
-~~~ yml
+~~~ yaml
 nombreRegla: dependencias
     orden
 ~~~
@@ -41,7 +41,7 @@ Se pueden definir variables para reutilizar y optimizar la escritura de argument
 - `make nombreRegla` : Ejecuta la regla especificada
 
 ## Ejemplo de un makefile
-~~~ yml
+~~~ yaml
 OBJS = main.o testing.o business.o model.o view.o \
 controller.o windows.o
 CFLAGS = -g -Wall

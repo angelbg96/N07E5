@@ -21,13 +21,13 @@
         caracter+
         ~~~
     * `{n, m}` indica el rango de ocurrencias permitido en el patrón, con la posibilidad de que sea igual a N ocurrencias, mayor a N número de ocurrencias o que esté entre N y M ocurrencias
-        ~~~ yml
+        ~~~ yaml
         N coinicdencias: patron{n}
         más de N coincidencias: patron{n,}
         entre N y M coincidencias: patron{n, m}
         ~~~
 - __Agrupación.__ Se utilizan los paréntesis `( )`, y sirve para agrupar una secuencia de caracteres o de patrones de búsqueda. Se complementa muy bien con las primeras dos operaciones
-    ~~~ yml
+    ~~~ yaml
     Ejemplo 1: carateres(patron1|patron2)
     Ejemplo 2: caracteres(patron)*
     Ejemplo 3: caracteres(patron1|patron2)+
@@ -42,7 +42,7 @@
 - `0-9` caracteres numéricos del cero al nueve
 - `À-ÿ` caracteres del alfabeto con tildes, virgulillas, diéresis, acentos circunflejos, etc
 - Operador ` ^ ` dentro y al principio del rango, indica que se buscarán todas las coincidencias excepto las indicadas en el rango, es un _not_ lógico
-~~~ yml
+~~~ yaml
 vocales: [aeiou]
 impares: [13579]
 extremos del alfabeto: [^h-t]
