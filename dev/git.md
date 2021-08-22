@@ -317,7 +317,7 @@ ___
     * _Set to a value_ : "crlf". Este ajuste obliga a Git a normalizar las terminaciones de las líneas de este archivo en CRLF.
     * _Set to a value_ : "lf". Este ajuste obliga a Git a normalizar las terminaciones de línea a LF.
 ~~~ yml
-    *           text=auto
+    \*           text=auto
     *.txt       text
     *.vcproj    text eol=crlf
     *.sh        text eol=lf

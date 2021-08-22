@@ -37,7 +37,7 @@ Para utilizarla :
 - Son envueltas por `$((operaciones))`
 - Soporta `+`, `-` , `*`, `/`, `%` (resto), ** (potenciación)
 - Aplicables entre literales y variables numéricas
-~~~bash
+~~~ bash
 var1=$((8*7))
 var2=$((3 ** $var1%2))
 ~~~
@@ -81,7 +81,7 @@ var2=$((3 ** $var1%2))
 
 ## Validaciones de variables
 - Con estructura condicional if :
-~~~bash
+~~~ bash
 if [ condiciones ]; then
     comandos
 elif [ condiciones ]; then
@@ -92,7 +92,7 @@ fi
 ~~~
 
 - Con estructura condicional switch (Case) :
-~~~bash
+~~~ bash
 case $var in
     caso1)
         comandos;;
@@ -134,7 +134,7 @@ esac
 
 ### Variables especiales
 - `$?` : Valor que devuelve la ejecución de un comando. 1 si falló, 0 si se ejecutó correctamente
-~~~bash
+~~~ bash
 comando param1 param2
 
 if [ $? -eq 0 ]; then
@@ -163,14 +163,14 @@ fi
 
 ### For
 - Ciclo iterativo indexado
-~~~bash
+~~~ bash
 for ((i=0; i<= 10; i++)); do
     comandos
 done
 ~~~
 
 - Recorrer una lista, cadena de texto cuyo _split_ son los espacios
-~~~bash
+~~~ bash
 lista="A 1 B 2 texto 3"
 
 for item in $lista; do
@@ -180,7 +180,7 @@ done
 
 ### While
 - Como ciclo iterativo indexado, es ejecutado mientras se cumpla la condición
-~~~bash
+~~~ bash
 contador=0
 
 while [ $contador -lt 10 ]; do
@@ -191,7 +191,7 @@ done
 
 ### Until
 - Similar a _while_, pero se va a ejecutar mientras la condición sea falsa
-~~~bash
+~~~ bash
 contador=0
 
 until [ $contador -gt 10 ]; do
@@ -202,7 +202,7 @@ done
 
 ### Select
 - Para crear menú de opciones
-~~~bash
+~~~ bash
 opciones="saludar reir salir"
 
 select opc in $opciones; do
@@ -222,7 +222,7 @@ done
 
 ## Funciones
 - Estructura
-~~~bash
+~~~ bash
 function nombreFX() {
     comandos
 }
