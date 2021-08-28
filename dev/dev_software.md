@@ -158,3 +158,18 @@ En el documento original se usa el __RFC 2119__ para el uso de las palabras _MUS
 - Una forma de implementar el patrón de diseño Observer
 - Obsevables. Flujos de datos, añade suscriptores al flujo de datos
 - Observadores. Módulos que consumen los flujos de datos. Implementan 3 métodos: reaccionar al siguiente valor, reaccionar a un error, reaccionar al informe de término del flujo de datos
+
+## Cuando refactorizar
+- Refactorizar después de 3 implementaciones de un mismo código. Posteriormente se utiliza el patrón DRY. Útil con equipos de desarrollo pequeños
+- Evaluación de costos operacionales: La refactorización...
+	1. ¿... Hará que la funcionalidad a implementar se implemente más rápido (inclyendo la refactorización)?
+	2. ¿... Permitirá corregir errores más rápido?
+	3. ¿Errores triviales toman días en resolveerse por la complejidad del código? ¿Sería mejor una re implementación?
+	4. ¿El equipo entederá la refactorización?
+	5. ¿... Hará que consigas más clientes?
+	6. ¿... Mejorará el rendimiento de la app de una manera notable? Si el rendimiento no es problema, desctar la refactorización
+	- Si la respuesta a todas las preguntas es "no", considerar no proceder con la refactorización
+- Se deben tener razones de peso u obtener un beneficio para realizarla
+- Se deben tener pruebas automáticas preparadas previamente, con una covertura del 100% para evitar introducir fallas en el sistema
+
+
