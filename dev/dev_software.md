@@ -199,3 +199,14 @@ En el documento original se usa el __RFC 2119__ para el uso de las palabras _MUS
     - Utilizar metodologías ágiles
 - No es posible deshacerse de ella pero sí es posible controlarla, por ello no es algo necesariamente malo siempre que exista un plan para pagarla
 
+
+## Licencias de Software Open Source
+- Normalmente en la raiz del proyecto se crea el archivo "LICENSE", que describe que se puede y que no se puede hacer con el código fuente del proyecto
+- Para elegir una licencia se debe tener en cuenta el alcance que la comunidad puede tener acceso con el código o que tan específico se desea ser con estos permisos
+- Tipos de licencias
+    - __MIT__: Sin ninguna restricción (simple y permisivo), tiene permiso de uso comercial o privado, para modificarlo y distribuirlo, con la condición de que se coloque una copia de la licencia en el código. El autor no se hace responsable del uso que se le dé al código fuente. p.ej. .NET Core, Laravel, Angular
+    - __Apache License 2.0__: Pensado cuando se tiene una preocupación por las patentes, tiene permiso de uso comercial o privado, para modificarlo y distribuirlo, el contribuyente tiene uso de las patentes del código, con las condiciones de incluir una copia de la licencia en el código e indicar los cambios realizados. El autor no se hace responsable del uso que se le dé al código fuente, tiene protección de "trademark", es decir, no se puede utilizar el nombre del proyecto/biblioteca en el producto de software que lo utiliza. p.ej. Android, Apache, Swift
+    - __GNU GPL v3__: Pensado cuando el objetivo es compartir mejoras en el código y que el proyecto siga siendo abierto. Mismos permisos de Apache License 2.0, con las condiciones que debe mantener el código abierto, utilizar la misma licencia, incluir la licencia del código original, indicar cambios que se hayan producido. El autor no se hace responsable del uso que se le dé al código fuente. p.ej. Gimp
+- Para tener un contexto más amplio para seleccionar la licencia que mejor se adapte a las necesidades del proyecto, consultar [el siguiente sitio](choosealicense.com)
+
+
