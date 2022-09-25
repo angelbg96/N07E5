@@ -172,4 +172,30 @@ En el documento original se usa el __RFC 2119__ para el uso de las palabras _MUS
 - Se deben tener razones de peso u obtener un beneficio para realizarla
 - Se deben tener pruebas automáticas preparadas previamente, con una covertura del 100% para evitar introducir fallas en el sistema
 
+## Deuda Tecnica
+- Definición: Inherente al desarrollo de software cuando su ciclo no se rige por estándares. No es un defecto visible por lo que muchas veces no es fácil de detectar. Surge como consecuencia de la urgencia de desarrollo dejando de lado la calidad, y la acumulación de estos defectos generan intereses.
+- Ejemplos
+    - Alta complejidad en código fuente
+    - Falta de pruebas de integración o automatizadas
+    - Fragmentos de código o módulos duplicados
+    - Lanzar un producto rápido
+    - Reparar un bug
+- Causas
+    - Falta de gestión en el proceso de calidad del software
+    - Presión por lanzar el producto al mercado
+    - Falta de documentación y comunicación entre desarrolladores
+    - No utilización de patrones de diseño o arquitecturas de software
+- Costos
+    - Más desarrolladores para cumplir con los objetivos de desarrollo
+    - Más tiempo en el desarrollo por no haber considerado los componentes que la contienen
+    - Pérdida de clientes por el bajo performance de la aplicación
+    - Falta de productividad
+- Prevención
+    - No realizar soluciones complejas a problemas sencillos
+    - No utilizar arquitecturas poco escalables
+    - Utilizar control de versiones
+    - Documentar los cambios realizados
+    - Utilizar estándar dentro del equipo de desarrollo cuando se presenten nuevos requerimientos, bugs, eventualidades y otros elementos del proceso de desarrollo
+    - Utilizar metodologías ágiles
+- No es posible deshacerse de ella pero sí es posible controlarla, por ello no es algo necesariamente malo siempre que exista un plan para pagarla
 
