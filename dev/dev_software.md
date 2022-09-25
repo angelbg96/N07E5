@@ -40,6 +40,7 @@
     * No tipados. En su sintaxis no se especifica el tipo de dato al declarar una variable, la reserva de memoria se realiza de forma dinámica (infiere su valor). Por lo regular son débilmente tipados (se puede sobrescribir el tipo de dato de una variable ya declarada)
     * Tipados. Se establece su tipo de dato en tiempo de programación y no puede almacenar valores con otros tipos de dato (fuertemente tipado). Existen lenguajes que, aunque no se defina el tipo de dato en tiempo de programación, una vez que se inicialice, no podrá almacenar datos de otros tipos
 
+
 ## Áreas de la programación
 - Desarrollo WEB
     * Frontend
@@ -70,6 +71,7 @@
     * DaaS. Escritorio como servicio
     * FaaS. Funciones como servicio
 
+
 ## Tecnicismos
 - _Hardcoding_. Mala prática en la que se incrustan datos (comunmente configuraciones) en lugar de obtenerlos de una fuente de datos. En consecuencia, toda futura modificación tendrá un alto costo
 - _Debugging_. Proceso de identificar y depurar el código de bugs (errores)
@@ -97,6 +99,7 @@
     * Al sustituir todos los nombres de las variables y de las funciones por nombres de una sola letra, es prácticamente imposible comprender el código del programa. En ocasiones, también se utilizan ofuscadores de este tipo con el propósito de reducir el tamaño del código fuente
 - _Encriptación_ Garantiza que el código y los datos de la aplicación no se puedan acceder mientras la aplicación está en reposo. El código encriptado es descifrado inmediatamente cuando se ejecuta la aplicación, lo que garantiza que funcione según lo previsto. Para ser efectiva, la encriptación debe aplicarse en varias capas. Las técnicas de encriptación esenciales incluyen la encriptación de cadenas, encriptación de clases, encriptación de asset y encriptación de recursos.
 
+
 ## Buenas prácticas
 - Variables
     * Nombrar las va. con sentido (que sean autodescriptivas) que indiquen el dato que está almacenando. ¡No nos cobran por caracter!
@@ -123,6 +126,7 @@ Divide el número de cada versión en tres segmentos numéricos, que tienen el p
 - _La parte más pequeña o el segmento de los parches_. Este número se usa para indicar que no se está introduciendo nueva funcionalidad en ella. Comúnmente se usa cuando se corrigen errores dentro de esta o cualquier otro cambio que no modifique la apariencia "externa" de una API. Este número puede cambiar con rapidez a medida que se resuelven errores o casos excepcionales en el código.
 - _Segmento de los cambios menores o características_. Se usa para indicar que se le ha añadido funcionalidad nueva a la biblioteca pero que nada de lo anterior dejará de funcionar de la manera en la que ya lo hace. Es decir, mientras que la apariencia exterior de la biblioteca versionada ha cambiado, lo que antes se conectaba con ella, puede seguir haciéndolo sin problema. Si la versión menor cambia, el número de parches debe ser reestablecido a 0.
 - _Componente de cambios mayores o de ruptura_. Se emplea para indicar cambios tanto externos como internos que resultan en hacer que el software no sea compatible con versiones anteriores. Se llama _de ruptura_ puesto que si la persona que usa una biblioteca actualiza descuidadamente la versión, probablemente encontrará muchos errores y cosas inservibles en su código.
+
 ### Especificación de Versionado Semántico
 En el documento original se usa el __RFC 2119__ para el uso de las palabras _MUST_, _MUST NOT_, _SHOULD_, _SOULD NOT_ y _MAY_. Para que la traducción sea lo más fiel posible, MUST se traduce como el verbo _deber en presente_ (DEBE, DEBEN), _SHOULD_ como el verbo _deber en condicional_ (DEBERÍA, DEBERÍAN) y el verbo _MAY_ como el verbo _PODER_.
 1. El software que use Versionado Semántico DEBE declarar una API pública. Esta API puede ser declarada en el código mismo o existir en documentación estricta. De cualquier manera, debería ser precisa y completa.
@@ -143,6 +147,7 @@ En el documento original se usa el __RFC 2119__ para el uso de las palabras _MUS
 
 
 ## Sobre paradigmas
+
 ### Funcional
 - Centrado en funciones, son ciudadanos de primera clase.
 - Función de orden superior. Pueden recibir o retornar funciones.
@@ -171,6 +176,7 @@ En el documento original se usa el __RFC 2119__ para el uso de las palabras _MUS
 	- Si la respuesta a todas las preguntas es "no", considerar no proceder con la refactorización
 - Se deben tener razones de peso u obtener un beneficio para realizarla
 - Se deben tener pruebas automáticas preparadas previamente, con una covertura del 100% para evitar introducir fallas en el sistema
+
 
 ## Deuda Tecnica
 - Definición: Inherente al desarrollo de software cuando su ciclo no se rige por estándares. No es un defecto visible por lo que muchas veces no es fácil de detectar. Surge como consecuencia de la urgencia de desarrollo dejando de lado la calidad, y la acumulación de estos defectos generan intereses.
