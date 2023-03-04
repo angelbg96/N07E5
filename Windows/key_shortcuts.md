@@ -4,7 +4,7 @@
 
 
 ------------------------
-__NOTA__: Es importante recordar que algunas combinaciones de teclas podrían no funcionar dentro de algunos programas que sobreescriben estas funcionalidades. También depende del idioma configurado en el SO y/o teclado
+**NOTA**: Es importante recordar que algunas combinaciones de teclas podrían no funcionar dentro de algunos programas que sobreescriben estas funcionalidades. También depende del idioma configurado en el SO y/o teclado
 
 ------------------------
 ## Tecla Windows
@@ -30,7 +30,7 @@ __NOTA__: Es importante recordar que algunas combinaciones de teclas podrían no
 
 ------------------------
 ## Teclas de Función
-- `F1` : Dentro de programas, abre la ventana de diálogo de _Ayuda_
+- `F1` : Dentro de programas, abre la ventana de diálogo de *Ayuda*
 - `F2` : Cambiar el nombre de un fichero
 - `F3` : Realizar una búsqueda de texto en un programa
 - `F10` : Abrir | cerrar menú de programa

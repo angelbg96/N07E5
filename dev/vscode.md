@@ -1,48 +1,48 @@
 # Configuraciones de Visual Studio Code
 
 ## Extensiones
-- __Better Comments__, _Aaron Bond_ : Escribir comentarios que resultan visualmente más facil de leer y más descriptivos
-- __Bracket Pair Colorizer__, _CoenraadS_ : Colorear los pares de paréntesis, llaves y corchetes
-- __Live Server__, _Ritwick Dey_ : Servidor local para levantar proyectos web
-- __MinifiAll__, _Jose Garcia Berenguer_ : Minimizar código fuente en diferentes lenguajes de programación, muy útil para desarrollo web
-- __open in browser__, _TechER_ : Abrir el archivo actual en el navegador
-- __simple icons__, _Laurent Tréguiler_ : Iconos para visualizar los archivos fuente de distintos lenguajes
-- __SonarLint__, _SonarSource_ : Reglas para seguir buenas prácticas de desarrollo en diferentes lenguajes
-- __Thunder Client__, _Ranga Vadhineni_ : Cliente para solicitudes HTTP, es una GUI
-- __Go__, _Go Team at Google_ : Herramientas para soporte de Golang
+- **Better Comments**, *Aaron Bond* : Escribir comentarios que resultan visualmente más facil de leer y más descriptivos
+- **Bracket Pair Colorizer**, *CoenraadS* : Colorear los pares de paréntesis, llaves y corchetes
+- **Live Server**, *Ritwick Dey* : Servidor local para levantar proyectos web
+- **MinifiAll**, *Jose Garcia Berenguer* : Minimizar código fuente en diferentes lenguajes de programación, muy útil para desarrollo web
+- **open in browser**, *TechER* : Abrir el archivo actual en el navegador
+- **simple icons**, *Laurent Tréguiler* : Iconos para visualizar los archivos fuente de distintos lenguajes
+- **SonarLint**, *SonarSource* : Reglas para seguir buenas prácticas de desarrollo en diferentes lenguajes
+- **Thunder Client**, *Ranga Vadhineni* : Cliente para solicitudes HTTP, es una GUI
+- **Go**, *Go Team at Google* : Herramientas para soporte de Golang
 
 
 ## Configuraciones
 - Trabajar sobre un Workspace
-    * Al iniciar por primera vez VScode, crear archivos y/o inicializar algún proyecto
-    * File > Save Workspace As... > Elegir nombre y ruta del workspace
-    * File > Open Workpace > Buscar el workspace recientemente creado
-    * Se almacenarán las configuraciones del editor, además de que se pueden agregar carpetas al espacio de trabajo, que podrían ser los proyectos sobre los que se están trabajando
+    - Al iniciar por primera vez VScode, crear archivos y/o inicializar algún proyecto
+    - File > Save Workspace As... > Elegir nombre y ruta del workspace
+    - File > Open Workpace > Buscar el workspace recientemente creado
+    - Se almacenarán las configuraciones del editor, además de que se pueden agregar carpetas al espacio de trabajo, que podrían ser los proyectos sobre los que se están trabajando
 - Preferencias
-    * File > Preferencias > Se visualizan las distintas preferencias como:
-    * Activar auto guardado
-    * Estilo del cursor : line
-    * Cursor blinking, parpadeo del cursor : Expand
-    * Tamaño de letra en pixeles: 16
-    * Familia de la fuente, se elige la default y sus fallback : 'Fira Code', consolas, monospace
-    * Ligaduras de fuente : true
-    * Ancho de la fuente : 300
-    * Minimap, vista general del código en una columna lateral : descativado
-    * Tamaño de la sangría : 4
-    * Insertar espacios al teclear `Tab`  : Activado
-    * Desbordamiento a líneas extensas (Wrapping) : Desactivado
-    * Asociar extensiones de archivos a algún lenguaje
-    * Color Theme : Dark
-    * Icon Theme : Seleccionar el paquete de íconos favorito
+    - File > Preferencias > Se visualizan las distintas preferencias como:
+    - Activar auto guardado
+    - Estilo del cursor : line
+    - Cursor blinking, parpadeo del cursor : Expand
+    - Tamaño de letra en pixeles: 16
+    - Familia de la fuente, se elige la default y sus fallback : 'Fira Code', consolas, monospace
+    - Ligaduras de fuente : true
+    - Ancho de la fuente : 300
+    - Minimap, vista general del código en una columna lateral : descativado
+    - Tamaño de la sangría : 4
+    - Insertar espacios al teclear `Tab`  : Activado
+    - Desbordamiento a líneas extensas (Wrapping) : Desactivado
+    - Asociar extensiones de archivos a algún lenguaje
+    - Color Theme : Dark
+    - Icon Theme : Seleccionar el paquete de íconos favorito
 - Configurar Terminal
-    * Configuraciones > Settings > Buscar "_Shell_"
-    * Seleccionar la opción _Terminal > Integrated > Shell : Windows_
-    * Colocar la ruta a la shell por default a utilizar
-    * Abrir Paleta de comandos : Configuración > Paleta de comandos | CTRL + SHIFT + P
-    * Buscar : Reload Window (CTRL + R)
+    - Configuraciones > Settings > Buscar "*Shell*"
+    - Seleccionar la opción *Terminal > Integrated > Shell : Windows*
+    - Colocar la ruta a la shell por default a utilizar
+    - Abrir Paleta de comandos : Configuración > Paleta de comandos | CTRL + SHIFT + P
+    - Buscar : Reload Window (CTRL + R)
 - Atajos de teclado
-    * Visualizar los atajos configurados y agregar nuevos
-    * Ej. agregado : Buscar "_wrap_", seleccionar _Emmet wrap with abbreviation_, asignarle una confugiración de teclas
+    - Visualizar los atajos configurados y agregar nuevos
+    - Ej. agregado : Buscar "*wrap*", seleccionar *Emmet wrap with abbreviation*, asignarle una confugiración de teclas
 
 
 ## Keyboard Shortcuts

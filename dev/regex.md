@@ -3,22 +3,22 @@
 - Las regex suelen tener una sintaxis específica y un conjunto de metacaracteres dependiendo del lenguaje que las implementa, por ejemplo PCRE (Perl-Compatible Regular Expressions) es un estándar definido por el lenguaje de programación Perl, a partir del cual muchas otras implementaciones se han basado en otros lenguajes.
 
 ## Operaciones básicas
-- __Alternación.__ Se define por un pipe ` | ` y reprensar un _or_ lógico, le indica al patrón que existe una coincidencia entre cualquiera de los elementos que aparezcan a sus lados
+- **Alternación.** Se define por un pipe ` | ` y reprensar un *or* lógico, le indica al patrón que existe una coincidencia entre cualquiera de los elementos que aparezcan a sus lados
     ~~~ js
     patron1 | patron2
     ~~~
-- __Cuantificación.__ Se usa para especificar la cantidad de ocurrencias de determinado elemento. Cuenta con varios operadores:
+- **Cuantificación.** Se usa para especificar la cantidad de ocurrencias de determinado elemento. Cuenta con varios operadores:
     * ` ? ` indica que el elemento que la antecede puede aparecer cero o una sola vez
         ~~~ js
-        caracter?
+        patron?
         ~~~
     * ` * ` indica que el elemento que la antecede puede repetirse 0 o más veces
         ~~~ js
-        caracter*
+        patron*
         ~~~
     * ` + ` parecido al operador estrella(*), solo que en este caso debe existir al menos una ocurrencia del elemento que la precede
         ~~~ js
-        caracter+
+        patron+
         ~~~
     * `{n, m}` indica el rango de ocurrencias permitido en el patrón, con la posibilidad de que sea igual a N ocurrencias, mayor a N número de ocurrencias o que esté entre N y M ocurrencias
         ~~~ yaml
@@ -26,7 +26,7 @@
         más de N coincidencias: patron{n,}
         entre N y M coincidencias: patron{n, m}
         ~~~
-- __Agrupación.__ Se utilizan los paréntesis `( )`, y sirve para agrupar una secuencia de caracteres o de patrones de búsqueda. Se complementa muy bien con las primeras dos operaciones
+- **Agrupación.** Se utilizan los paréntesis `( )`, y sirve para agrupar una secuencia de caracteres o de patrones de búsqueda. Se complementa muy bien con las primeras dos operaciones
     ~~~ yaml
     Ejemplo 1: carateres(patron1|patron2)
     Ejemplo 2: caracteres(patron)*
@@ -41,7 +41,7 @@
 - `A-z` caracteres del alfabeto sin importar mayúsculas y mínusculas
 - `0-9` caracteres numéricos del cero al nueve
 - `À-ÿ` caracteres del alfabeto con tildes, virgulillas, diéresis, acentos circunflejos, etc
-- Operador ` ^ ` dentro y al principio del rango, indica que se buscarán todas las coincidencias excepto las indicadas en el rango, es un _not_ lógico
+- Operador ` ^ ` dentro y al principio del rango, indica que se buscarán todas las coincidencias excepto las indicadas en el rango, es un *not* lógico
 ~~~ yaml
 vocales: [aeiou]
 impares: [13579]
@@ -58,17 +58,17 @@ consonantes: [^aeiou]
 - `\D` ningún número, equivalente a `[^0-9]`
 - `\s` solo espacios, saltos de líena y tabulaciones
 - `\S` no coincidir con espacios
-- `\A`_patron_ encontrar un patrón al principio de la cadena
-- _patron_`\Z` encontrar un patrón al final de la cadena
+- `\A`*patron* encontrar un patrón al principio de la cadena
+- *patron*`\Z` encontrar un patrón al final de la cadena
 
 ### Caracteres de escape
 Se usa la barra invertida ` \ ` para mostrar caracteres especiales como tabuladores `\t`, saltos de línea `\n`, caracteres unicode `\u0020` y para representar caracteres que son parte de la sintaxis de RegEx como `[ ( . * + - ? }`
 
 
 ## Delimitadores
-- `^`_patron_ para encontrar un patrón al principio de la secuencia de carateres
-- _patron_`$` para encontrar un patrón al final de la secuencia de carateres
-- `^`_patron_`$` la secuencia de carateres debe cumplir exactamente con el patrón de búsqueda
+- `^`*patron* para encontrar un patrón al principio de la secuencia de carateres
+- *patron*`$` para encontrar un patrón al final de la secuencia de carateres
+- `^`*patron*`$` la secuencia de carateres debe cumplir exactamente con el patrón de búsqueda
 
 
 ## Modificadores o banderas

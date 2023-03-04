@@ -1,8 +1,8 @@
 # Desarrollo de Scripts bash
 
-- Su extensión es _.sh_ y debe tener permisos de ejecución
+- Su extensión es *.sh* y debe tener permisos de ejecución
 - El script debe incluir un "shebang line" como su primera línea, debe comenzar con los caracteres `#!` y debe especificar la ruta en la que se encuentra el intérprete. Si se usa bash es `#!/bin/bash`. Si se usa `#!/bin/sh`, esto es un enlace simbólico que apunta al intérprete configurado por default (suele ser bash)
-- Alto manejo de las entradas y salidas estándar _stdin_, _stdout_, _stderr_
+- Alto manejo de las entradas y salidas estándar *stdin*, *stdout*, *stderr*
 - Cada instrucción en una línea
 - Respetar la sintaxis descrita para un correcto funcionamiento
 
@@ -12,7 +12,7 @@ Para realizar asignaciones :
 - `nombreVar='valor'` | \`valor\` : Asigna texto. Con las comillas invertidas se escapan mejor comillas simples y dobles
 - `nombreVar="valor"` : Asigna texto, si hay una variable, la referencia a un directorio o un fichero, interpreta su valor
 - `nombreVar=$(comando)` | `nombreVar=`\`comando\` : Asigna el valor que retorna el comando
-- `nombreVar=n` | `let nombreVar=n` : Asignar un valor numérico. Recomendable usar _let_
+- `nombreVar=n` | `let nombreVar=n` : Asignar un valor numérico. Recomendable usar *let*
 - `export nombreVar` : Exporta el valor de la variable como va de entorno
 
 Para utilizarla : 
@@ -50,33 +50,33 @@ var2=$((3 ** $var1%2))
 - `${cadena^^}` : Convertir una cadena a mayúsculas
 - `${cadena^}` : Convertir la primera letra de una cadena a mayúsculas
 - Extraer una parte de la cadena `${cadena:posición:longitud}`
-    * `${cadena:0:1}` : Primer caracter del contenido de la cadena
-    * `${cadena:7}` : Desde la posición 7 al final de la cadena
-    * `${cadena: -4}` : Últimos 4 caracteres de la cadena. __IMPORTANTE__ notar el espacio antes del número negativo
-    * `${cadena: -4:2}` : Desde los últimos 4 caracteres de la cadena, extrae los primeros 2. __IMPORTANTE__ notar el espacio antes del número negativo
+    - `${cadena:0:1}` : Primer caracter del contenido de la cadena
+    - `${cadena:7}` : Desde la posición 7 al final de la cadena
+    - `${cadena: -4}` : Últimos 4 caracteres de la cadena. **IMPORTANTE** notar el espacio antes del número negativo
+    - `${cadena: -4:2}` : Desde los últimos 4 caracteres de la cadena, extrae los primeros 2. **IMPORTANTE** notar el espacio antes del número negativo
 - Borrar subcadenas. Se pueden utilizar con `*` al principio, intermedio o final
-    * `${cadena#subcadena}` : Borra la coincidencia más corta de subcadena desde el principio de cadena
-    * `${cadena##subcadena}` : Borra la coincidencia más larga de subcadena desde el principio de cadena
-    * `${cadena%subcadena}` : Borra la coincidencia más corta de subcadena desde el final de cadena
-    * `${cadena%%subcadena}` : Borra la coincidencia más larga de subcadena desde el final de cadena
+    - `${cadena#subcadena}` : Borra la coincidencia más corta de subcadena desde el principio de cadena
+    - `${cadena##subcadena}` : Borra la coincidencia más larga de subcadena desde el principio de cadena
+    - `${cadena%subcadena}` : Borra la coincidencia más corta de subcadena desde el final de cadena
+    - `${cadena%%subcadena}` : Borra la coincidencia más larga de subcadena desde el final de cadena
 - Reemplazar subcadena
-    * `${cadena/buscar/reemplazar}` : Sustituye la primera coincidencia de buscar con reemplazar
-    * `${cadena//buscar/reemplazar}` : Sustituye todas las coincidencias de buscar con reemplazar
-    * `${cadena/buscar}` : Quitar la primera aparición de una subcadena en una cadena
-    * `${cadena//buscar}` : Quitar todas las apariciones de una subcadena en una cadena
+    - `${cadena/buscar/reemplazar}` : Sustituye la primera coincidencia de buscar con reemplazar
+    - `${cadena//buscar/reemplazar}` : Sustituye todas las coincidencias de buscar con reemplazar
+    - `${cadena/buscar}` : Quitar la primera aparición de una subcadena en una cadena
+    - `${cadena//buscar}` : Quitar todas las apariciones de una subcadena en una cadena
 
 
 ## Entrada y Salida de datos
-- `echo mensaje` | `echo "mensaje"` : Envia texto a la salida estándar, se puede redirigir a _stderr_
-- `read var1 var2 varN` : Obtiene el texto ingresado desde la línea de comandos. Si se ingresan más de un dato, se separan por espacios desde el _prompt_
+- `echo mensaje` | `echo "mensaje"` : Envia texto a la salida estándar, se puede redirigir a *stderr*
+- `read var1 var2 varN` : Obtiene el texto ingresado desde la línea de comandos. Si se ingresan más de un dato, se separan por espacios desde el *prompt*
 - `exit` : Comando para terminar la ejeción del programa
 
 
 ## Ejecutar con parámetros
 - `./programa.sh param1 param2 paramN` :Cada parámetro se separa por un espacio
 - `$n` : Para utilizar los parámetros dentro del programa se utiliza la notación de variables, donde n=0, 1, 2, ..., N
-    * Cada número positivo hace referencia al número de párametro
-    * la variable `$0` hace referencia al parámetro cero y su valor es el nombre del programa ejecutable
+    - Cada número positivo hace referencia al número de párametro
+    - la variable `$0` hace referencia al parámetro cero y su valor es el nombre del programa ejecutable
 
 
 ## Validaciones de variables
@@ -108,8 +108,8 @@ esac
 - `[ -n $var ]` : Comprueba que la cadena tenga una longitud mayor a cero
 - `[ $va1 = $va2 ]` : Comprueba que las cadenas sean iguales
 - `[ $va1 != $va2 ]` : Comprueba que las cadenas sean diferentes
-- `[[ $va1 < $va2 ]]` | `[ $va1 /< $va2 ]` : Comprueba que _va1_ sea menor que _va2_
-- `[[ $va1 > $va2 ]]` | `[ $va1 /> $va2 ]` : Comprueba que _va1_ sea mayor que _va2_
+- `[[ $va1 < $va2 ]]` | `[ $va1 /< $va2 ]` : Comprueba que *va1* sea menor que *va2*
+- `[[ $va1 > $va2 ]]` | `[ $va1 /> $va2 ]` : Comprueba que *va1* sea mayor que *va2*
 
 ### Númericas
 - `[ $n1 -eq $n2 ]` : Comprueba que los números sean iguales
@@ -169,7 +169,7 @@ for ((i=0; i<= 10; i++)); do
 done
 ~~~
 
-- Recorrer una lista, cadena de texto cuyo _split_ son los espacios
+- Recorrer una lista, cadena de texto cuyo *split* son los espacios
 ~~~ bash
 lista="A 1 B 2 texto 3"
 
@@ -190,7 +190,7 @@ done
 ~~~
 
 ### Until
-- Similar a _while_, pero se va a ejecutar mientras la condición sea falsa
+- Similar a *while*, pero se va a ejecutar mientras la condición sea falsa
 ~~~ bash
 contador=0
 

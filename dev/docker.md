@@ -1,7 +1,7 @@
 # Docker
 
 ## Fundamentos Teoricos
-- _Contenedor_: Forma de empaquetar aplicaciones con sus dependencias y archivos de configuración manteniendo siempre el mismo entorno en la misma versión, por lo que los hacen portables.
+- *Contenedor*: Forma de empaquetar aplicaciones con sus dependencias y archivos de configuración manteniendo siempre el mismo entorno en la misma versión, por lo que los hacen portables.
     - Existen repositorios/Registro de contenedores privados y públicos, el repositorio público más popular es DockerHub.
     - Se crea a partir de una imagen, que es el empaquetado que contiene dependencias, código, variables de entorno. Por lo que un contenedor son capas de varias imágenes, donde su capa base/fundamental es una imagen del SO Linux (comunmente Alpine) hasta llegar a la imagen del software de aplicación. Cada imagen con su versión tiene su propio hash ID.
     - Un contenedor está totalmente aislado del equipo donde se ejecuta, por lo que si se requiere que obtenga información del sistema o interactuar con él, se deben crear volumenes y mapear los puertos del equipo hacia el contenedor, respectivamente.
@@ -11,14 +11,14 @@
     - Virtualziación parcial. Algunos componentes de hardware se virtualizan para el SO cliente.
     - Virtualziación completa. Se virtualiza todos los componentes (hadware) que utiliza el SO cliente.
 - Tipos de Volumenes
-    - _Anonimo_. Solo se indica la ruta del contenedor a persistir, Docker determinar donde va a persistir los datos
-    - _De Anfitrion o Host_. Se especifica el directorio a montar y donde se monta
-    - _Nombrado_. Parecido al anonimo pero se puede referenciar en la configuración de los contenedores que se decidan que lo utilicen
+    - *Anonimo*. Solo se indica la ruta del contenedor a persistir, Docker determinar donde va a persistir los datos
+    - *De Anfitrion o Host_. Se especifica el directorio a montar y donde se monta
+    - *Nombrado*. Parecido al anonimo pero se puede referenciar en la configuración de los contenedores que se decidan que lo utilicen
 
 ## Manejo de Docker
 - Docker Desktop es una VM que se ejecuta sobre linux, y es la que ejecuta los contenedores, contiene varias herramientas como Dcoker Compose, CLI (Command Line Interface)
 - En DockerHub se almacenan una gran cantidad de imagenes oficiales de diferentes productos de software, además de que estas imagenes muestran el historial de versiones y sobre que imagen base de SO fueron construidas.
-- Al descargar una imagen, y si no se indica su versión, se va a descargar la última versión publicada, y se identificará con la etiqueta _latest_. Si las capas inferiores de la imagen a descargar ya existen en el sistema, no se vuelven a descargar
+- Al descargar una imagen, y si no se indica su versión, se va a descargar la última versión publicada, y se identificará con la etiqueta *latest*. Si las capas inferiores de la imagen a descargar ya existen en el sistema, no se vuelven a descargar
     - `docker pull nombreImagen:versionTag` : Descarga la versión de la imagen señalada
     - `docker images` : Lista las imagenes descargadas
     - `docker image rm nombreImagen:versionTag` : Elimina la versión de la imagen indicada
@@ -48,7 +48,7 @@
     - `docker network rm nombreRed` : Elimina la red indicada
 
 ## Creando nuevas imagenes
-- Se crean a partir del archivo _Dockerfile_, debe indicarse la imagen base
+- Se crean a partir del archivo *Dockerfile*, debe indicarse la imagen base
 - `FROM nombreImagen:version` : Imagen base del contenedor
 - `RUN comando` : Ejecuta comandos dentro del contenedor, pensado más que nada para preparar la instalación del mismo (crear estructuras de directorios, instalar dependencias, etc)
 - `WORKDIR rutaContenedor` : Indica cual es el directorio de trabajo donde se ejecuta la aplicación
@@ -79,7 +79,7 @@
 - `docker compose down` : Elimina los contenedores y redes configuradas en el archivo de configuración
 
 ## Punlicar imagen en Repositorio
-- Se debe tener una cuenta en _DockerHub_
+- Se debe tener una cuenta en *DockerHub*
 - `docker login` : Login en PC con cuenta de DockerHub
 - `docker targ imagenID usuarioDockerHub/nombreImagen:tag` : Agregar una etiqueta a una imagen local, esto es necesario para publicar una imagen en el repositorio, se indica el nombre de usuario de dockerhub
 - `docker push usuarioDockerHub/nombreImagen:tag` : Comando para publicar imagen en repositorio

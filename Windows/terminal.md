@@ -5,16 +5,16 @@
 
 
 ## Substistema de Linux
-- Activar el WSL y la virtualización en el menú de _características de Windows_
-- Instalar la distro que se desee en _Microsoft Sotre_
+- Activar el WSL y la virtualización en el menú de *características de Windows*
+- Instalar la distro que se desee en *Microsoft Sotre*
 - con PowerShell ejecutar `wsl -l -v` para revisar la versión instalada de WSL
 - Para elegir la versión 2 WSL, con powershell ejecutar `wsl --set-default-version 2`
-    * Pedirá la instalación del paquete del Kernel de WSL2 y muestra URL de documentación y descarga
-    * Ejecutar nuevamente el comando para establecer por defecto WSL2
-    * Si las distros no se actualizan para trabajar con la versión del kernel, ejectuar `wsl --set-version nombreDistro 2`
+    - Pedirá la instalación del paquete del Kernel de WSL2 y muestra URL de documentación y descarga
+    - Ejecutar nuevamente el comando para establecer por defecto WSL2
+    - Si las distros no se actualizan para trabajar con la versión del kernel, ejectuar `wsl --set-version nombreDistro 2`
 - Para limitar el consmo de RAM:
-    * En la ruta `c:\Users\nombreUsuario`, crear fichero _.wslconfig_
-    * colocar la siguiente configuración para  limitar el uso a 2GB
+    - En la ruta `c:\Users\nombreUsuario`, crear fichero *.wslconfig*
+    - colocar la siguiente configuración para  limitar el uso a 2GB
     ~~~ go
     [wsl2]
     memory=2048MB
@@ -33,7 +33,7 @@
 
 ### Agregar una nueva terminal
 - Con PowerShell ejecutar `[guid]::NewGuid()`, genera un ID paa agregar al archivo de configuraciones
-- En el elemento _Profiles_ > _list_ agregar
+- En el elemento *Profiles* > *list* agregar
 ~~~ json
 {
     "guid": "{ID generado}",
@@ -50,7 +50,7 @@
  ~~~
 
 ### Cambiar presentación
-- Para cambiar las configuraciones generales modificar el elemento _defaults_:
+- Para cambiar las configuraciones generales modificar el elemento *defaults*:
 ~~~ json
     "useAcrylic": true, // Usar transparencia
     "acrylicOpacity": 0.6, // Porcentaje de opacidad
@@ -60,13 +60,13 @@
 ~~~
 - O en su caso, realizar modificaciones por cada perfil (terminal)
 - Instalar un prompt
-    * Ir al sitio web oficial de [Oh My Posh](https://ohmyposh.dev/docs/)
-    * Utilizar una tipogrfía de [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
-    * Powershell
+    - Ir al sitio web oficial de [Oh My Posh](https://ohmyposh.dev/docs/)
+    - Utilizar una tipogrfía de [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
+    - Powershell
         - `Get-PoshThemes` : Listar temas de terminal
         - `Set-PoshPrompt -Theme nombreTema` : Establecer tema a la terminal
         - Powershell: Guardar tema en el perfil del la terminal `notepad $PROFILE`
-    * Linux
+    - Linux
         - Seguir procedimiento de documentación
         - Guardar configuración en archivo `~/.profile`
 

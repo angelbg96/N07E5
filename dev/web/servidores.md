@@ -13,19 +13,19 @@
     }
     ~~~
 - Contextos CORE, o globales, afectan todo elcorportamiento del servidor: 
-    * `main` : no contiene un cuerpo, todo lo que se configura es main
-    * `events` : configurar todo lo referente a las conexiones de usuarios
-    * `http` : administrar las peticiones HTTP
-    * `server` : configurar virtualhost, puerto a escuchar, archivos de retorno
-    * `location` : manipular la petición de los usuarios, redirecciones. Normalmente se encuentra dentro de `server`
-    * `upstream` : servidores para realizar balanceo de cargas, proxy reversivo. Se encuentra dentro de `http` y fuera de `server`
-    * `mail`
-    * `if` : funciona como cualquier condicional, útil para realizar redirecciones
-    * entre otros...
-- el archivo _nginx.conf_ contiene las configuraciones realizadas y por defecto ya existen algunas. Se encuentra dentro del directorio de NGINX
-    * `include ruta/nginx/conf.d/*.conf` : Directiva dentro de `http` en la configuración por default, que indica que sean importados todos los archivos de configuracion del directorio _conf.d_, son configuraciones para cada virtualhost
-    * Las configuraciones se mantienen en memoria durante la ejecución del servidor
-    * El archivo _default.conf_, tiene configuraciones del contexto `server` y `location`. Establece la ruta donde se encuentran los recursos y cual es el archivo index
+    - `main` : no contiene un cuerpo, todo lo que se configura es main
+    - `events` : configurar todo lo referente a las conexiones de usuarios
+    - `http` : administrar las peticiones HTTP
+    - `server` : configurar virtualhost, puerto a escuchar, archivos de retorno
+    - `location` : manipular la petición de los usuarios, redirecciones. Normalmente se encuentra dentro de `server`
+    - `upstream` : servidores para realizar balanceo de cargas, proxy reversivo. Se encuentra dentro de `http` y fuera de `server`
+    - `mail`
+    - `if` : funciona como cualquier condicional, útil para realizar redirecciones
+    - entre otros...
+- el archivo *nginx.conf* contiene las configuraciones realizadas y por defecto ya existen algunas. Se encuentra dentro del directorio de NGINX
+    - `include ruta/nginx/conf.d/*.conf` : Directiva dentro de `http` en la configuración por default, que indica que sean importados todos los archivos de configuracion del directorio *conf.d*, son configuraciones para cada virtualhost
+    - Las configuraciones se mantienen en memoria durante la ejecución del servidor
+    - El archivo *default.conf*, tiene configuraciones del contexto `server` y `location`. Establece la ruta donde se encuentran los recursos y cual es el archivo index
 - `nginx -s reload` : reiniciar el servidor
 - `nginx -t` : verificar que todos los archivos de confuración no tienen errores de sintaxis
 - Configuración sencilla:
@@ -38,13 +38,13 @@
         error_page 400 cod2 codN /ruta/pagina404.html; // indica la pagina de error a un determinado código de error HTTP
     }
     ~~~
-    * `error_page 400 = /ruta/pagina404.html;` : sobreescribir la página de error en un determinado virtualhost
+    - `error_page 400 = /ruta/pagina404.html;` : sobreescribir la página de error en un determinado virtualhost
 - Crear un dominio local
-    * linux: Agregar IP y servername al archivo _/etc/host_
-    * windows: Agrepar IP, TAB, servername al archivo _C:\windows\system32\drivers\etc\host_
-    * En el servidor donde está instalado NGINX, agregar cuantos virtualhost se requieran (subdominios, archivos de configuración en directorio _conf.d_), pero solo uno debe tener la directiva `listen pto default_server`, que sirve para indicar que ese host atenderá una solicitud a un subdominio que no se puede resolver o no existe
+    - linux: Agregar IP y servername al archivo */etc/host*
+    - windows: Agrepar IP, TAB, servername al archivo *C:\windows\system32\drivers\etc\host*
+    - En el servidor donde está instalado NGINX, agregar cuantos virtualhost se requieran (subdominios, archivos de configuración en directorio *conf.d*), pero solo uno debe tener la directiva `listen pto default_server`, que sirve para indicar que ese host atenderá una solicitud a un subdominio que no se puede resolver o no existe
 - Autentificación básica
-    * En la configuración del virtualhost default o el de preferencia, dentro del contexto `server` agregar:
+    - En la configuración del virtualhost default o el de preferencia, dentro del contexto `server` agregar:
     ~~~ json
     location ruta { // ruta del servidor donde se solicitará autentificación
         auth_basic "nombre"; // Nombre representativo del manejo de rutas
@@ -53,17 +53,17 @@
     }
     ~~~
 - Proxy reversivo
-    * Proxy: Intermediario entre usuario y el destino web. El servidor es quién termina de realizar la petición, por lo que es la IP del servidor la que va por HTTP.
-    * Proxy reversivo: El proxy recibe una petición de un usuario y la redirecciona a alguno de los servidores web establecidos, posteriormente este envía la respuesta al usuario. Sirve para redirigir cierto trafico a una IP o socket en particular.
-    * En la configuraación del virtualhost default o el de preferencia, dentro del contexto `server` agregar:
+    - Proxy: Intermediario entre usuario y el destino web. El servidor es quién termina de realizar la petición, por lo que es la IP del servidor la que va por HTTP.
+    - Proxy reversivo: El proxy recibe una petición de un usuario y la redirecciona a alguno de los servidores web establecidos, posteriormente este envía la respuesta al usuario. Sirve para redirigir cierto trafico a una IP o socket en particular.
+    - En la configuraación del virtualhost default o el de preferencia, dentro del contexto `server` agregar:
     ~~~ json
     location ruta { // ruta del servidor que será atendida por otro host
         proxy_pass http:\/\/dominio_puerto/path; // ruta al host que atenderá la petición
     }
     ~~~
 - Servir contenido dinámico
-    * FastCGI (Interfaz de entrada común): Protocolo que permite interconectar programas e interactuar con un servidor web. El servidor Web ejecuta el script de cierto lenguaje y este retorna el contenido en HTML o cualquier otro recurso mime-type.
-    * En la configuración del virtualhost default o el de preferencia, dentro del contexto `server` agregar:
+    - FastCGI (Interfaz de entrada común): Protocolo que permite interconectar programas e interactuar con un servidor web. El servidor Web ejecuta el script de cierto lenguaje y este retorna el contenido en HTML o cualquier otro recurso mime-type.
+    - En la configuración del virtualhost default o el de preferencia, dentro del contexto `server` agregar:
     ~~~ json
     location ~\.php$ { // RegEx que indica que todos las peticiones que terminen con PHP serán atendidas por el FCGI de PHP
         fastcgi_pass unix:rutaCGI_lenguaje/exec; // indica el binario que interpretará la solicitud
@@ -73,11 +73,11 @@
     }
     ~~~
 - Balanceo de cargas
-    * Distribuye el tráfico entre los diferentes servidores web configurados en la infraestructura
-    * El servidor main actuará como balanceador, la carga la distribuirá hacia alguno de los otros servidores confugurados
-    * Tiene [diferentes algoritmos](https://www.nginx.com/blog/choosing-nginx-plus-load-balancing-techniques/) para determinar qué servidor debe ser el que lo debe atender
-    * _round_robin_: algoritmo default, por cada petición, el balanceador le entregará la carga al siguiente servidor
-    * En la configuración del virtualhost default o el de preferencia, agregar:
+    - Distribuye el tráfico entre los diferentes servidores web configurados en la infraestructura
+    - El servidor main actuará como balanceador, la carga la distribuirá hacia alguno de los otros servidores confugurados
+    - Tiene [diferentes algoritmos](https://www.nginx.com/blog/choosing-nginx-plus-load-balancing-techniques/) para determinar qué servidor debe ser el que lo debe atender
+    - *round_robin*: algoritmo default, por cada petición, el balanceador le entregará la carga al siguiente servidor
+    - En la configuración del virtualhost default o el de preferencia, agregar:
     ~~~ json
     upstream nombreBalanceo { // Se le establece un nombre para identificar a este balanceo
         ip_hash; // algoritmo que determina que cuando se inicia una sesión, el servidor que lo atendió seguirá haciéndolo hasta que el usuario cierre la sesión
@@ -94,8 +94,8 @@
     }
     ~~~ 
 - Certificados
-    * Uso de certificados SSL o TLS para cifrar la comunicación cliente - servidor
-    * En la configuración del virtualhost default o el de preferencia, agregar:
+    - Uso de certificados SSL o TLS para cifrar la comunicación cliente - servidor
+    - En la configuración del virtualhost default o el de preferencia, agregar:
     ~~~ json
     server {
         listen 443 ssl; // indicar el puerto y el tipo de certificado a utilizar
