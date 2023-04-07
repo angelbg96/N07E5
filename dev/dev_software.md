@@ -98,7 +98,8 @@
 - *Ofuscación*. Se refiere a hacer ilegible el código sin afectar su funcionalidad. Las técnicas utilizadas para ocultar el código de esta manera varían considerablemente. Abarcan desde la sustitución de nombres legibles en el código por alternativas difíciles de descifrar (ofuscación de nombre) hasta la modificación de la estructura lógica del código para hacerlo menos predecible y rastreable (ofuscación de flujo de control). Otra técnica consiste en la conversión de expresiones aritméticas y lógicas simples en equivalentes complejas (ofuscación aritmética).
     - Al sustituir todos los nombres de las variables y de las funciones por nombres de una sola letra, es prácticamente imposible comprender el código del programa. En ocasiones, también se utilizan ofuscadores de este tipo con el propósito de reducir el tamaño del código fuente
 - *Encriptación* Garantiza que el código y los datos de la aplicación no se puedan acceder mientras la aplicación está en reposo. El código encriptado es descifrado inmediatamente cuando se ejecuta la aplicación, lo que garantiza que funcione según lo previsto. Para ser efectiva, la encriptación debe aplicarse en varias capas. Las técnicas de encriptación esenciales incluyen la encriptación de cadenas, encriptación de clases, encriptación de asset y encriptación de recursos.
-
+- *ETL - Extract, Transform and Load*. Proceso que permite a las organizaciones mover datos desde múltiples fuentes, reformatearlos y limpiarlos, y cargarlos en otra base de datos, *data mart*, o *data warehouse* para analizar, o en otro sistema operacional para apoyar un proceso de negocio.
+- *Capa de servicio*, *de dominio*, *de aplicación*, *de negocio*. En arquitectura de software y dependiendo el autor, se refiere a la sección del proyecto donde se encuentra el código fuente que es la razón de existir de la aplición (solución de software)
 
 ## Buenas prácticas
 - Variables
@@ -215,4 +216,13 @@ En el documento original se usa el **RFC 2119** para el uso de las palabras *MUS
     - **GNU GPL v3**: Pensado cuando el objetivo es compartir mejoras en el código y que el proyecto siga siendo abierto. Mismos permisos de Apache License 2.0, con las condiciones que debe mantener el código abierto, utilizar la misma licencia, incluir la licencia del código original, indicar cambios que se hayan producido. El autor no se hace responsable del uso que se le dé al código fuente. p.ej. Gimp
 - Para tener un contexto más amplio para seleccionar la licencia que mejor se adapte a las necesidades del proyecto, consultar [el siguiente sitio](choosealicense.com)
 
+## Tipos de malware
+- **Adware**
+- **Scareware**: alerta exagerada para comprar una solución
+- **Spyware**
+- **Virus**: estropear un equipo, transmitirse a otras computadoras
+- **Gusano**: se reproduce sin control hasta llegar al fallo del sistema
+- **Troyano**: programa que se disfraza de otro programa, es un modo de transferirse. Buscan abrir una puerta trasera
+- **Riskware**: usuarios lo instalan propiamente pero pueden ser muy vulnerables por su funcionalidad o por como se desarrolló
+- **Ransomware**
 
