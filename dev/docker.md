@@ -85,7 +85,9 @@
 - `docker push usuarioDockerHub/nombreImagen:tag` : Comando para publicar imagen en repositorio
 
 ## Comandos adicionales de Docker
-- `docker save imagenID > ruta/archivo.tar` : Exporta la imagen a un archivo comprimido
+- `docker inspect conetenedorID` : Revisar parametros e información de como se configuró y construyó el contenedor
+- `docker cp contenedor:ruta/recurso ruta/destino` : Copiar archivos del contenedor al host
+- `docker save imagenID > ruta/archivo.tar` | `docker save -o ruta/archivo.tar nombreImagen` : Exporta la imagen a un archivo comprimido
 - `docker load archivo.tar` : Importa una imagen desde un archivo comprimido
 - `docker top contenedorID` : Revisar los procesos que está ejecutando el contenedor
 - `docker events` : Revisar los eventos que ocurren en docker, p.ej. cuando se detiene o ejecuta un contenedor
