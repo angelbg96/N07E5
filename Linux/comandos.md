@@ -265,6 +265,7 @@ Son un tipo especial de redirección que permiten enviar la salida estándar de 
 	- `find /users -iname "github" -type d`
 	- `find /ruta -mtime +3`
 	- `find /ruta -user alejandro`
+	- `find **** -exec comando {} \;`
 		- `.` : buscar en directorio actual
 		- `-name`: flag, busca el nombre del archivo o algún patrón de búsqueda
 		- `-iname`: flag para buscar ficheros con case insentitive
@@ -282,6 +283,10 @@ Son un tipo especial de redirección que permiten enviar la salida estándar de 
 			- `M` : megabytes
 			- `G` : gigabytes
 			- También se pueden usar los modificadores `+/-`
+		- `-exec` : permite ejecutar un comando donde su operandos son los recursos encontrados. los simbolos `{} \` son parte de la sintaxis para utilzar esta variación. Existen flags predefinidas:
+			- `-print` : Muestra nombre de recursos a los que se les aplicará el comando especificado
+			- `-ls` : Listar los metadatos de los recuros encontrados
+			- `-delete` : Eliminar recursos que coinciden con el criterio de busqueda
 - `grep [options] pattern archivo`
 	- *Global Regular Expression Print*, se utiliza para hacer coincidir e imprimir un patrón de búsqueda o una expresión regular de uno o varios archivos de texto.
 	- Buscará el patrón en los archivos, si coinciden, imprimirá el resultado en pantalla o en un archivo de salida.
@@ -372,6 +377,13 @@ Son un tipo especial de redirección que permiten enviar la salida estándar de 
 	- El *&* al final de la orden, mueve el comando al segundo plano, liberando la terminal en la que está trabajando
 	- El comando necesita algún lugar para emitir cualquier mensaje o error. Como no hay una terminal para asociarlo, Nohup lo registra en un archivo de salida, *nohup.out*. Ese archivo se encuentra en el directorio en el que se ejecutó el comando nohup. Este archivo contiene tanto la salida estándar como la salida de error juntas de forma predeterminada.
 	- Se puede especificar un resultado personalizado y una ubicación personalizada al archivo *nohup.out* de la forma: `nohup comando > /ruta/nombre.out &`
+- `time comando`
+	- `time comando -o ruta/archivo.txt` : Manda la saida del comando al archivo especificado
+	- Utilizado para determinar el tiempo de ejecución de una operación o proceso en cualquier SO Linux.
+	- La salida del comando muestra tres lecturas:
+		- *Real*: Tiempo transcurrido entre la ejecución y la finalización del proceso.
+    	- *User*: Cantidad de tiempo de CPU gastado en código de modo usuario (fuera del núcleo) durante la ejecución del proceso.
+    	- *Sys*: Cantidad de tiempo de CPU que transcurre en el núcleo al ejecutar el proceso.
 
 
 ### Alias
