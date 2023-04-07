@@ -188,6 +188,13 @@ while [ $contador -lt 10 ]; do
     let contador=contador+1
 done
 ~~~
+- Como ciclo iterativo de una entrada de datos
+~~~ bash
+while read linea; do
+    echo $linea
+    comandos
+done < ruta/archivo.txt
+~~~
 
 ### Until
 - Similar a *while*, pero se va a ejecutar mientras la condición sea falsa
