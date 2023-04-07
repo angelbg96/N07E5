@@ -1,5 +1,18 @@
 # Node JS
 
+## Instalación
+En caso de tratarse de una instalación manual en Windows, seguir los pasos que serían similares a instalación en Linux
+~~~ bash
+NODE_HOME=/ruta/node/v_x.y
+# NPM normalmente se encuentra en carpeta roaming
+NPM_HOME=/ruta/npm/v_x.y
+
+export PATH=$PATH:$NODE_HOME:$NODE_HOME/bin:$NPM_HOME
+# opcionalmente (por si no funciona correctamente Node) agregar tambien
+export PATH=$PATH:$NODE_HOME/node_modules
+~~~
+
+## Fundamentos Teoricos
 - Se ejecuta a través del motor V8 de Chrome, que interpreta el código JS para convertirlo en  lenguaje máquna (Bytecode). Está escrito en C++
     - Funcionamiento:
     - Genera un entorno Global
