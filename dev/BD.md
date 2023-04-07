@@ -46,3 +46,16 @@
 - Útiles para ejecutar consultas de datos complejas (de diferentes tablas y filtros), pero con el costo de tiempo cuando la cantidad de datos es alta
 - Utilizan las formas Noramles para mantener la consistencia de los datos
 
+### Indices
+- *CBO* (Cost Based Optimizer - Optimizador basado en costes) : Elemento importante en un gestor de BD y la causa del porque en ocasiones no se utiliza el indice
+- Un índice es una estructura diferente dentro de la base de datos. Requiere su propio espacio en disco y contiene una copia de los datos de la tabla. Eso significa que un *índice es una redundancia*. Crear un índice no cambia los datos de la tabla; solamente establece una nueva estructura de datos que hace referencia a la tabla. De hecho, un índice de base de datos se parece mucho a un índice de un libro: ocupa su propio espacio, es redundante y hace referencia a la información actual almacenada en otro lugar.
+- Para asegurarnos que las consultas que hagamos utilicen realmente los índices existe un parámetro de base de datos que se llama `optimizer_index_cost_adj`. Con ayuda de este parámetro podemos hacer que las decisiones de acceso del optimizador hacia los datos favorezcan el uso de índices antes que del uso de FTS. Oracle recomienda una formula para asignarle un valor a este parámetro (por defecto está en 100):
+~~~ SQL
+-- Habilitar estadísticas de consultas:
+set autotrace traceonly;
+
+-- optimizer_index_cost_adj = Costo FTS de la consulta/Costo con hint usando el índice*100
+alter session set optimizer_index_cost_adj = 34;
+~~~
+- Como Observación es bastante común observar el valor de `optimizer_index_cost_adj` entre 20 y 30 en las bases de datos. Es importante recalcar que el DBA siempre debe *optimizar sus resultados en base a las lecturas más que por el costo*. Recordemos que el Costo es un valor que Oracle representa para un plan de ejecución, es algo así como un puntaje. El verdadero afinamiento debe estar orientado a las estadisticas que te entrega el plan como por ejemplo los *consistent gets*.
+
