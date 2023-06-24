@@ -189,6 +189,7 @@ Son un tipo especial de redirección que permiten enviar la salida estándar de 
 	- Ubicación del directorio donde se encuentra
 - `cd ruta`
 	- change directory, cambiar de directorio
+	- `cd -` : Regresar al directorio anteriormente posicionado
 	- `cd ..` : Regresar un directorio atrás
 	- `cd /` : Ir a raiz
 		- La `/` siempre es respecto a la raiz!
@@ -210,7 +211,8 @@ Son un tipo especial de redirección que permiten enviar la salida estándar de 
 		- `r`: revertir el orden del listado (Z-A, antiguo-nuevo, - to + pesado)
 - `mkdir nombreDirectorio`
 	- Crear un directorio dentro del directorio actual
-	- `mkmdir -m mod -p ruta/nuevaCarpeta` : Con `-m` se asignan permisos a la carpeta (lectura, escritura, ejecución). Con `-p` crea las carpetas que hagan falta en la ruta definida hasta llegar al nuevo directorio
+	- `mkdir -m mod -p ruta/nuevaCarpeta` : Con `-m` se asignan permisos a la carpeta (lectura, escritura, ejecución). Con `-p` crea las carpetas que hagan falta en la ruta definida hasta llegar al nuevo directorio
+	- `mkdir -p ruta/{carpeta1, carpeta2, carpetaN}` : Se crea la ruta de carpetas definida, las carpetas que se encuentran entre llaves se crean en el mismo nivel
 - `touch archivo.ext`
 	- Crear un archivo
 - `nombreApp archivo.ext`
