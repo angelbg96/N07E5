@@ -76,6 +76,7 @@ var2=$((3 ** $var1%2))
 - `./programa.sh param1 param2 paramN` :Cada parámetro se separa por un espacio
 - `$n` : Para utilizar los parámetros dentro del programa se utiliza la notación de variables, donde n=0, 1, 2, ..., N
     - Cada número positivo hace referencia al número de párametro
+    - Despues de 10 parametros, se puede usar la sintaxis `${n}`
     - la variable `$0` hace referencia al parámetro cero y su valor es el nombre del programa ejecutable
 
 
