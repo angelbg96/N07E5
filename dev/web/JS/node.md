@@ -165,7 +165,8 @@ export PATH=$PATH:$NODE_HOME/node_modules
     ~~~
 - Actualizar NPM:
     ~~~ bash
-    npm install@latest -g
+    npm cache clean --force
+    npm install@latest -g | npm install -g npm@latest
     ~~~
 - Crear un módulo de NPM:
     - Iniciar un proyecto Git y conectarlo al repositorio remoto y luego iniciar proyecto Node
