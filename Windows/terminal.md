@@ -60,14 +60,20 @@
 ~~~
 - O en su caso, realizar modificaciones por cada perfil (terminal)
 - Instalar un prompt
-    - Ir al sitio web oficial de [Oh My Posh](https://ohmyposh.dev/docs/)
+    - Ir al sitio web oficial de [Oh My Posh](https://ohmyposh.dev/docs/) para descargar los paquetes de acuerdo al SO y visualizar los temas disponibles
     - Utilizar una tipogrfía de [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
+    - Los [temas predeterminados](https://ohmyposh.dev/docs/themes) se descargan a la PC, se debe elegir uno o bien, personalizar un prompt a su gusto (archivo *.omp.json*)
     - Powershell
-        - `Get-PoshThemes` : Listar temas de terminal
-        - `Set-PoshPrompt -Theme nombreTema` : Establecer tema a la terminal
-        - Powershell: Guardar tema en el perfil del la terminal `notepad $PROFILE`
+        - Para aplicar el tema elegido a la terminal se ejecuta: `oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\NombreTema.omp.json" | Invoke-Expression`
+        - Guardar comando en la configuración del perfil con `notepad $PROFILE` y refrescar configuración de terminal con `. $PROFILE`
+        - **Nota**. Si aparece un error de que no se pueden ejecutar scripts en el equipo, aplicar una exepción de politicas de acuerdo a la [documentacion de Microsfot](https://learn.microsoft.com/es-mx/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3)
+            - Se aplica la política ejecutando powershell con permisos de administrador `Set-ExecutionPolicy -ExecutionPolicy TipoPolitica -Scope AlcancePolitica`
+            - P.ej. `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine` (No usar a menos de estar consiente del riesgo que implica la política y alcance usados en el ejemplo)
     - Linux
-        - Seguir procedimiento de documentación
+        - Los temas se descargan por default en la carpeta de root, por lo que para permitir acceso al usuario se deben seguir los siguientes pasos (omitir si se descargaron en otra ruta o si es tema personalizado):
+            - Instalar `setfactl` si no existe `sudo apt install acl`
+            - Agregar facultades al usuario especificado `sudo setfacl -m user:NombreUsuario:rx /root` y `sudo setfacl -m user:NombreUsuario:rx /root/themes/*`
+        - Ejecutar comando para aplicar tema a la terminal `eval "$(oh-my-posh init bash --config /ruta/themes/NombreTema.omp.json)"`
         - Guardar configuración en archivo `~/.profile`
 
 
