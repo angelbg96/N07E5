@@ -24,6 +24,7 @@ de la distro a utilizar y con el Hipervisor que se disponga p.ej. VirtualBox
 ## Comandos
 - `vagrant plugin list` : Revisar plugins de vagrant instalados (debería estar VirtualBox)
 - `vagrant plugin install vagrant-virtualbox` : Instalar plugin de virtualBox para Vagrant
+- `vagrant plugin install vagrant-vbguest` : Instalar herramientas de virtualBox
 - `vagrant box add "SO/tag"` : Descarga la imagen ISO del SO especificado
 	- `--force` : Forza la descarga de la imagen
 	- `--box-version x.y.z` : Especifica la versión a utilizar del Box
