@@ -118,5 +118,7 @@
     - Crear una tabla con valores 1 y 0, seleccionar las celdas y establecer un formato de celdas personalizada: `"si";;"no"`
     - Crear tabla donde se van a utilizar los iconos y a los campos donde van a estar, establecer el mismo formato de celda personalizado. Opcionalmente utilizar validación de datos a partir de lista con los datos de la tabla anterior.
     - Con el formato condicional y al ser números los verdaderos valores, establecer un icono para algo afirmativo y otro para algo negativo. Seleccionar la casilla para que solo se muestre el icono.
+- Al trabajar con columnas desbordadas
+    - `Fun(celda#)` : La funcion va a operar con todas las celdas secundarias
 
 
