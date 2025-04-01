@@ -41,6 +41,14 @@
     - Asociar extensiones de archivos a algún lenguaje
     - Color Theme : Dark
     - Icon Theme : Seleccionar el paquete de íconos favorito
+    - Editor - Linked Editing: Enabled
+    - Editor - Bracket Pair Colorization: Enabled
+    - Editor - Guides: Bracket Pairs: True
+    - Breadcrumbs: Disabled
+    - Editor - Sticky Scroll: Enabled
+    - Editor - Cursor Smooth Caret Animation: on
+    - Editor - Render Whitespace: all
+    - Files - Eol: \n
 - Configurar Terminal
     - Configuraciones > Settings > Buscar "*Shell*"
     - Seleccionar la opción *Terminal > Integrated > Shell : Windows*
