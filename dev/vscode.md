@@ -1,8 +1,10 @@
 # Configuraciones de Visual Studio Code
 
 ## Extensiones
+- **change-case**, *wmaurer* : Cambiar a mayúsculas, minúsculas, camel, etc.
+- **CodeSnap**, *adpyke* : Capturas de pantalla de fragmentos de código
+- **indent-rainbow**, *oderwat* : Colorear indentaciones
 - **Better Comments**, *Aaron Bond* : Escribir comentarios que resultan visualmente más facil de leer y más descriptivos
-- **Bracket Pair Colorizer**, *CoenraadS* : Colorear los pares de paréntesis, llaves y corchetes
 - **Live Server**, *Ritwick Dey* : Servidor local para levantar proyectos web
 - **MinifiAll**, *Jose Garcia Berenguer* : Minimizar código fuente en diferentes lenguajes de programación, muy útil para desarrollo web
 - **open in browser**, *TechER* : Abrir el archivo actual en el navegador
@@ -10,6 +12,9 @@
 - **SonarLint**, *SonarSource* : Reglas para seguir buenas prácticas de desarrollo en diferentes lenguajes
 - **Thunder Client**, *Ranga Vadhineni* : Cliente para solicitudes HTTP, es una GUI
 - **Go**, *Go Team at Google* : Herramientas para soporte de Golang
+- **Codeium: AI Coding Autocomplete and Chat for Python, Javascript, Typescript, Java, Go, and more**,
+  *Codeium* : Asistente de código IA
+- **ES7+ React/Redux/React-Native snippets**, *dsznajder* : Snippets para React
 
 
 ## Configuraciones
@@ -58,6 +63,9 @@
 - `F2 en nombre de etiqueta HTML ` : renombra el par de etiquetas
 - `ctrl + space` : muestra intellisense
 - `ctrl + click en archivo` : abrir archivo en otro panel
+- `Ctrl + K + C ` : Comentar varias líneas
+- `Ctrl + K + U ` : Descomentar varias líneas
+
 
 ## Emmet
 - `etiq.class.class2` : elemento al que se le asignan dos clases "class class2"
