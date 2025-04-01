@@ -4,12 +4,13 @@
 - **change-case**, *wmaurer* : Cambiar a mayúsculas, minúsculas, camel, etc.
 - **CodeSnap**, *adpyke* : Capturas de pantalla de fragmentos de código
 - **indent-rainbow**, *oderwat* : Colorear indentaciones
-- **Better Comments**, *Aaron Bond* : Escribir comentarios que resultan visualmente más facil de leer y más descriptivos
+- **Better Comments**, *Aaron Bond* : Escribir comentarios que resultan visualmente más facil de
+  leer y más descriptivos
 - **Live Server**, *Ritwick Dey* : Servidor local para levantar proyectos web
-- **MinifiAll**, *Jose Garcia Berenguer* : Minimizar código fuente en diferentes lenguajes de programación, muy útil para desarrollo web
+- **MinifiAll**, *Jose Garcia Berenguer* : Minimizar código fuente de recursos web
 - **open in browser**, *TechER* : Abrir el archivo actual en el navegador
-- **simple icons**, *Laurent Tréguiler* : Iconos para visualizar los archivos fuente de distintos lenguajes
-- **SonarLint**, *SonarSource* : Reglas para seguir buenas prácticas de desarrollo en diferentes lenguajes
+- **simple icons**, *Laurent Tréguiler* : Iconos para visualizar archivos fuente distintos lenguajes
+- **SonarLint**, *SonarSource* : Reglas para seguir buenas prácticas de desarrollo
 - **Thunder Client**, *Ranga Vadhineni* : Cliente para solicitudes HTTP, es una GUI
 - **Go**, *Go Team at Google* : Herramientas para soporte de Golang
 - **Codeium: AI Coding Autocomplete and Chat for Python, Javascript, Typescript, Java, Go, and more**,
@@ -22,7 +23,8 @@
     - Al iniciar por primera vez VScode, crear archivos y/o inicializar algún proyecto
     - File > Save Workspace As... > Elegir nombre y ruta del workspace
     - File > Open Workpace > Buscar el workspace recientemente creado
-    - Se almacenarán las configuraciones del editor, además de que se pueden agregar carpetas al espacio de trabajo, que podrían ser los proyectos sobre los que se están trabajando
+    - Se almacenarán las configuraciones del editor, además de que se pueden agregar carpetas al
+      espacio de trabajo, que podrían ser los proyectos sobre los que se están trabajando
 - Preferencias
     - File > Preferencias > Se visualizan las distintas preferencias como:
     - Activar auto guardado
@@ -47,7 +49,8 @@
     - Buscar : Reload Window (CTRL + R)
 - Atajos de teclado
     - Visualizar los atajos configurados y agregar nuevos
-    - Ej. agregado : Buscar "*wrap*", seleccionar *Emmet wrap with abbreviation*, asignarle una confugiración de teclas
+    - Ej. agregado : Buscar "*wrap*", seleccionar *Emmet wrap with abbreviation*, asignarle una
+      confugiración de teclas
 
 
 ## Keyboard Shortcuts
@@ -74,11 +77,14 @@
 - `etiq + etiq` : elementos hermano
 - `etiq[atrib="valor"]` : elemento al que se especifica un atributo
 - `etiq{texto}` : elemento al que se le especifica su contenido
-- `etiq{Item $}*n` : elemento el cual se va a colocar 'n' veces y su contenido tendrá una numeración de 1 a 'n'
-- `etiq{Item $@x}*n` : elemento el cual se va a colocar 'n' veces y su contenido tendrá una numeración de 'x' a 'x+n'
+- `etiq{Item $}*n` : elemento el cual se va a colocar 'n' veces y su contenido tendrá una numeración
+  de 1 a 'n'
+- `etiq{Item $@x}*n` : elemento el cual se va a colocar 'n' veces y su contenido tendrá una
+  numeración de 'x' a 'x+n'
 - `(etiq>etiq.class)*n` : estructura contendor - hijo colocado 'n veces'
 - `etiq1>etiq^etiq2` : sube un nivel de bloque, etiq2 es hermano de etiq1
-- ej: nav>ul>li*5>a\[href="#"\]{Item $} : la barra de navegación tiene 5 elementos "li", que contiene un elemento "a" y su texto es Item índice
+- ej: nav>ul>li*5>a\[href="#"\]{Item $} : la barra de navegación tiene 5 elementos "li", que
+  contiene un elemento "a" y su texto es Item índice
 
 
 
