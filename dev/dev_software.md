@@ -100,6 +100,15 @@
 - *Encriptación* Garantiza que el código y los datos de la aplicación no se puedan acceder mientras la aplicación está en reposo. El código encriptado es descifrado inmediatamente cuando se ejecuta la aplicación, lo que garantiza que funcione según lo previsto. Para ser efectiva, la encriptación debe aplicarse en varias capas. Las técnicas de encriptación esenciales incluyen la encriptación de cadenas, encriptación de clases, encriptación de asset y encriptación de recursos.
 - *ETL - Extract, Transform and Load*. Proceso que permite a las organizaciones mover datos desde múltiples fuentes, reformatearlos y limpiarlos, y cargarlos en otra base de datos, *data mart*, o *data warehouse* para analizar, o en otro sistema operacional para apoyar un proceso de negocio.
 - *Capa de servicio*, *de dominio*, *de aplicación*, *de negocio*. En arquitectura de software y dependiendo el autor, se refiere a la sección del proyecto donde se encuentra el código fuente que es la razón de existir de la aplición (solución de software)
+- SLA (acuerdo de nivel de servicio). Acuerdo entre el proveedor y el cliente que define las
+  métricas cuantificables, como el tiempo de actividad, tiempo de respuesta y las responsabilidades
+- SLO (objetivo de nivel de servicio). Define un valor objetivo de una métrica en particular durante
+  un periodo de tiempo determinado. Un ejemplo real de un SLO es un 99,99 % de tiempo de actividad
+  durante 30 días, se mide el tiempo de inactividad que experimenta el servicio durante un mes para
+  asegurar de que sea inferior a 4.32 minutos
+- SLIs (Indicador de nivel de servicio). Ees la métrica utilizada para determinar si el SLO se est
+  cumpliendo o no. Es el valor medido de la métrica descrita en el SLO en un momento dado. Para
+  cumplir con el SLA, el valor del SLI siempre debe cumplir o superar el valor del SLO
 
 ## Buenas prácticas
 - Variables
